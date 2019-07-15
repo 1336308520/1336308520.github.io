@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[第六篇测试博客发布]]></title>
+    <url>%2F2019%2F07%2F15%2Fsisth%2F</url>
+    <content type="text"><![CDATA[插入图片12.jpg 插入图片123.jpg]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>测试博客tags</tag>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[fifth]]></title>
     <url>%2F2019%2F07%2F15%2Ffifth%2F</url>
     <content type="text"><![CDATA[第五篇博客一级标题,博客类型为搭建博客插入图片有毒]]></content>

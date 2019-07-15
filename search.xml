@@ -48,31 +48,4 @@
         <tag>测试博客tags</tag>
       </tags>
   </entry>
-  <entry>
-    <title><![CDATA[test5]]></title>
-    <url>%2F2019%2F07%2F15%2Ftest5%2F</url>
-    <content type="text"><![CDATA[Run server 三级主题？（前面三个###）1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[test4]]></title>
-    <url>%2F2019%2F07%2F15%2Ftest4%2F</url>
-    <content type="text"><![CDATA[Run server 三级主题？（前面三个###）1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy]]></content>
-      <tags>
-        <tag>检测博客tags</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[百度搜不到·博客]]></title>
-    <url>%2F2019%2F07%2F14%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 第一个标题第二个标题1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-      <tags>
-        <tag>测试博客</tag>
-      </tags>
-  </entry>
 </search>

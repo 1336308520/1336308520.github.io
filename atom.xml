@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://133608520.github.io/"/>
-  <updated>2019-07-15T10:56:57.617Z</updated>
+  <updated>2019-07-15T11:38:31.136Z</updated>
   <id>https://133608520.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://133608520.github.io/2019/07/15/sisth/"/>
     <id>https://133608520.github.io/2019/07/15/sisth/</id>
     <published>2019-07-15T10:54:44.000Z</published>
-    <updated>2019-07-15T10:56:57.617Z</updated>
+    <updated>2019-07-15T11:38:31.136Z</updated>
     
     <content type="html"><![CDATA[<h1 id="插入图片12-jpg"><a href="#插入图片12-jpg" class="headerlink" title="插入图片12.jpg"></a>插入图片12.jpg</h1><p><img src="/img/12.jpg" alt></p><p>插入图片123.jpg</p><p><img src="/images/123.jpg" alt></p>]]></content>
     
@@ -41,6 +41,8 @@
       <category term="测试博客tags" scheme="https://133608520.github.io/tags/%E6%B5%8B%E8%AF%95%E5%8D%9A%E5%AE%A2tags/"/>
     
       <category term="搭建博客" scheme="https://133608520.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="测试标签1" scheme="https://133608520.github.io/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE1/"/>
     
   </entry>
   

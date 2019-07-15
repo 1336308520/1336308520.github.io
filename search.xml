@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[test5]]></title>
-    <url>%2F2019%2F07%2F15%2Ftest5%2F</url>
-    <content type="text"><![CDATA[Run server 三级主题？（前面三个###）1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy]]></content>
+    <title><![CDATA[第二篇测试类博客]]></title>
+    <url>%2F2019%2F07%2F15%2Fsecond%2F</url>
+    <content type="text"><![CDATA[第二篇测试类博客的一级标题 上面应该有一张图片]]></content>
+      <tags>
+        <tag>测试类博客</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[test4]]></title>
-    <url>%2F2019%2F07%2F15%2Ftest4%2F</url>
-    <content type="text"><![CDATA[Run server 三级主题？（前面三个###）1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy]]></content>
+    <title><![CDATA[第一篇测试文章]]></title>
+    <url>%2F2019%2F07%2F15%2Ffirst%2F</url>
+    <content type="text"><![CDATA[测试文章的内容这里面都是放内容的。]]></content>
+      <tags>
+        <tag>测试文章的标签</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[posts文件里面新建的md类型文件]]></title>
-    <url>%2F2019%2F07%2F15%2Fposts%E9%87%8C%E9%9D%A2%E6%96%B0%E5%BB%BA%E7%9A%84md%E6%96%87%E4%BB%B6%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 第一个主题？二级主题？1$ hexo new "My New Post" More info: Writing Run server 三级主题？（前面三个###）1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[第一篇测试博客]]></title>
+    <url>%2F2019%2F07%2F15%2Ftest1%2F</url>
+    <content type="text"><![CDATA[测试博客的一级标题测试博客的二级标题 上面应该有一张图片]]></content>
   </entry>
   <entry>
     <title><![CDATA[百度搜不到·博客]]></title>

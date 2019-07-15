@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[third]]></title>
+    <url>%2F2019%2F07%2F15%2Fthird%2F</url>
+    <content type="text"><![CDATA[第三篇博客的一级标题 个人二维码图片]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>测试博客</tag>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[第二篇测试类博客]]></title>
     <url>%2F2019%2F07%2F15%2Fsecond%2F</url>
     <content type="text"><![CDATA[第二篇测试类博客的一级标题 上面应该有一张图片]]></content>
@@ -15,11 +27,6 @@
       <tags>
         <tag>测试文章的标签</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[第一篇测试博客]]></title>
-    <url>%2F2019%2F07%2F15%2Ftest1%2F</url>
-    <content type="text"><![CDATA[测试博客的一级标题测试博客的二级标题 上面应该有一张图片]]></content>
   </entry>
   <entry>
     <title><![CDATA[百度搜不到·博客]]></title>

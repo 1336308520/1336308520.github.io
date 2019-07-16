@@ -1,64 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[第六篇测试博客发布]]></title>
-    <url>%2F2019%2F07%2F15%2Fsisth%2F</url>
-    <content type="text"><![CDATA[插入图片12.jpg 插入图片123.jpg]]></content>
+    <title><![CDATA[我的第一篇博客]]></title>
+    <url>%2F2019%2F07%2F16%2F2%2F</url>
+    <content type="text"><![CDATA[测试波客我的第一篇博客检测是否上传成功？]]></content>
       <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>测试博客tags</tag>
-        <tag>搭建博客</tag>
-        <tag>测试标签1</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[fifth]]></title>
-    <url>%2F2019%2F07%2F15%2Ffifth%2F</url>
-    <content type="text"><![CDATA[第五篇博客一级标题,博客类型为搭建博客插入图片有毒]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>测试博客tags</tag>
-        <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[第四篇测试博客]]></title>
-    <url>%2F2019%2F07%2F15%2Ffourth%2F</url>
-    <content type="text"><![CDATA[第四篇博客，没有分类]]></content>
-      <tags>
-        <tag>测试博客tags</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[third]]></title>
-    <url>%2F2019%2F07%2F15%2Fthird%2F</url>
-    <content type="text"><![CDATA[第三篇博客的一级标题 个人二维码图片]]></content>
-      <categories>
-        <category>搭建博客</category>
+        <category>测试博客</category>
       </categories>
       <tags>
         <tag>搭建博客</tag>
-        <tag>测试博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[第二篇测试类博客]]></title>
-    <url>%2F2019%2F07%2F15%2Fsecond%2F</url>
-    <content type="text"><![CDATA[第二篇测试类博客的一级标题 上面应该有一张图片]]></content>
-      <tags>
-        <tag>测试类博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[第一篇测试文章]]></title>
-    <url>%2F2019%2F07%2F15%2Ffirst%2F</url>
-    <content type="text"><![CDATA[测试文章的内容这里面都是放内容的。]]></content>
-      <tags>
-        <tag>测试博客tags</tag>
       </tags>
   </entry>
 </search>

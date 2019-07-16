@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[我的第一篇博客]]></title>
-    <url>%2F2019%2F07%2F16%2F2%2F</url>
-    <content type="text"><![CDATA[测试波客我的第一篇博客检测是否上传成功？]]></content>
+    <title><![CDATA[hello]]></title>
+    <url>%2F2019%2F07%2F16%2Fhello%2F</url>
+    <content type="text"><![CDATA[文章的标题]]></content>
       <categories>
-        <category>测试博客</category>
+        <category>MarkDown学习</category>
       </categories>
       <tags>
-        <tag>搭建博客</tag>
+        <tag>MarkDown学习</tag>
       </tags>
   </entry>
 </search>

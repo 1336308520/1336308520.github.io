@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[hello]]></title>
-    <url>%2F2019%2F07%2F16%2Fhello%2F</url>
-    <content type="text"><![CDATA[Markdown基本语法学习标题使用[LAB]前面几个#就代表几级标题注意换行需要输入两个空格虽然有点不适应，慢慢来吧 斜体和粗体前后 一个*代表斜体前后 两个*代表粗体]]></content>
-      <categories>
-        <category>MarkDown学习</category>
-      </categories>
-      <tags>
-        <tag>MarkDown学习</tag>
-      </tags>
+    <title><![CDATA[3]]></title>
+    <url>%2F2019%2F07%2F16%2F3%2F</url>
+    <content type="text"><![CDATA[超链接 这里有四种方式 行内式行内式：[链接文字](http:www.hao123.com “链接属性”),（）里面写链接地址和链接属性，两者之间有一个空格，属性要加&quot; “下面做一个实验：链接文字，链接到百度好吧，应该是成功了，不过发现了一个问题，在引用里换行时候不需要输入两个空格]]></content>
   </entry>
 </search>

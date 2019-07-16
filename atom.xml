@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://133608520.github.io/"/>
-  <updated>2019-07-16T05:37:47.827Z</updated>
+  <updated>2019-07-16T05:41:23.566Z</updated>
   <id>https://133608520.github.io/</id>
   
   <author>
@@ -17,27 +17,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hello</title>
-    <link href="https://133608520.github.io/2019/07/16/hello/"/>
-    <id>https://133608520.github.io/2019/07/16/hello/</id>
-    <published>2019-07-16T05:34:51.000Z</published>
-    <updated>2019-07-16T05:37:47.827Z</updated>
+    <title>3</title>
+    <link href="https://133608520.github.io/2019/07/16/3/"/>
+    <id>https://133608520.github.io/2019/07/16/3/</id>
+    <published>2019-07-16T05:40:03.000Z</published>
+    <updated>2019-07-16T05:41:23.566Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Markdown基本语法学习"><a href="#Markdown基本语法学习" class="headerlink" title="Markdown基本语法学习"></a>Markdown基本语法学习</h1><h2 id="标题使用"><a href="#标题使用" class="headerlink" title="标题使用"></a>标题使用</h2><p>[LAB]<br>前面几个#就代表几级标题<br>注意换行需要输入两个空格<br>虽然有点不适应，慢慢来吧  </p><h2 id="斜体和粗体"><a href="#斜体和粗体" class="headerlink" title="斜体和粗体"></a>斜体和粗体</h2><p>前后                    一个*代表斜体<br>前后                     两个*代表粗体                                                                          </p>]]></content>
+    <content type="html"><![CDATA[<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><blockquote><p>这里有四种方式                      </p><h2 id="行内式"><a href="#行内式" class="headerlink" title="行内式"></a>行内式</h2><p>行内式：[链接文字](http:<a href="http://www.hao123.com" target="_blank" rel="noopener">www.hao123.com</a> “链接属性”),（）里面写链接地址和链接属性，两者之间有一个空格，属性要加&quot; “<br>下面做一个实验：<br><a href="http:www.hao123.com" title="百度搜不到·" target="_blank" rel="noopener">链接文字，链接到百度</a><br>好吧，应该是成功了，不过发现了一个问题，在引用里换行时候不需要输入两个空格     </p></blockquote>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Markdown基本语法学习&quot;&gt;&lt;a href=&quot;#Markdown基本语法学习&quot; class=&quot;headerlink&quot; title=&quot;Markdown基本语法学习&quot;&gt;&lt;/a&gt;Markdown基本语法学习&lt;/h1&gt;&lt;h2 id=&quot;标题使用&quot;&gt;&lt;a href=&quot;#标
+        &lt;h2 id=&quot;超链接&quot;&gt;&lt;a href=&quot;#超链接&quot; class=&quot;headerlink&quot; title=&quot;超链接&quot;&gt;&lt;/a&gt;超链接&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;这里有四种方式                      &lt;/p&gt;
+&lt;h2 id=&quot;行内式&quot;&gt;&lt;a hre
       
     
     </summary>
     
-      <category term="MarkDown学习" scheme="https://133608520.github.io/categories/MarkDown%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="MarkDown学习" scheme="https://133608520.github.io/tags/MarkDown%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

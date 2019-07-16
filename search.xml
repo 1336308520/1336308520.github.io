@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[hello]]></title>
     <url>%2F2019%2F07%2F16%2Fhello%2F</url>
-    <content type="text"><![CDATA[文章的标题]]></content>
+    <content type="text"><![CDATA[Markdown基本语法学习标题使用[LAB]前面几个#就代表几级标题注意换行需要输入两个空格虽然有点不适应，慢慢来吧 斜体和粗体前后 一个*代表斜体前后 两个*代表粗体]]></content>
       <categories>
         <category>MarkDown学习</category>
       </categories>

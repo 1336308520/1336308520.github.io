@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://133608520.github.io/"/>
-  <updated>2019-07-17T11:42:09.646Z</updated>
+  <updated>2019-07-17T11:42:45.766Z</updated>
   <id>https://133608520.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://133608520.github.io/2019/07/17/2/"/>
     <id>https://133608520.github.io/2019/07/17/2/</id>
     <published>2019-07-17T11:40:48.000Z</published>
-    <updated>2019-07-17T11:42:09.646Z</updated>
+    <updated>2019-07-17T11:42:45.766Z</updated>
     
     <content type="html"><![CDATA[<h1 id="7月13日异常和集合"><a href="#7月13日异常和集合" class="headerlink" title="7月13日异常和集合"></a>7月13日异常和集合</h1><h1 id="异常"><a href="#异常" class="headerlink" title=" 异常 "></a><font color="red"> 异常 </font></h1><hr><ul><li><strong>常见的几种异常类型 都继承自Exception，产生异常时，后面的语句不再执行（如果没有try，catch的话</strong> ）</li><li><strong>try，catch，finally语句</strong></li><li><strong>在方法中的语句抛出异常throw new Exception（）；</strong></li><li><strong>方法抛出异常，在声明的后面加上 throws **</strong></li><li><strong>可以多个catch，不过按顺序，第一个接受了就不会给第二个了</strong></li><li><strong>finnally无论如何都会执行，就算是catch里面有return也依然会执行</strong></li></ul><h1 id="集合"><a href="#集合" class="headerlink" title=" 集合 "></a><font color="red"> 集合 </font></h1><p><strong>要清楚各种集合之间的关系，collection是List和Set的父类，不过三者都是接口，均不能实例化，List的实现类有ArrayList（常用）和LinkedList两者区别不大，Set实现子类有HashSet（常用）和TreeSet</strong><br><strong>Map接口及其实现类HashMap，Map不能包含重复的键</strong> </p><h2 id="集合种的几种常用方法"><a href="#集合种的几种常用方法" class="headerlink" title="集合种的几种常用方法"></a><font color="red">集合种的几种常用方法</font></h2><p>•<strong>Collaction接口的常用方法：size，isEmpty，contains，add，remove，iterator</strong> </p><p><strong>-list集合和set集合的区别，list集合可以加入重复的数据，set集合不可以，list集合是有顺序的，Hashset是无序的</strong> </p><h2 id="ArrayList常用的方法："><a href="#ArrayList常用的方法：" class="headerlink" title="ArrayList常用的方法："></a><font color="red">ArrayList常用的方法：</font></h2><p><strong>•get（index）返回指定位置的元素，特有<br>•indexOf（object o）返回指定元素的所在位置<br>•注意用remove方法的时候，删除一个后，后一个数移动到该位置上来</strong> </p><h2 id="HashMap常用的方法："><a href="#HashMap常用的方法：" class="headerlink" title="HashMap常用的方法："></a><font color="red">HashMap常用的方法：</font></h2><p><strong>•put（key，valve）<br>•get（key）返回指定键所对应的映射值<br>•remove（key）如果存在一个键的映射关系那么移除<br>•containKey（key）<br>•containValve（valve）<br>•set&lt; Entry&lt;key,value&gt;&gt;entrySet() 将Map变为Set，这样才能使用set的方法，从而使map和collection联系</strong> </p><h2 id="遍历集合或者Map的方法"><a href="#遍历集合或者Map的方法" class="headerlink" title="遍历集合或者Map的方法"></a><font color="red">遍历集合或者Map的方法</font></h2><p><strong>•for（？：？）方法<br>•Iterator<br>-List和Set使用迭代器<br>•Iterator i = list.Iterator();</strong><br><strong>Map要想使用迭代器必须先转换成set（通过entrySet方法）</strong></p><h2 id="遍历的时候主要是用到两个方法"><a href="#遍历的时候主要是用到两个方法" class="headerlink" title="-遍历的时候主要是用到两个方法"></a><font color="red">-遍历的时候主要是用到两个方法</font></h2><p><strong>•hasNext（）<br>•next（）<br>-注意set，list，map，Itterator后面都是跟着范型的</strong> </p><h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a><font color="red">文件</font></h1><p><strong>•java.io.File<br>•– File用于表示硬盘中的一个文件或者文件夹<br>•– File对象是java对象，包含文件的各种属性<br>•– File对象可以代表还不存在的文件或文件夹<br>•– File对象可以调用各种方法例如创建或删除<br>•createNewFile和mkdir和mkdirs方法的区别<br>•file.delete()可以删除文件和空文件夹，但是不能删除包含了一个有文件的文件夹</strong>  </p>]]></content>
     

@@ -103,16 +103,18 @@
   </script>
 
 
-  <meta name="description" content="Don&apos;t Stop">
-<meta property="og:type" content="website">
-<meta property="og:title" content="百度搜不到丶的博客">
-<meta property="og:url" content="https://133608520.github.io/tags/Java个人笔记/index.html">
+  <meta name="description" content="[TOC] 网络编程网络协议TCP/IPUDP网络编程Socket/ServerSocketDatagramSocket 网络协议TCP协议是一个面向连接的、可靠的协议TCP(transmission control protocol)是专门设计用于在不可靠的因特网上提供可靠的、端到端的字节流通信的协议。它是一种面向连接的协议。TCP连接是字节流而非报文流。UDP协议是一个不可靠的、无连接协议UD">
+<meta name="keywords" content="Java个人笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络编程和线程">
+<meta property="og:url" content="https://133608520.github.io/2019/07/20/4/index.html">
 <meta property="og:site_name" content="百度搜不到丶的博客">
-<meta property="og:description" content="Don&apos;t Stop">
+<meta property="og:description" content="[TOC] 网络编程网络协议TCP/IPUDP网络编程Socket/ServerSocketDatagramSocket 网络协议TCP协议是一个面向连接的、可靠的协议TCP(transmission control protocol)是专门设计用于在不可靠的因特网上提供可靠的、端到端的字节流通信的协议。它是一种面向连接的协议。TCP连接是字节流而非报文流。UDP协议是一个不可靠的、无连接协议UD">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-20T04:12:21.312Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="百度搜不到丶的博客">
-<meta name="twitter:description" content="Don&apos;t Stop">
+<meta name="twitter:title" content="网络编程和线程">
+<meta name="twitter:description" content="[TOC] 网络编程网络协议TCP/IPUDP网络编程Socket/ServerSocketDatagramSocket 网络协议TCP协议是一个面向连接的、可靠的协议TCP(transmission control protocol)是专门设计用于在不可靠的因特网上提供可靠的、端到端的字节流通信的协议。它是一种面向连接的协议。TCP连接是字节流而非报文流。UDP协议是一个不可靠的、无连接协议UD">
 
 
 
@@ -120,7 +122,7 @@
 
   
   
-  <link rel="canonical" href="https://133608520.github.io/tags/Java个人笔记/">
+  <link rel="canonical" href="https://133608520.github.io/2019/07/20/4/">
 
 
 
@@ -130,7 +132,7 @@
   };
 </script>
 
-  <title>标签: Java个人笔记 | 百度搜不到丶的博客</title>
+  <title>网络编程和线程 | 百度搜不到丶的博客</title>
   
 
 
@@ -178,7 +180,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -232,7 +234,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -334,132 +336,271 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Java个人笔记<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/20/4/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LYH">
+      <meta itemprop="description" content="Don't Stop">
+      <meta itemprop="image" content="/images/123.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="百度搜不到丶的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/07/20/4/" itemprop="url">
-            
-              <span itemprop="name">网络编程和线程</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">网络编程和线程
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-20T11:29:49+08:00" content="2019-07-20">
-          07-20
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
 
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-20 11:29:49 / 修改时间：12:12:21" itemprop="dateCreated datePublished" datetime="2019-07-20T11:29:49+08:00">2019-07-20</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java个人笔记/" itemprop="url" rel="index"><span itemprop="name">Java个人笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/18/3/" itemprop="url">
-            
-              <span itemprop="name">文件和I/O流</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-18T10:55:10+08:00" content="2019-07-18">
-          07-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <p>[TOC]</p>
+<h1 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h1><p><strong>网络协议</strong><br><strong>TCP/IP</strong><br><strong>UDP</strong><br><strong>网络编程</strong><br><strong>Socket/ServerSocket</strong><br><strong>DatagramSocket</strong></p>
+<h2 id="网络协议"><a href="#网络协议" class="headerlink" title="网络协议"></a>网络协议</h2><p><strong>TCP协议是一个面向连接的、可靠的协议</strong><br>TCP(transmission control protocol)<br>是专门设计用于在不可靠的因特网上提供可靠的、端到端的字节流通信的协议。它是一种面向连接的协议。TCP连接是字节流而非报文流。<br><strong>UDP协议是一个不可靠的、无连接协议</strong><br>UDP(user datagram protocol )<br>UDP向应用程序提供了一种发送封装的原始IP数据报的方法、并且发送时无需建立连接。是一种不可靠的连接。</p>
+<h2 id="TCP编程"><a href="#TCP编程" class="headerlink" title="TCP编程"></a>TCP编程</h2><p><strong>TCP编程</strong><br>java.net.Socket<br>java.net.ServerSocket<br> <strong>TCP编程的核心思路</strong></p>
+<p>开发服务器端<br>ServerSocket ss = new ServerSocket(9000)<br>ss.accept();<br>开发客户端<br>Socket s = new Socket(“150.236.56.101”, 9000)</p>
+<p><strong>TCP编程</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">Server</th>
+<th align="center">Client</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ServerSocket(port)</td>
+<td align="center">Socket(server,port)</td>
+</tr>
+<tr>
+<td align="center">ServerSocket.accept();</td>
+<td align="center">OutputStream</td>
+</tr>
+<tr>
+<td align="center">Socket()</td>
+<td align="center">InputStream</td>
+</tr>
+<tr>
+<td align="center">OutputStream</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">InputStream</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Socket.close()</td>
+<td align="center">Socket.close()</td>
+</tr>
+</tbody></table>
+<p><strong>总结</strong><br><strong>服务器端</strong>：<br>创建ServerSocket对象（并绑定端口）<br>调用accept方法，等待来自客户端的连接<br>调用getXXXStream方法，进行I/O<br>关闭Socket<br><strong>客户端</strong>：<br>创建Socket对象，并连接服务器<br>调用getXXXStream方法，进行I/O<br>关闭Socket</p>
+<h2 id="UDP编程"><a href="#UDP编程" class="headerlink" title="UDP编程"></a>UDP编程</h2><h3 id="UDP协议简介"><a href="#UDP协议简介" class="headerlink" title="UDP协议简介"></a>UDP协议简介</h3><p>UDP是一个无连接，不可靠的协议。即：数据的发送方只负责将数据发送出去，数据的接受方只负责接受数据。发送方和接收方不会相互确认数据的传输是否成功。</p>
+<h3 id="UDP编程-1"><a href="#UDP编程-1" class="headerlink" title="UDP编程"></a><strong>UDP编程</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java.net.DatagramSocket</span><br><span class="line">java.net. DatagramPacket</span><br></pre></td></tr></table></figure>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h3 id="UDP编程的核心思路"><a href="#UDP编程的核心思路" class="headerlink" title="UDP编程的核心思路"></a>UDP编程的核心思路</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DatagramSocket socket = <span class="keyword">new</span> DatagramSocket(<span class="number">9000</span>) <span class="comment">//接收端</span></span><br><span class="line">DatagramSocket socket = <span class="keyword">new</span> DatagramSocket() <span class="comment">//发送端</span></span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/17/2/" itemprop="url">
-            
-              <span itemprop="name">Java-异常和集合</span>
-            
-          </a>
-        
-      </h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DatagramPacket</span><br><span class="line">DatagramPacket(<span class="keyword">byte</span>[] buf, <span class="keyword">int</span> off, <span class="keyword">int</span> length)</span><br><span class="line">DatagramPacket(<span class="keyword">byte</span>[] buf, <span class="keyword">int</span> ,length, SoketAddress)</span><br><span class="line">getAddress()/getSockAddress()/getPort()/getLength()</span><br><span class="line">setAddress()/setSockAddress()/setPort()/setLength()</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-17T19:40:48+08:00" content="2019-07-17">
-          07-17
-        </time>
-      </div>
-
-    </header>
-  </article>
+<h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><p><strong>什么是线程</strong><br><strong>在一个程序中同时运行的多个独立流程，每一个独立的流程就是一个线程</strong><br><strong>线程并发</strong><br><strong>多个线程并发执行</strong><br><strong>主线程</strong><br><strong>当JVM启动之后，加载类文件，发现main方法，那么就会为main方法创建一个线程，用于main方法执行，这个为main方法创建的线程称为主线程</strong></p>
+<h2 id="Java中线程的使用"><a href="#Java中线程的使用" class="headerlink" title="Java中线程的使用"></a>Java中线程的使用</h2><p>在Java中创建线程的方法有两种</p>
+<ul>
+<li>方法一<br>继承java.lang.Thread类</li>
+<li>方法二<br>实现java.lang.Runnable接口</li>
+</ul>
+<h3 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h3><ol>
+<li>自定义一个线程类继承自Thread</li>
+<li>重写Thread的run方法</li>
+<li>创建一个该类的对象</li>
+<li>调用该类继承自Thread的start方法开启线程</li>
+</ol>
+<h3 id="Runnable接口开发线程"><a href="#Runnable接口开发线程" class="headerlink" title="Runnable接口开发线程"></a>Runnable接口开发线程</h3><ol>
+<li>用户开发一个类实现Runnable接口</li>
+<li>实现run()</li>
+<li>运行线程 </li>
+</ol>
+<h2 id="sleep方法"><a href="#sleep方法" class="headerlink" title="sleep方法"></a>sleep方法</h2><p><strong>void sleep(long time)方法用于使当前线程休眠指定的毫秒数</strong></p>
+<h2 id="join方法"><a href="#join方法" class="headerlink" title="join方法"></a>join方法</h2><ul>
+<li>利用sleep方法对线程的控制是非常不精确的</li>
+<li>join方法可以精确控制线程</li>
+<li>join方法也会导致线程阻塞</li>
+<li>特点：<strong>如果当前线程中调用了另外一个线程的 join方法，当前线程会立即阻塞，直到另外一个线程运行完成</strong></li>
+</ul>
+<h2 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h2><p><strong>产生数据不一致的原因</strong><br><strong>多个线程并发访问了同一个对象，如果破坏了不可分割的操作，从而就会造成数据不一致</strong><br><strong>被多线程并发访问时如果一个对象有可能出现数据不一致的问题,那么这个对象称为线程不安全的对象</strong></p>
+<h3 id="如何解决多线程并发访问的问题"><a href="#如何解决多线程并发访问的问题" class="headerlink" title="如何解决多线程并发访问的问题"></a><strong>如何解决多线程并发访问的问题</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(object)&#123;</span><br><span class="line">    代码块</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Java个人笔记/" rel="tag"># Java个人笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/18/3/" rel="next" title="文件和I/O流">
+                <i class="fa fa-chevron-left"></i> 文件和I/O流
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -479,8 +620,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -609,6 +759,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络编程"><span class="nav-number">1.</span> <span class="nav-text">网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络协议"><span class="nav-number">1.1.</span> <span class="nav-text">网络协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP编程"><span class="nav-number">1.2.</span> <span class="nav-text">TCP编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP编程"><span class="nav-number">1.3.</span> <span class="nav-text">UDP编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP协议简介"><span class="nav-number">1.3.1.</span> <span class="nav-text">UDP协议简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP编程-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">UDP编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP编程的核心思路"><span class="nav-number">1.3.3.</span> <span class="nav-text">UDP编程的核心思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中线程的使用"><span class="nav-number">2.1.</span> <span class="nav-text">Java中线程的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承Thread类"><span class="nav-number">2.1.1.</span> <span class="nav-text">继承Thread类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Runnable接口开发线程"><span class="nav-number">2.1.2.</span> <span class="nav-text">Runnable接口开发线程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sleep方法"><span class="nav-number">2.2.</span> <span class="nav-text">sleep方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#join方法"><span class="nav-number">2.3.</span> <span class="nav-text">join方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程同步"><span class="nav-number">2.4.</span> <span class="nav-text">线程同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决多线程并发访问的问题"><span class="nav-number">2.4.1.</span> <span class="nav-text">如何解决多线程并发访问的问题</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -747,6 +914,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   
 
@@ -762,6 +933,8 @@
 
   
 
+
+  
 
 
   

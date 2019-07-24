@@ -103,18 +103,18 @@
   </script>
 
 
-  <meta name="description" content="7月13日异常和集合 异常   常见的几种异常类型 都继承自Exception，产生异常时，后面的语句不再执行（如果没有try，catch的话 ） try，catch，finally语句 在方法中的语句抛出异常throw new Exception（）； 方法抛出异常，在声明的后面加上 throws ** 可以多个catch，不过按顺序，第一个接受了就不会给第二个了 finnally无论如何都会执">
-<meta name="keywords" content="Java个人笔记">
+  <meta name="description" content="存储过程1234567891011121314151617181920存储过程create or replaceprocedure pro_hello(--参数列表  A IN NUMBER,  B IN NUMBER,  C OUT NUMBER)IS            注意：如果这里不需要变量，要用  AS --定义变量x integer := 0;y integer := 2;BEGIN">
+<meta name="keywords" content="Oracle学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java-异常和集合">
-<meta property="og:url" content="https://133608520.github.io/2019/07/17/2/index.html">
+<meta property="og:title" content="Oracle学习-4">
+<meta property="og:url" content="https://133608520.github.io/2019/07/24/8/index.html">
 <meta property="og:site_name" content="百度搜不到丶的博客">
-<meta property="og:description" content="7月13日异常和集合 异常   常见的几种异常类型 都继承自Exception，产生异常时，后面的语句不再执行（如果没有try，catch的话 ） try，catch，finally语句 在方法中的语句抛出异常throw new Exception（）； 方法抛出异常，在声明的后面加上 throws ** 可以多个catch，不过按顺序，第一个接受了就不会给第二个了 finnally无论如何都会执">
+<meta property="og:description" content="存储过程1234567891011121314151617181920存储过程create or replaceprocedure pro_hello(--参数列表  A IN NUMBER,  B IN NUMBER,  C OUT NUMBER)IS            注意：如果这里不需要变量，要用  AS --定义变量x integer := 0;y integer := 2;BEGIN">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-17T11:42:45.766Z">
+<meta property="og:updated_time" content="2019-07-24T10:09:56.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java-异常和集合">
-<meta name="twitter:description" content="7月13日异常和集合 异常   常见的几种异常类型 都继承自Exception，产生异常时，后面的语句不再执行（如果没有try，catch的话 ） try，catch，finally语句 在方法中的语句抛出异常throw new Exception（）； 方法抛出异常，在声明的后面加上 throws ** 可以多个catch，不过按顺序，第一个接受了就不会给第二个了 finnally无论如何都会执">
+<meta name="twitter:title" content="Oracle学习-4">
+<meta name="twitter:description" content="存储过程1234567891011121314151617181920存储过程create or replaceprocedure pro_hello(--参数列表  A IN NUMBER,  B IN NUMBER,  C OUT NUMBER)IS            注意：如果这里不需要变量，要用  AS --定义变量x integer := 0;y integer := 2;BEGIN">
 
 
 
@@ -122,7 +122,7 @@
 
   
   
-  <link rel="canonical" href="https://133608520.github.io/2019/07/17/2/">
+  <link rel="canonical" href="https://133608520.github.io/2019/07/24/8/">
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>Java-异常和集合 | 百度搜不到丶的博客</title>
+  <title>Oracle学习-4 | 百度搜不到丶的博客</title>
   
 
 
@@ -356,7 +356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/17/2/">
+    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/24/8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LYH">
@@ -373,7 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java-异常和集合
+          <h1 class="post-title" itemprop="name headline">Oracle学习-4
 
               
             
@@ -399,7 +399,7 @@
                 
               
 
-              <time title="创建时间：2019-07-17 19:40:48 / 修改时间：19:42:45" itemprop="dateCreated datePublished" datetime="2019-07-17T19:40:48+08:00">2019-07-17</time>
+              <time title="创建时间：2019-07-24 17:58:43 / 修改时间：18:09:56" itemprop="dateCreated datePublished" datetime="2019-07-24T17:58:43+08:00">2019-07-24</time>
             </span>
           
 
@@ -418,7 +418,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java个人笔记/" itemprop="url" rel="index"><span itemprop="name">Java个人笔记</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Oracle学习/" itemprop="url" rel="index"><span itemprop="name">Oracle学习</span></a></span>
 
                 
                 
@@ -456,23 +456,15 @@
       
 
       
-        <h1 id="7月13日异常和集合"><a href="#7月13日异常和集合" class="headerlink" title="7月13日异常和集合"></a>7月13日异常和集合</h1><h1 id="异常"><a href="#异常" class="headerlink" title=" 异常 "></a><font color="red"> 异常 </font></h1><hr>
-<ul>
-<li><strong>常见的几种异常类型 都继承自Exception，产生异常时，后面的语句不再执行（如果没有try，catch的话</strong> ）</li>
-<li><strong>try，catch，finally语句</strong></li>
-<li><strong>在方法中的语句抛出异常throw new Exception（）；</strong></li>
-<li><strong>方法抛出异常，在声明的后面加上 throws **</strong></li>
-<li><strong>可以多个catch，不过按顺序，第一个接受了就不会给第二个了</strong></li>
-<li><strong>finnally无论如何都会执行，就算是catch里面有return也依然会执行</strong></li>
-</ul>
-<h1 id="集合"><a href="#集合" class="headerlink" title=" 集合 "></a><font color="red"> 集合 </font></h1><p><strong>要清楚各种集合之间的关系，collection是List和Set的父类，不过三者都是接口，均不能实例化，List的实现类有ArrayList（常用）和LinkedList两者区别不大，Set实现子类有HashSet（常用）和TreeSet</strong><br><strong>Map接口及其实现类HashMap，Map不能包含重复的键</strong> </p>
-<h2 id="集合种的几种常用方法"><a href="#集合种的几种常用方法" class="headerlink" title="集合种的几种常用方法"></a><font color="red">集合种的几种常用方法</font></h2><p>•<strong>Collaction接口的常用方法：size，isEmpty，contains，add，remove，iterator</strong> </p>
-<p><strong>-list集合和set集合的区别，list集合可以加入重复的数据，set集合不可以，list集合是有顺序的，Hashset是无序的</strong> </p>
-<h2 id="ArrayList常用的方法："><a href="#ArrayList常用的方法：" class="headerlink" title="ArrayList常用的方法："></a><font color="red">ArrayList常用的方法：</font></h2><p><strong>•get（index）返回指定位置的元素，特有<br>•indexOf（object o）返回指定元素的所在位置<br>•注意用remove方法的时候，删除一个后，后一个数移动到该位置上来</strong> </p>
-<h2 id="HashMap常用的方法："><a href="#HashMap常用的方法：" class="headerlink" title="HashMap常用的方法："></a><font color="red">HashMap常用的方法：</font></h2><p><strong>•put（key，valve）<br>•get（key）返回指定键所对应的映射值<br>•remove（key）如果存在一个键的映射关系那么移除<br>•containKey（key）<br>•containValve（valve）<br>•set&lt; Entry&lt;key,value&gt;&gt;entrySet() 将Map变为Set，这样才能使用set的方法，从而使map和collection联系</strong> </p>
-<h2 id="遍历集合或者Map的方法"><a href="#遍历集合或者Map的方法" class="headerlink" title="遍历集合或者Map的方法"></a><font color="red">遍历集合或者Map的方法</font></h2><p><strong>•for（？：？）方法<br>•Iterator<br>-List和Set使用迭代器<br>•Iterator i = list.Iterator();</strong><br><strong>Map要想使用迭代器必须先转换成set（通过entrySet方法）</strong></p>
-<h2 id="遍历的时候主要是用到两个方法"><a href="#遍历的时候主要是用到两个方法" class="headerlink" title="-遍历的时候主要是用到两个方法"></a><font color="red">-遍历的时候主要是用到两个方法</font></h2><p><strong>•hasNext（）<br>•next（）<br>-注意set，list，map，Itterator后面都是跟着范型的</strong> </p>
-<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a><font color="red">文件</font></h1><p><strong>•java.io.File<br>•– File用于表示硬盘中的一个文件或者文件夹<br>•– File对象是java对象，包含文件的各种属性<br>•– File对象可以代表还不存在的文件或文件夹<br>•– File对象可以调用各种方法例如创建或删除<br>•createNewFile和mkdir和mkdirs方法的区别<br>•file.delete()可以删除文件和空文件夹，但是不能删除包含了一个有文件的文件夹</strong>  </p>
+        <h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">存储过程</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span></span><br><span class="line"><span class="keyword">procedure</span> pro_hello</span><br><span class="line">(</span><br><span class="line"><span class="comment">--参数列表</span></span><br><span class="line">  A <span class="keyword">IN</span> <span class="built_in">NUMBER</span>,</span><br><span class="line">  B <span class="keyword">IN</span> <span class="built_in">NUMBER</span>,</span><br><span class="line">  C <span class="keyword">OUT</span> <span class="built_in">NUMBER</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">IS</span>            注意：如果这里不需要变量，要用  <span class="keyword">AS</span> </span><br><span class="line"><span class="comment">--定义变量</span></span><br><span class="line">x <span class="built_in">integer</span> := <span class="number">0</span>;</span><br><span class="line">y integer := 2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  x := A*<span class="number">2</span>;</span><br><span class="line">  y := B;</span><br><span class="line">  <span class="keyword">SELECT</span> (x+y) <span class="keyword">INTO</span> C <span class="keyword">FROM</span> DUAL;</span><br><span class="line"><span class="keyword">END</span> pro_hello;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意分号的使用</strong></p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span></span><br><span class="line"><span class="keyword">FUNCTION</span> FUN_SUM</span><br><span class="line">(</span><br><span class="line"><span class="comment">--参数列表</span></span><br><span class="line">  A <span class="keyword">IN</span> <span class="built_in">NUMBER</span>,</span><br><span class="line">  B <span class="keyword">IN</span> <span class="built_in">NUMBER</span>,</span><br><span class="line">  C <span class="keyword">OUT</span> <span class="built_in">NUMBER</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">RETURN</span> <span class="built_in">NUMBER</span> </span><br><span class="line"><span class="keyword">IS</span>            注意：如果这里不需要变量，要用  <span class="keyword">AS</span> </span><br><span class="line"><span class="comment">--定义变量</span></span><br><span class="line">x <span class="built_in">integer</span> := <span class="number">0</span>;</span><br><span class="line">y integer := 2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  x := A*<span class="number">2</span>;</span><br><span class="line">  y := B;</span><br><span class="line">  <span class="keyword">SELECT</span> (x+y) <span class="keyword">INTO</span> C <span class="keyword">FROM</span> DUAL;</span><br><span class="line">  RETURN C;</span><br><span class="line"><span class="keyword">END</span> FUN_SUM;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>函数可以用sql语句调用：</p>
+<p><strong>select FUN_SUM(10,20) from dual;</strong></p>
+</blockquote>
 
       
     </div>
@@ -499,7 +491,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Java个人笔记/" rel="tag"># Java个人笔记</a>
+            <a href="/tags/Oracle学习/" rel="tag"># Oracle学习</a>
           
         </div>
       
@@ -512,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/16/1/" rel="next" title="第一篇博客——MarkDown学习">
-                <i class="fa fa-chevron-left"></i> 第一篇博客——MarkDown学习
+              <a href="/2019/07/23/7/" rel="next" title="Oracle学习-3">
+                <i class="fa fa-chevron-left"></i> Oracle学习-3
               </a>
             
           </div>
@@ -521,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/18/3/" rel="prev" title="文件和I/O流">
-                文件和I/O流 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -722,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#7月13日异常和集合"><span class="nav-number">1.</span> <span class="nav-text">7月13日异常和集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常"><span class="nav-number">2.</span> <span class="nav-text"> 异常 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合"><span class="nav-number">3.</span> <span class="nav-text"> 集合 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合种的几种常用方法"><span class="nav-number">3.1.</span> <span class="nav-text">集合种的几种常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList常用的方法："><span class="nav-number">3.2.</span> <span class="nav-text">ArrayList常用的方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap常用的方法："><span class="nav-number">3.3.</span> <span class="nav-text">HashMap常用的方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历集合或者Map的方法"><span class="nav-number">3.4.</span> <span class="nav-text">遍历集合或者Map的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历的时候主要是用到两个方法"><span class="nav-number">3.5.</span> <span class="nav-text">-遍历的时候主要是用到两个方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件"><span class="nav-number">4.</span> <span class="nav-text">文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#存储过程"><span class="nav-number">1.</span> <span class="nav-text">存储过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">2.</span> <span class="nav-text">函数</span></a></li></ol></div>
             
 
           </div>

@@ -355,6 +355,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/26/11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LYH">
+      <meta itemprop="description" content="Don't Stop">
+      <meta itemprop="image" content="/images/123.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="百度搜不到丶的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/26/11/" class="post-title-link" itemprop="url">JDBC学习-4</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-26 18:02:08 / 修改时间：18:35:40" itemprop="dateCreated datePublished" datetime="2019-07-26T18:02:08+08:00">2019-07-26</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JDBC学习/" itemprop="url" rel="index"><span itemprop="name">JDBC学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="DAO设计模式"><a href="#DAO设计模式" class="headerlink" title="DAO设计模式"></a>DAO设计模式</h1><p>[TOC]</p>
+<h2 id="UserDAO-java"><a href="#UserDAO-java" class="headerlink" title="UserDAO.java"></a><font color="red"><strong>UserDAO.java</strong></font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> demo.model.User;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实体操作接口</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDAO</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 保存用户</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> u</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 本次成功修改条数</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">save</span><span class="params">(User u)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 修改用户信息</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> u</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">update</span><span class="params">(User u)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 通过id删除用户</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">delete</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 通过用户id查人</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function">User <span class="title">findById</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 查询所有用户</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function">List&lt;User&gt; <span class="title">findAll</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 通过用户名和密码查人</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> pass</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function">User <span class="title">find</span><span class="params">(String name,String pass)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><font color="red">UserDaoImpl.java</font></strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo.dao.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> demo.dao.UserDAO;</span><br><span class="line"><span class="keyword">import</span> demo.model.User;</span><br><span class="line"><span class="keyword">import</span> demo.util.JDBCUtil;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数据持久化的MySQL实现</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoImpl</span> <span class="keyword">implements</span> <span class="title">UserDAO</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">save</span><span class="params">(User u)</span> </span>&#123;</span><br><span class="line">		Connection conn = JDBCUtil.getConnection();</span><br><span class="line">		PreparedStatement pst = <span class="keyword">null</span>;</span><br><span class="line">		String sql = <span class="string">"insert into usr values(0,?,?)"</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			pst = conn.prepareStatement(sql);</span><br><span class="line">			pst.setString(<span class="number">1</span>, u.getUname());</span><br><span class="line">			pst.setString(<span class="number">2</span>, u.getUpass());</span><br><span class="line">			<span class="keyword">return</span> pst.executeUpdate();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			JDBCUtil.close(conn, pst);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">update</span><span class="params">(User usr)</span> </span>&#123;</span><br><span class="line">		Connection conn = JDBCUtil.getConnection();</span><br><span class="line">		PreparedStatement pst = <span class="keyword">null</span>;</span><br><span class="line">		String sql = <span class="string">"update usr set usrname=?,usrpass=? where id=?"</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			pst = conn.prepareStatement(sql);</span><br><span class="line">			pst.setString(<span class="number">1</span>, usr.getUname());</span><br><span class="line">			pst.setString(<span class="number">2</span>, usr.getUpass());</span><br><span class="line">			pst.setInt(<span class="number">3</span>, usr.getId());</span><br><span class="line">			<span class="keyword">return</span> pst.executeUpdate();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			JDBCUtil.close(conn, pst);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">delete</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">		Connection conn = JDBCUtil.getConnection();</span><br><span class="line">		PreparedStatement pst = <span class="keyword">null</span>;</span><br><span class="line">		String sql = <span class="string">"delete from usr where id=?"</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			pst = conn.prepareStatement(sql);</span><br><span class="line">			pst.setInt(<span class="number">1</span>, id);</span><br><span class="line">			<span class="keyword">return</span> pst.executeUpdate();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			JDBCUtil.close(conn, pst);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">findById</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">		Connection conn = JDBCUtil.getConnection();</span><br><span class="line">		PreparedStatement pst = <span class="keyword">null</span>;</span><br><span class="line">		ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">		String sql = <span class="string">"select * from usr where id=?"</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			pst = conn.prepareStatement(sql);</span><br><span class="line">			pst.setInt(<span class="number">1</span>, id);</span><br><span class="line">			rs = pst.executeQuery();</span><br><span class="line">			<span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">				User usr = <span class="keyword">new</span> User();</span><br><span class="line">				usr.setId(rs.getInt(<span class="string">"id"</span>));</span><br><span class="line">				usr.setUname(rs.getString(<span class="string">"usrname"</span>));</span><br><span class="line">				usr.setUpass(rs.getString(<span class="string">"usrpass"</span>));</span><br><span class="line">				<span class="keyword">return</span> usr;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			JDBCUtil.close(conn, pst, rs);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">findAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		List&lt;User&gt; userList = <span class="keyword">new</span> ArrayList&lt;User&gt;();</span><br><span class="line">		Connection conn = JDBCUtil.getConnection();</span><br><span class="line">		PreparedStatement pst = <span class="keyword">null</span>;</span><br><span class="line">		ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">		String sql = <span class="string">"select * from usr"</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			pst = conn.prepareStatement(sql);</span><br><span class="line">			rs = pst.executeQuery();</span><br><span class="line">			<span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">				User usr = <span class="keyword">new</span> User();</span><br><span class="line">				usr.setId(rs.getInt(<span class="string">"id"</span>));</span><br><span class="line">				usr.setUname(rs.getString(<span class="string">"usrname"</span>));</span><br><span class="line">				usr.setUpass(rs.getString(<span class="string">"usrpass"</span>));</span><br><span class="line">				userList.add(usr);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			JDBCUtil.close(conn, pst, rs);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> userList;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">find</span><span class="params">(String name, String pass)</span> </span>&#123;</span><br><span class="line">		Connection conn = JDBCUtil.getConnection();</span><br><span class="line">		PreparedStatement pst = <span class="keyword">null</span>;</span><br><span class="line">		ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">		String sql = <span class="string">"select * from usr where usrname=? and usrpass=?"</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			pst = conn.prepareStatement(sql);</span><br><span class="line">			pst.setString(<span class="number">1</span>, name);</span><br><span class="line">			pst.setString(<span class="number">2</span>, pass);</span><br><span class="line">			rs = pst.executeQuery();</span><br><span class="line">			<span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">				User usr = <span class="keyword">new</span> User();</span><br><span class="line">				usr.setId(rs.getInt(<span class="string">"id"</span>));</span><br><span class="line">				usr.setUname(rs.getString(<span class="string">"usrname"</span>));</span><br><span class="line">				usr.setUpass(rs.getString(<span class="string">"usrpass"</span>));</span><br><span class="line">				<span class="keyword">return</span> usr;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			JDBCUtil.close(conn, pst, rs);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="User-java"><a href="#User-java" class="headerlink" title="User.java"></a><font color="red"><strong>User.java</strong></font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo.model;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实体模型</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="keyword">private</span> String uname;</span><br><span class="line">	<span class="keyword">private</span> String upass;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String uname, String upass)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.uname = uname;</span><br><span class="line">		<span class="keyword">this</span>.upass = upass;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(<span class="keyword">int</span> id, String uname, String upass)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">		<span class="keyword">this</span>.uname = uname;</span><br><span class="line">		<span class="keyword">this</span>.upass = upass;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUname</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> uname;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUname</span><span class="params">(String uname)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.uname = uname;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUpass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> upass;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUpass</span><span class="params">(String upass)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.upass = upass;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="UserDAOTest-java"><a href="#UserDAOTest-java" class="headerlink" title="UserDAOTest.java"></a><strong><font color="red">UserDAOTest.java</font></strong></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Before;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> demo.dao.UserDAO;</span><br><span class="line"><span class="keyword">import</span> demo.dao.impl.UserDaoImpl;</span><br><span class="line"><span class="keyword">import</span> demo.model.User;</span><br><span class="line"><span class="keyword">import</span> demo.util.DaoFactory;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 单元测试DEMO</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * JUnit 4 开始使用 Java 5 中的注解（annotation），常用的几个 annotation 介绍：</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BeforeClass</span>：针对所有测试，只执行一次，且必须为static void</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Before</span>：初始化方法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Test</span>：测试方法，在这里可以测试期望异常和超时时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@After</span>：释放资源</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@AfterClass</span>：针对所有测试，只执行一次，且必须为static void</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Ignore</span>：忽略的测试方法</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 一个单元测试用例执行顺序为：</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BeforeClass</span> –&gt; <span class="doctag">@Before</span> –&gt; <span class="doctag">@Test</span> –&gt; <span class="doctag">@After</span> –&gt; <span class="doctag">@AfterClass</span></span></span><br><span class="line"><span class="comment"> * 每一个测试方法的调用顺序为：</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Before</span> –&gt; <span class="doctag">@Test</span> –&gt; <span class="doctag">@After</span></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 夏增明 create data:2015-11-13</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDAOTest</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	UserDAO dao = DaoFactory.getUserDao();</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Before</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"-------------"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">//@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSave</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		User usr1 = <span class="keyword">new</span> User(<span class="string">"吕布"</span>, <span class="string">"123456"</span>);</span><br><span class="line">		User usr2 = <span class="keyword">new</span> User(<span class="string">"吕小布"</span>, <span class="string">"564654"</span>);</span><br><span class="line">		User usr3 = <span class="keyword">new</span> User(<span class="string">"吕大布"</span>, <span class="string">"987987"</span>);</span><br><span class="line">		</span><br><span class="line">		dao.save(usr1);</span><br><span class="line">		dao.save(usr2);</span><br><span class="line">		dao.save(usr3);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		User usr = <span class="keyword">new</span> User(<span class="number">8</span>, <span class="string">"小吕布"</span>, <span class="string">"111111"</span>);</span><br><span class="line">		dao.update(usr);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDelete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		dao.delete(<span class="number">9</span>);</span><br><span class="line">		dao.delete(<span class="number">10</span>);</span><br><span class="line">		dao.delete(<span class="number">11</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindById</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		User usr = dao.findById(<span class="number">8</span>);</span><br><span class="line">		<span class="keyword">if</span>(usr==<span class="keyword">null</span>)&#123;</span><br><span class="line">			fail(<span class="string">"BUG:8号数据没有查到"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			System.out.println(usr.getUname());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		List&lt;User&gt; list = dao.findAll();</span><br><span class="line">		<span class="keyword">if</span>(list.size()!=<span class="number">7</span>)&#123;</span><br><span class="line">			fail(<span class="string">"记录个数不对"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">for</span>(User u : list)&#123;</span><br><span class="line">				System.out.println(u.getUname());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFind</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//测试用例1，正确情况</span></span><br><span class="line">		User usr = dao.find(<span class="string">"admin"</span>, <span class="string">"123"</span>);</span><br><span class="line">		<span class="keyword">if</span>(usr==<span class="keyword">null</span> || usr.getId()!=<span class="number">4</span>)&#123;</span><br><span class="line">			fail(<span class="string">"查到的数据不对"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			System.out.println(usr.getId()+<span class="string">","</span>+usr.getUname()+<span class="string">","</span>+usr.getUpass());</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//测试用例2，故意填错</span></span><br><span class="line">		User usr1 = dao.find(<span class="string">"admin"</span>, <span class="string">"123456"</span>);</span><br><span class="line">		<span class="keyword">if</span>(usr1==<span class="keyword">null</span> || usr1.getId()!=<span class="number">4</span>)&#123;</span><br><span class="line">			System.out.println(<span class="string">"功能OK"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			fail(<span class="string">"密码不对都能登录，重大BUG"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="DaoFactory-java"><a href="#DaoFactory-java" class="headerlink" title="DaoFactory.java"></a><font color="red"><strong>DaoFactory.java</strong></font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> demo.dao.BookDao;</span><br><span class="line"><span class="keyword">import</span> demo.dao.UserDAO;</span><br><span class="line"><span class="keyword">import</span> demo.dao.impl.UserDaoImpl;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用来创建Dao对象的工厂，可以实现统一</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span></span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DaoFactory</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> UserDAO <span class="title">getUserDao</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> UserDaoImpl();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BookDao <span class="title">getBookDao</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//以此类推</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="JDBCUtil-java"><a href="#JDBCUtil-java" class="headerlink" title="JDBCUtil.java"></a><font color="red"><strong>JDBCUtil.java</strong></font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JDBC工具类：主要功能包括【获取连接】，【释放jdbc资源】</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtil</span> </span>&#123;</span><br><span class="line">	<span class="comment">//数据库连接配置</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String url = <span class="string">"jdbc:mysql://192.168.10.235:3306/wukong_db"</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String user = <span class="string">"wukong"</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String pass = <span class="string">"123"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		<span class="comment">//第一次运行的时候加载驱动</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">new</span> com.mysql.jdbc.Driver();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"MySQL驱动加载异常！"</span>);</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 工厂模式获取新连接</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Connection conn = DriverManager.getConnection(url, user, pass);</span><br><span class="line">			<span class="keyword">return</span> conn;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 关闭物理连接</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> conn</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">(Connection conn)</span></span>&#123;</span><br><span class="line">		close(conn, <span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 关闭物理连接</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> conn</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">(Connection conn,Statement st)</span></span>&#123;</span><br><span class="line">		close(conn, st, <span class="keyword">null</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 关闭物理连接</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> conn</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">(Connection conn,Statement st,ResultSet rs)</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(rs!=<span class="keyword">null</span>)rs.close();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(st!=<span class="keyword">null</span>)st.close();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(conn!=<span class="keyword">null</span>)conn.close();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="JDBC连接池"><a href="#JDBC连接池" class="headerlink" title="JDBC连接池"></a>JDBC连接池</h1><p><font color="steelblue"><strong>JDBC连接池又叫数据源</strong></font></p>
+<h2 id="连接池说明"><a href="#连接池说明" class="headerlink" title="连接池说明"></a>连接池说明</h2><blockquote>
+<p><font color="green"><strong>数据源和数据库连接不同，数据源无需创建多个，它是产生数据库连接的工厂，因此整个应用只需要一个数据源即可</strong>。</font></p>
+<p><font color="green"><strong>当数据库访问结束后，程序还是像以前一样关闭数据库连接：conn.close(); 但上面的代码并没有关闭数据库的物理连接，它仅仅把数据库连接释放，归还给了数据库连接池</strong></font></p>
+</blockquote>
+<h2 id="两种开源连接池"><a href="#两种开源连接池" class="headerlink" title="两种开源连接池"></a>两种开源连接池</h2><p>JDBC 的数据库连接池使用 javax.sql.DataSource 来表示，DataSource 只是一个接口，该接口通常由服务器(Weblogic, JBoss, Tomcat)提供实现，也有一些开源组织提供实现：<br><strong>DBCP 连接池</strong><br><strong>C3P0 连接池</strong>  <font color="red"><strong>(常用)</strong></font><br>DataSource 通常被称为数据源，它包含连接池和连接池管理两个部分，习惯上也经常把 DataSource 称为连接池</p>
+<h2 id="C3p0使用"><a href="#C3p0使用" class="headerlink" title="C3p0使用"></a>C3p0使用</h2><blockquote>
+<p><strong>使用c3p0需要导入c3p0的jar包</strong></p>
+</blockquote>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先需要创建连接池对象</span></span><br><span class="line">ComboPooledDataSource ds = <span class="keyword">new</span> ComboPooledDataSource();</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//设置驱动和url</span></span><br><span class="line">    ds.setDriverClass(<span class="string">"oracle.jdbc.driver.OracleDriver"</span>);</span><br><span class="line">    ds.setJdbcUrl(<span class="string">"jdbc:oracle:thin:@127.0.0.1:1521:orcl"</span>);</span><br><span class="line">    <span class="comment">//设置用户名和密码</span></span><br><span class="line">    ds.setUser(<span class="string">"hehe"</span>);</span><br><span class="line">    ds.setPassword(<span class="string">"abc"</span>);</span><br><span class="line">    ds.setMaxPoolSize(<span class="number">40</span>);<span class="comment">//最大连接数</span></span><br><span class="line">    ds.setMinPoolSize(<span class="number">40</span>);<span class="comment">//最小连接数</span></span><br><span class="line">    ds.setInitialPoolSize(<span class="number">10</span>);<span class="comment">//初始连接数</span></span><br><span class="line">    Connection conn = ds.getConnection();</span><br><span class="line">    System.out.println(<span class="string">"成功从c3p0获取连接"</span>);</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/26/10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2259,294 +2445,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/16/1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LYH">
-      <meta itemprop="description" content="Don't Stop">
-      <meta itemprop="image" content="/images/123.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="百度搜不到丶的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/16/1/" class="post-title-link" itemprop="url">第一篇博客——MarkDown学习</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-16 13:40:03 / 修改时间：14:07:15" itemprop="dateCreated datePublished" datetime="2019-07-16T13:40:03+08:00">2019-07-16</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MarkDown学习笔记/" itemprop="url" rel="index"><span itemprop="name">MarkDown学习笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><blockquote>
-<p>这里有四种方式                      </p>
-<h2 id="行内式"><a href="#行内式" class="headerlink" title="行内式"></a>行内式</h2><p>行内式：[链接文字](http:<a href="http://www.hao123.com" target="_blank" rel="noopener">www.hao123.com</a> “链接属性”),（）里面写链接地址和链接属性，两者之间有一个空格，属性要加&quot; “<br>下面做一个实验：<br><a href="http:www.hao123.com" title="百度搜不到·" target="_blank" rel="noopener">链接文字，链接到百度</a><br>好吧，应该是成功了，不过发现了一个问题，在引用里换行时候不需要输入两个空格     </p>
-</blockquote>
-<h2 id="参考式"><a href="#参考式" class="headerlink" title="参考式"></a>参考式</h2><p>分为两部分，先把链接文字写成来，给它做个标记，然后在下面在个标记赋值，也许你会问，这只是我的怀疑，我怀疑:代表赋值，语法大体如下：<br>这是[百度] [1]<br>[1]: http:<a href="http://www.hao123.com" target="_blank" rel="noopener">www.hao123.com</a> “百度搜不到”<br>参考式有一个优点就是在文章里有多个链接引用的时候，可以更好的对连接进行统一整理。</p>
-<h2 id="自动连接"><a href="#自动连接" class="headerlink" title="自动连接"></a>自动连接</h2><p>&lt;&gt;，代表自动链接，符号里面写网址，Markdown就会自动把它转换成链接，链接文字和链接地址一样，下面来实验一下自动链接百度<br><a href="http:www.hao123.com" target="_blank" rel="noopener">http:www.hao123.com</a></p>
-<blockquote>
-<h2 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h2><p>链接到文章内部的叫锚点，具体语法如下：<br>语法和html一样。这里不写代码直接演示<br><a name="maodian"> 锚点 </a><br><a href="#maodian">跳转到锚点 </a></p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>使用   <em>，+，-表示无序列表         *</em>发现了一个问题，在引用中你输入几个空格，它就显示几个空格,还不错**<br>三个符号代表的无序列表显示是一样的，选择一种即可，我选择 *<br>代码如下：</p>
-<blockquote>
-<p>- 无序列表项 一<br>- 无序列表项二<br>- 无序列表项三<br>显示效果如下:</p>
-<ul>
-<li>无序列表项  一</li>
-<li>无序列表项  二</li>
-<li>无序列表项  三</li>
-</ul>
-</blockquote>
-<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>代码如下：</p>
-<blockquote>
-<p>1. 有序列表 一<br>2. 有序列表 二<br>3. 有序列表 三<br>显示效果：</p>
-<ol>
-<li>有序列表项 一 </li>
-<li>有序列表项 二</li>
-<li>有序列表项 三<br>注意.后面有一个空格</li>
-</ol>
-</blockquote>
-<h2 id="包含段落的列表"><a href="#包含段落的列表" class="headerlink" title="包含段落的列表"></a>包含段落的列表</h2><p>下面介绍包含段落列表：<br>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; - 这是第一行</span><br><span class="line">&gt; 	第一段</span><br><span class="line">&gt; 	第二段</span><br><span class="line">&gt; -	这是第二行</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>显示效果如下：  </p>
-<ul>
-<li>这是第一行<br>第一段<br>第二段</li>
-<li>这是第二行<h2 id="包含引用或者代码块的列表"><a href="#包含引用或者代码块的列表" class="headerlink" title="包含引用或者代码块的列表"></a>包含引用或者代码块的列表</h2>代码如下：<br>*    阅读的方法：<blockquote>
-<p>打开书本<br>打开电灯<br>显示效果如下：</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li>阅读的方法：<blockquote>
-<p>打开书本<br>打开电灯</p>
-</blockquote>
-</li>
-</ul>
-<p>下面介绍包含代码块的：<br>代码如下：<br>* 包含代码快<br>    &lt;代码写在这里&gt;<br>显示效果如下:</p>
-<ul>
-<li>包含代码块  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 		大家好，我是列表下的代码块</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>让我看看这是哪一行？</li>
-</ul>
-</blockquote>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
-<p>首先这就是在一个引用里面写的<br>代码如下：<br>&gt; 这是一个引用<br>显示效果如下：</p>
-<blockquote>
-<p>这是一个引用<br>当然由于本身已经在引用里面了所以这里发生了引用的多层嵌套，根据上面可以看出引用里面也可以使用其他语法，比如列表之类的</p>
-</blockquote>
-</blockquote>
-<h2 id="插入图像"><a href="#插入图像" class="headerlink" title="插入图像"></a>插入图像</h2><blockquote>
-<p>插图像挺痛疼的，图床建立需要花钱，免费的又不稳定，只能在本地里面一张张的存图片了，哎<br>代码:<br>![图片描述]（图片地址 “图片Title”)<br>显示效果：这里就不做演示了<br>还有一种方法参考式和超链接的参考式一样</p>
-</blockquote>
-<h2 id="内容目录"><a href="#内容目录" class="headerlink" title="内容目录"></a>内容目录</h2><blockquote>
-<p>在段落中写[]已显示全文内容的目录结构,里面是大写的toc<br>代码:<br>[TOC]</p>
-<p>显示效果：</p>
-<p>[TOC]<br>可以在任意的位置添加</p>
-</blockquote>
-<h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><blockquote>
-<p>注脚就是课本上对某些文字做注解的地方，一般课本的最后有做过注脚地方的解释。<br>代码：<br>这是一个注脚[^1]<br>[^1]：注脚是一种解释<br>显示效果如下:<br>这是一个注脚[^1]<br>[^1]: 注脚是一种解释<br><strong>脚注自动搬运到最后面，请到文章末尾查看，并且脚注后方的链接可以直接跳转到加注的地方</strong></p>
-</blockquote>
-<h2 id="LaTeX公式"><a href="#LaTeX公式" class="headerlink" title="LaTeX公式"></a>LaTeX公式</h2><blockquote>
-<p>第一次见，初次见面，请多多关照🤭</p>
-<ol>
-<li>$表示行内公式</li>
-<li>$$表示整行公式</li>
-</ol>
-</blockquote>
-<h2 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h2><blockquote>
-<p>代码:<br>- [ ] 吃饭,代表没有选中的复选<br>- [x] 吃饭,代表选中的复选<br>显示效果如下:</p>
-<ul>
-<li><input disabled type="checkbox"> 吃饭,代表没有选中的复选</li>
-<li><input checked disabled type="checkbox"> 吃饭,代表选中的复选</li>
-</ul>
-</blockquote>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><blockquote>
-<ol>
-<li>不管哪种方式,第一行为表头,第二行分隔表头和主体部分,第三行开始每一行为一个表格行</li>
-<li>列和列之间使用管道符|隔开</li>
-<li>第二行可以为不同的列指定对齐方式.默认为左对齐,在-右边加上:,该列就会右对齐<br>代码如下:<br>学号|姓名</li>
-</ol>
-<p>-|-|-<br>123|小明<br>显示效果如下:</p>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th>学号</th>
-<th>姓名</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>123</td>
-<td>小明</td>
-</tr>
-</tbody></table>
-</blockquote>
-</blockquote>
-<p>##　代码</p>
-<blockquote>
-<ul>
-<li>行内代码</li>
-<li>多行代码</li>
-<li>缩进式<ul>
-<li>子序列1<ul>
-<li>子子序列</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>下面推出<br><strong>上面又发现了多级列表的嵌套规则,根据*前面的制表符数匹配</strong><br><strong>如何退出无序列表</strong><br><strong>通过添加一个空白行</strong></p>
-</blockquote>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>代码:<br>***<br>显示效果如下:</p>
-<hr>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2588,7 +2493,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

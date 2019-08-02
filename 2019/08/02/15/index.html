@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bf5d34a4"
+    });
+  daovoice('update');
+  </script>
+
+
+  <meta name="description" content="Servlet简介 Servlet是用Java语言编写的程序，它运行在Web服务器上，用以处理来自客户端的请求；它一般会把处理的结果以为HTML的形式返回，在客户端形成动态网页  Servlet容器 Servlet和我们以往见过的普通Java类一样，在需要的时候被实例化，在不需要的时候被销毁，而Servlet的实例化和销毁工作由Servlet容器来完成；Servlet在Servlet容器内运行，S">
+<meta name="keywords" content="Java个人笔记,Servlet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servlet">
+<meta property="og:url" content="https://133608520.github.io/2019/08/02/15/index.html">
+<meta property="og:site_name" content="百度搜不到丶的博客">
+<meta property="og:description" content="Servlet简介 Servlet是用Java语言编写的程序，它运行在Web服务器上，用以处理来自客户端的请求；它一般会把处理的结果以为HTML的形式返回，在客户端形成动态网页  Servlet容器 Servlet和我们以往见过的普通Java类一样，在需要的时候被实例化，在不需要的时候被销毁，而Servlet的实例化和销毁工作由Servlet容器来完成；Servlet在Servlet容器内运行，S">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-02T11:15:37.343Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Servlet">
+<meta name="twitter:description" content="Servlet简介 Servlet是用Java语言编写的程序，它运行在Web服务器上，用以处理来自客户端的请求；它一般会把处理的结果以为HTML的形式返回，在客户端形成动态网页  Servlet容器 Servlet和我们以往见过的普通Java类一样，在需要的时候被实例化，在不需要的时候被销毁，而Servlet的实例化和销毁工作由Servlet容器来完成；Servlet在Servlet容器内运行，S">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://133608520.github.io/2019/08/02/15/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Servlet | 百度搜不到丶的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">百度搜不到丶的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/08/02/15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LYH">
+      <meta itemprop="description" content="Don't Stop">
+      <meta itemprop="image" content="/images/123.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="百度搜不到丶的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Servlet
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-02 17:46:17 / 修改时间：19:15:37" itemprop="dateCreated datePublished" datetime="2019-08-02T17:46:17+08:00">2019-08-02</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java个人笔记/" itemprop="url" rel="index"><span itemprop="name">Java个人笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Servlet简介"><a href="#Servlet简介" class="headerlink" title="Servlet简介"></a>Servlet简介</h1><blockquote>
+<p><strong>Servlet是用Java语言编写的程序，它运行在Web服务器上，用以处理来自客户端的请求；</strong><br><strong>它一般会把处理的结果以为HTML的形式返回，在客户端形成动态网页</strong></p>
+</blockquote>
+<h1 id="Servlet容器"><a href="#Servlet容器" class="headerlink" title="Servlet容器"></a>Servlet容器</h1><blockquote>
+<p><strong>Servlet和我们以往见过的普通Java类一样，在需要的时候被实例化，在不需要的时候被销毁，而Servlet的实例化和销毁工作由Servlet容器来完成；</strong><br><strong>Servlet在Servlet容器内运行，Servlet容器负责调度Servlet，并控制着Servlet的生命周期；</strong><br><strong>Apache Tomcat既是Web服务器软件，同时也是符合规范的Servlet容器</strong></p>
+</blockquote>
+<h1 id="Javax-servlet-http包中接口"><a href="#Javax-servlet-http包中接口" class="headerlink" title="Javax.servlet.http包中接口"></a>Javax.servlet.http包中接口</h1><table>
+<thead>
+<tr>
+<th>类名称</th>
+<th>说    明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HttpServlet</td>
+<td>该类是最常用于扩展Servlet的类，因为很多Servlet应用程序都遵照HTTP协议运行。此类支持HTTP协议功能以及Servlet类的方法，它是个抽象类。它接收客户端的请求，并向客户端发送响应。</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>此类用来创建Cookie，它存储了少量由Servlet发送至客户端的信息。</td>
+</tr>
+</tbody></table>
+<h1 id="HttpServlet注意事项"><a href="#HttpServlet注意事项" class="headerlink" title="HttpServlet注意事项"></a>HttpServlet注意事项</h1><blockquote>
+<p><strong>HttpServlet中还包含一个service方法，其原型如下：</strong><br>    <strong>public void service(HttpServletRequest request,</strong><br>                                     <strong>HttpServletResponse response)</strong><br>    <strong>throws ServletException, IOException</strong><br><strong>此方法用来调度客户端的请求，API文档中明确规定，请勿重写该方法</strong></p>
+</blockquote>
+<h1 id="http请求方式"><a href="#http请求方式" class="headerlink" title="http请求方式"></a>http请求方式</h1><blockquote>
+<p><strong>HTTP协议定义了GET和POST两种请求方法，POST方法对请求发送的数据量没有限制。</strong><br><strong>Get是使用明文在浏览器地址栏直接显示请求字符串</strong><br><strong>post是将数据隐含在HTTP协议的请求报文中发送至服务器</strong></p>
+</blockquote>
+<h2 id="代码示例-HelloServlet"><a href="#代码示例-HelloServlet" class="headerlink" title="代码示例   HelloServlet"></a>代码示例   HelloServlet</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//导入必要的包</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.*;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.*;</span><br><span class="line"><span class="comment">//自定义Servlet，继承于HttpServlet</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="comment">//重写父类的doGet方法，收到客户端的请求（get方式）时，执行此方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                      HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">                <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//获得输出流，以便向客户端输出内容</span></span><br><span class="line">        PrintWriter out = response.getWriter();</span><br><span class="line">        <span class="comment">//向客户端输出页面内容</span></span><br><span class="line">        out.println(<span class="string">"&lt;html&gt;"</span>);</span><br><span class="line">        out.println(<span class="string">"&lt;head&gt;"</span>);</span><br><span class="line">        out.println(<span class="string">"&lt;title&gt; HelloServlet &lt;/title&gt;"</span>);</span><br><span class="line">        out.println(<span class="string">"&lt;/head&gt;"</span>);</span><br><span class="line">        out.println(<span class="string">"&lt;body&gt;"</span>);</span><br><span class="line">        out.println(<span class="string">"Hello world!&lt;br&gt;"</span>);</span><br><span class="line">        out.println(<span class="string">"&lt;/body&gt;"</span>);</span><br><span class="line">        out.println(<span class="string">"&lt;/html&gt;"</span>);</span><br><span class="line">        out.close();  <span class="comment">//关闭流</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Web-xml中配置Servlet"><a href="#Web-xml中配置Servlet" class="headerlink" title="Web.xml中配置Servlet"></a><font color="red">Web.xml中配置Servlet</font></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">为了使Servlet容器能够正确识别Servlet，还必须在web.xml的配置文件中配置，其格式如下：</span><br><span class="line">	&lt;servlet&gt;</span><br><span class="line">	    &lt;servlet-name&gt;ServletName&lt;/servlet-name&gt; //servlet名称，名称可以任意命名</span><br><span class="line">	    &lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">ServletClass</span>&lt;<span class="title">servlet</span>-<span class="title">class</span>&gt;//<span class="title">Servlet</span>类的名称</span></span><br><span class="line"><span class="class">	&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">	&lt;<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">	    &lt;<span class="title">servlet</span>-<span class="title">name</span>&gt;<span class="title">ServletName</span>&lt;<span class="title">servlet</span>-<span class="title">name</span>&gt;//<span class="title">servlet</span>名称，名称可以任意命名</span></span><br><span class="line"><span class="class">	    &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;<span class="title">ServletURLMapping</span>&lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;//<span class="title">Servlet</span>对应的<span class="title">url</span>名，自己定</span></span><br><span class="line"><span class="class">	&lt;<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Servlet总结"><a href="#Servlet总结" class="headerlink" title="Servlet总结"></a>Servlet总结</h1><ol>
+<li><strong>Servlet其实就是运行在服务器端的小应用程序；</strong></li>
+<li><strong>Servlet容器负责调度Servlet，并控制着它们的生命周期；</strong></li>
+<li><strong>一般通过继承HttpServlet的方式来实现Servlet;</strong></li>
+<li><strong>根据客户端请求的方式，只需重写doGet或doPost方法即可；</strong></li>
+<li><strong>要使容器正确识别Servlet，则必须填写配置文件web.xml；</strong></li>
+</ol>
+<h1 id="Servlet表单处理"><a href="#Servlet表单处理" class="headerlink" title="Servlet表单处理"></a>Servlet表单处理</h1><h2 id="Html表单"><a href="#Html表单" class="headerlink" title="Html表单"></a>Html表单</h2><p><strong>客户端通过浏览器向web服务器提交请求的方式有7种，post、get、 put、 delete、 options 、head和trace,其中只需要掌握get和post就足够了。</strong></p>
+<p><strong>Post请求是通过html中的表单(Form)来完成的，表单中包含了若干组件：</strong><br><strong>Input text     Input password   Input radio</strong><br><strong>Input checkbox   select 单选    select 多选</strong><br><strong>TextArea    submit    reset</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">表单(Form)</span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">“f1”</span> <span class="attr">method</span>=<span class="string">“post”</span> <span class="attr">action</span>=<span class="string">“/servlet/check”</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line">属性：</span><br><span class="line">name:表单的名称</span><br><span class="line">method:向服务器提交数据的方式，一般get或post</span><br><span class="line">action：表单数据提交的位置( 相对地址或绝对地址)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">文本框(text)</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">“text”</span> <span class="attr">name</span>=<span class="string">“userName”</span></span></span><br><span class="line"><span class="tag"><span class="attr">Size</span>=<span class="string">“16”</span> <span class="attr">maxlength</span>=<span class="string">“8”</span> <span class="attr">value</span>=<span class="string">“haha”/</span>&gt;</span></span><br><span class="line">单选按钮(radio)</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">“radio”</span> <span class="attr">name</span>=<span class="string">“gender”</span> <span class="attr">value</span>=<span class="string">“nan”</span> <span class="attr">checked</span>&gt;</span>男</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">“radio”</span> <span class="attr">name</span>=<span class="string">“gender”</span> <span class="attr">value</span>=<span class="string">“nv”</span> &gt;</span>女</span><br><span class="line">复选按钮(checkbox)</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">“checkbox”</span> <span class="attr">name</span>=<span class="string">“interest”</span> </span></span><br><span class="line"><span class="tag">				<span class="attr">value</span>=<span class="string">“movie”</span>&gt;</span>看电影</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">“checkbox”</span> <span class="attr">name</span>=<span class="string">“interest”</span> 					<span class="attr">value</span>=<span class="string">“computer”</span>&gt;</span>玩电脑</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">“checkbox”</span> <span class="attr">name</span>=<span class="string">“interest”</span> 					<span class="attr">value</span>=<span class="string">“shopping”</span>&gt;</span>购物</span><br><span class="line">下拉列表(select 单选)</span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">“city”</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">“beijing”</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">“shanghai”</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">“wuxi”</span>&gt;</span>无锡<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">“dalian”</span>&gt;</span>大连<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">“etc”</span>&gt;</span>其他<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">文本域(TextArea)</span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">“comment”</span> <span class="attr">rows</span>=<span class="string">“10”</span> <span class="attr">cols</span>=<span class="string">“40”</span>&gt;</span>感谢使用本系统</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">提交按钮(submit)和重置按钮(reset)</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">“submit”</span> <span class="attr">value</span>=<span class="string">“提交”/</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">“reset”</span> <span class="attr">value</span>=<span class="string">“重置”/</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="HttpServletRequest常用方法"><a href="#HttpServletRequest常用方法" class="headerlink" title="HttpServletRequest常用方法"></a>HttpServletRequest常用方法</h1><ul>
+<li><strong>获取单值请求参数的方法：getParamter();</strong></li>
+<li><strong>获取多值请求参数的方法：getParameterValues();</strong></li>
+<li><strong>获取请求参数名字的方法：getParameterNames();</strong></li>
+<li><strong>获取session对象的方法：getSession();</strong></li>
+<li><strong>获取Web应用根路径的方法：getContextPath();</strong></li>
+<li><strong>获取Servlet路径的方法：getServletPath();</strong></li>
+<li><strong>获取request中的属性的方法：getAttribute();</strong></li>
+<li><strong>设置request中的属性的方法：setAttribute();</strong></li>
+<li><strong>获取请求转发对象的方法：getRequestDispatcher();</strong></li>
+</ul>
+<h1 id="Html传值方式"><a href="#Html传值方式" class="headerlink" title="Html传值方式"></a>Html传值方式</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">想把un=tom和pw=123传到服务器上的login.jsp，可以采用如下方法：</span><br><span class="line"></span><br><span class="line">post:</span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">“post”</span> <span class="attr">action</span>=<span class="string">“login.jsp”</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">“un”</span> <span class="attr">value</span>=<span class="string">“tom”</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">“pw”</span> <span class="attr">value</span>=<span class="string">“123”</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">tupe</span>=<span class="string">“submit”</span> <span class="attr">value</span>=<span class="string">“Login”</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line">get:</span><br><span class="line">http://xxxx/login.jsp?un=tom&amp;pw=123</span><br></pre></td></tr></table></figure>
+
+<h1 id="页面重定向（1）"><a href="#页面重定向（1）" class="headerlink" title="页面重定向（1）"></a>页面重定向（1）</h1><p><strong>1.客户端跳转</strong><br><strong>res.sendRedirect(“index.jsp”)</strong></p>
+<h1 id="页面重定向（2）"><a href="#页面重定向（2）" class="headerlink" title="页面重定向（2）"></a>页面重定向（2）</h1><p><strong>1.服务器跳转</strong><br><strong>RequestDispatcher dispatcher = req.getRequestDispatcher(“hehe.jsp”); dispatcher.forward(req, resp);</strong></p>
+<h1 id="两种跳转方式对比"><a href="#两种跳转方式对比" class="headerlink" title="两种跳转方式对比"></a>两种跳转方式对比</h1><blockquote>
+<p><strong>1.服务器跳转</strong><br>RequestDispatcher dispatcher = req.getRequestDispatcher(“hehe.jsp”); dispatcher.forward(req, resp);<br>在服务端进行重新指向，可以将request中的参数继续传递到下一个页面。</p>
+<p><strong>2.客户端跳转</strong><br>response.sendRedirect(“index.jsp”);<br>让客户端跳转到指定页面，会让浏览器重新发起请求，所以无法将原request中的参数继续传递。</p>
+</blockquote>
+<h1 id="乱码问题"><a href="#乱码问题" class="headerlink" title="乱码问题"></a>乱码问题</h1><h2 id="response乱码"><a href="#response乱码" class="headerlink" title="response乱码"></a>response乱码</h2><p><strong>浏览器乱码：</strong><br><strong>浏览器中显示的内容都是从服务器传出的数据，出现乱码的原因就是浏览器的显示编码和数据编码不一致</strong></p>
+<p><strong>让它们一致就可以了：</strong><br><strong>response.setContentType(“text/html; charset=utf-8”);</strong><br><strong>response.setCharacterEncoding(“UTF-8”);</strong></p>
+<h2 id="request-post乱码"><a href="#request-post乱码" class="headerlink" title="request-post乱码"></a>request-post乱码</h2><p><strong>request请求分为post和get，对于不同的请求方式有不同的解决乱码的方案：</strong></p>
+<p><strong>POST解决方案:</strong><br><strong>设置request的编码与提交请求的页面编码相同。</strong><br><strong>setCharacterEncoding只对post有效。</strong></p>
+<p><strong>request.setCharacterEncoding(“UTF-8”);</strong></p>
+<h2 id="request-get乱码"><a href="#request-get乱码" class="headerlink" title="request-get乱码"></a><strong>request-get乱码</strong></h2><p><strong>request请求分为post和get，对于不同的请求方式有不同的解决乱码的方案：</strong></p>
+<p><strong>GET解决方案:</strong></p>
+<p><strong>//用ISO-8859-1编码读出数据，再转为UTF8</strong><br><strong>String name=req.getParameter(“usrname”);</strong><br><strong>String name2=new String(name.getBytes(“ISO-8859-1”), “UTF-8”);</strong></p>
+<p><strong>其中ISO8859-1与浏览器内部编码一致，UTF-8是我们需要的编码。</strong></p>
+<h1 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h1><h2 id="MyServlet"><a href="#MyServlet" class="headerlink" title="MyServlet"></a>MyServlet</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet主要功能：接收来自浏览器的请求，给予浏览器响应</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> </span></span><br><span class="line"><span class="comment"> *	</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		resp.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		System.out.println(<span class="string">"服务器接到Get请求"</span>);</span><br><span class="line">		resp.getWriter().print(<span class="string">"&lt;html&gt;&lt;body&gt;&lt;h1&gt;HelloWorld世界你好&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"服务器接到Post请求"</span>);</span><br><span class="line">		</span><br><span class="line">		doGet(req, resp);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Zhuce"><a href="#Zhuce" class="headerlink" title="Zhuce"></a>Zhuce</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zhuce</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * The doGet method of the servlet. &lt;br&gt;</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * This method is called when a form has its tag value method equals to get.</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> request the request send by the client to the server</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> response the response send by the server to the client</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> ServletException if an error occurred</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> IOException if an error occurred</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		request.setCharacterEncoding(<span class="string">"UTF-8"</span>);	<span class="comment">//设置request编码</span></span><br><span class="line">		response.setCharacterEncoding(<span class="string">"UTF-8"</span>);	<span class="comment">//设置response编码</span></span><br><span class="line">		</span><br><span class="line">		String a = request.getParameter(<span class="string">"userName"</span>);</span><br><span class="line">		System.out.println(<span class="string">"接到用户名："</span>+a);</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"性别："</span>+request.getParameter(<span class="string">"sex"</span>));</span><br><span class="line">		</span><br><span class="line">		String[] ins = request.getParameterValues(<span class="string">"interest"</span>);</span><br><span class="line">		<span class="keyword">for</span>(String str : ins)&#123;</span><br><span class="line">			System.out.println(<span class="string">"兴趣："</span>+str);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"城市："</span>+request.getParameter(<span class="string">"city"</span>));</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * The doPost method of the servlet. &lt;br&gt;</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * This method is called when a form has its tag value method equals to post.</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> request the request send by the client to the server</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> response the response send by the server to the client</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> ServletException if an error occurred</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> IOException if an error occurred</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Web-xml"><a href="#Web-xml" class="headerlink" title="Web.xml"></a><font color="purple">Web.xml</font></h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"></span><br><span class="line">-<span class="tag">&lt;<span class="name">web-app</span> <span class="attr">version</span>=<span class="string">"3.0"</span> <span class="attr">id</span>=<span class="string">"WebApp_ID"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span> <span class="attr">xmlns</span>=<span class="string">"http://java.sun.com/xml/ns/javaee"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">display-name</span>&gt;</span>HelloServlet<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-<span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-<span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>hehe<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>demo.MyServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-<span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">description</span>&gt;</span>This is the description of my J2EE component<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">display-name</span>&gt;</span>This is the display name of my J2EE component<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Zhuce<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>demo.Zhuce<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>hehe<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/hh/hello<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Zhuce<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/xixi/haha/register.php<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="index-jsp"><a href="#index-jsp" class="headerlink" title="index.jsp"></a>index.jsp</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">String path = request.getContextPath();</span><br><span class="line">String basePath = request.getScheme()+<span class="string">"://"</span>+request.getServerName()+<span class="string">":"</span>+request.getServerPort()+path+<span class="string">"/"</span>;</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE HTML PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;base href=<span class="string">"&lt;%=basePath%&gt;"</span>&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;title&gt;My JSP 'index.jsp' starting page&lt;/title&gt;</span><br><span class="line">	&lt;meta http-equiv=<span class="string">"pragma"</span> content=<span class="string">"no-cache"</span>&gt;</span><br><span class="line">	&lt;meta http-equiv=<span class="string">"cache-control"</span> content=<span class="string">"no-cache"</span>&gt;</span><br><span class="line">	&lt;meta http-equiv=<span class="string">"expires"</span> content=<span class="string">"0"</span>&gt;    </span><br><span class="line">	&lt;meta http-equiv=<span class="string">"keywords"</span> content=<span class="string">"keyword1,keyword2,keyword3"</span>&gt;</span><br><span class="line">	&lt;meta http-equiv=<span class="string">"description"</span> content=<span class="string">"This is my page"</span>&gt;</span><br><span class="line">	&lt;!--</span><br><span class="line">	&lt;link rel=<span class="string">"stylesheet"</span> type=<span class="string">"text/css"</span> href=<span class="string">"styles.css"</span>&gt;</span><br><span class="line">	--&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    This is my JSP page. &lt;br&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;form action=<span class="string">"./xixi/haha/register.php"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">    	</span><br><span class="line">	&lt;input type=<span class="string">"text"</span> name=<span class="string">"userName"</span> /&gt;	&lt;br&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;input type=<span class="string">"radio"</span> name=<span class="string">"sex"</span> value=<span class="string">"nan"</span> checked&gt;男</span><br><span class="line">	&lt;input type=<span class="string">"radio"</span> name=<span class="string">"sex"</span> value=<span class="string">"nv"</span> &gt;女</span><br><span class="line">	&lt;br&gt;</span><br><span class="line">	</span><br><span class="line">&lt;input type=<span class="string">"checkbox"</span> name=<span class="string">"interest"</span> value=<span class="string">"movie"</span>&gt;看电视</span><br><span class="line">&lt;input type=<span class="string">"checkbox"</span> name=<span class="string">"interest"</span> 	value=<span class="string">"computer"</span>&gt;玩电脑</span><br><span class="line">&lt;input type=<span class="string">"checkbox"</span> name=<span class="string">"interest"</span> 	value=<span class="string">"shopping"</span>&gt;购物</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">&lt;select name=<span class="string">"city"</span>&gt;</span><br><span class="line">   &lt;option value="beijing"&gt;北京&lt;/option&gt;</span><br><span class="line">   &lt;option value="shanghai"&gt;上海&lt;/option&gt;</span><br><span class="line">   &lt;option value="wuxi"&gt;无锡&lt;/option&gt;</span><br><span class="line">   &lt;option value="dalian"&gt;大连&lt;/option&gt;</span><br><span class="line">   &lt;option value="etc"&gt;其他&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;textarea name=<span class="string">"comment"</span> rows=<span class="string">"10"</span> cols=<span class="string">"40"</span>&gt;感谢使用本系统</span><br><span class="line">&lt;/textarea&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    	&lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>/&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    </span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Java个人笔记/" rel="tag"># Java个人笔记</a>
+          
+            <a href="/tags/Servlet/" rel="tag"># Servlet</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/02/14/" rel="next" title="JavaWeb服务器-Tomcat">
+                <i class="fa fa-chevron-left"></i> JavaWeb服务器-Tomcat
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/02/16/" rel="prev" title="JavaWeb会话跟踪">
+                JavaWeb会话跟踪 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/123.jpg" alt="LYH">
+            
+              <p class="site-author-name" itemprop="name">LYH</p>
+              <div class="site-description motion-element" itemprop="description">Don't Stop</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/1336308520" title="GitHub &rarr; https://github.com/1336308520" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:1336308520@qq.com" title="E-Mail &rarr; mailto:1336308520@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-hand-o-down"></i>
+                百度
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://hao123.com" title="http://hao123.com" rel="noopener" target="_blank">百度搜不到丶</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+		  
+		    <br>
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29486871&auto=1&height=66"></iframe>
+  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet简介"><span class="nav-number">1.</span> <span class="nav-text">Servlet简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet容器"><span class="nav-number">2.</span> <span class="nav-text">Servlet容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javax-servlet-http包中接口"><span class="nav-number">3.</span> <span class="nav-text">Javax.servlet.http包中接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HttpServlet注意事项"><span class="nav-number">4.</span> <span class="nav-text">HttpServlet注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#http请求方式"><span class="nav-number">5.</span> <span class="nav-text">http请求方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码示例-HelloServlet"><span class="nav-number">5.1.</span> <span class="nav-text">代码示例   HelloServlet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web-xml中配置Servlet"><span class="nav-number">6.</span> <span class="nav-text">Web.xml中配置Servlet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet总结"><span class="nav-number">7.</span> <span class="nav-text">Servlet总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet表单处理"><span class="nav-number">8.</span> <span class="nav-text">Servlet表单处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html表单"><span class="nav-number">8.1.</span> <span class="nav-text">Html表单</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HttpServletRequest常用方法"><span class="nav-number">9.</span> <span class="nav-text">HttpServletRequest常用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Html传值方式"><span class="nav-number">10.</span> <span class="nav-text">Html传值方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#页面重定向（1）"><span class="nav-number">11.</span> <span class="nav-text">页面重定向（1）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#页面重定向（2）"><span class="nav-number">12.</span> <span class="nav-text">页面重定向（2）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两种跳转方式对比"><span class="nav-number">13.</span> <span class="nav-text">两种跳转方式对比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#乱码问题"><span class="nav-number">14.</span> <span class="nav-text">乱码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#response乱码"><span class="nav-number">14.1.</span> <span class="nav-text">response乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request-post乱码"><span class="nav-number">14.2.</span> <span class="nav-text">request-post乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request-get乱码"><span class="nav-number">14.3.</span> <span class="nav-text">request-get乱码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例代码"><span class="nav-number">15.</span> <span class="nav-text">实例代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MyServlet"><span class="nav-number">15.1.</span> <span class="nav-text">MyServlet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zhuce"><span class="nav-number">15.2.</span> <span class="nav-text">Zhuce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-xml"><span class="nav-number">15.3.</span> <span class="nav-text">Web.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#index-jsp"><span class="nav-number">15.4.</span> <span class="nav-text">index.jsp</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LYH</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Navicat下自实现主键自增功能]]></title>
+    <url>%2F2019%2F08%2F03%2F18%2F</url>
+    <content type="text"><![CDATA[Navicat下自实现主键自增功能通过构建序列和触发器完成 首先构建一个序列 构建触发器 条件写 new. “id” is null 定义语句里面写 12select SEQ_S.nextval into:new."id" from dual;//其中SEQ_S是前面建立的序列的名称 一定要加引号 一定要加引号 一定要加引号]]></content>
+      <categories>
+        <category>数据库学习</category>
+      </categories>
+      <tags>
+        <tag>数据库学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Oracle在DOS下无法管理登录-ORA-01031]]></title>
     <url>%2F2019%2F08%2F03%2F17%2F</url>
     <content type="text"><![CDATA[ORA-01031: insufficient privileges解决办法打开用户组管理输入 lusrmgr.msc 双击ora_dba 点击添加按钮 点击高级按钮 点击立即查找，添加用户（添加用户为本机用户） 成功]]></content>

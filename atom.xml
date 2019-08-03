@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://133608520.github.io/"/>
-  <updated>2019-08-03T08:44:23.486Z</updated>
+  <updated>2019-08-03T11:23:49.369Z</updated>
   <id>https://133608520.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Navicat下自实现主键自增功能</title>
+    <link href="https://133608520.github.io/2019/08/03/18/"/>
+    <id>https://133608520.github.io/2019/08/03/18/</id>
+    <published>2019-08-03T11:09:06.000Z</published>
+    <updated>2019-08-03T11:23:49.369Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Navicat下自实现主键自增功能"><a href="#Navicat下自实现主键自增功能" class="headerlink" title="Navicat下自实现主键自增功能"></a>Navicat下自实现主键自增功能</h1><p><strong>通过构建序列和触发器完成</strong></p><ul><li><p><strong>首先构建一个序列</strong></p></li><li><p><strong>构建触发器</strong></p><ul><li><p>条件写 <font color="staleblue">new. <u><strong>“id”</strong></u>  is null</font></p></li><li><p>定义语句里面写</p><ul><li><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SEQ_S.nextval <span class="keyword">into</span>:new.<span class="string">"id"</span> <span class="keyword">from</span> dual;</span><br><span class="line">//其中SEQ_S是前面建立的序列的名称</span><br></pre></td></tr></table></figure></li></ul></li></ul></li></ul><p><font color="slateblue" size="8"><strong>一定要加引号</strong></font></p><p><font color="slateblue" size="8"><strong>一定要加引号</strong></font></p><p><font color="slateblue" size="8"><strong>一定要加引号</strong></font></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Navicat下自实现主键自增功能&quot;&gt;&lt;a href=&quot;#Navicat下自实现主键自增功能&quot; class=&quot;headerlink&quot; title=&quot;Navicat下自实现主键自增功能&quot;&gt;&lt;/a&gt;Navicat下自实现主键自增功能&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;通过
+      
+    
+    </summary>
+    
+      <category term="数据库学习" scheme="https://133608520.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="数据库学习" scheme="https://133608520.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>Oracle在DOS下无法管理登录-ORA-01031</title>

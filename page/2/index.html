@@ -357,6 +357,470 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/08/02/14/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LYH"/>
+      <meta itemprop="description" content="Don't Stop"/>
+      <meta itemprop="image" content="/images/123.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="百度搜不到丶的博客"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/02/14/" class="post-title-link" itemprop="url">JavaWeb服务器-Tomcat</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-02 17:45:56 / 修改时间：18:45:57" itemprop="dateCreated datePublished" datetime="2019-08-02T17:45:56+08:00">2019-08-02</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaWeb服务器-Tomcat/" itemprop="url" rel="index"><span itemprop="name">JavaWeb服务器-Tomcat</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Http详解"><a href="#Http详解" class="headerlink" title="Http详解"></a>Http详解</h1><blockquote>
+<p><strong>引言<br>HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。目前在WWW中使用的是HTTP/1.0的第六版，HTTP/1.1的规范化工作正在进行之中，而且HTTP-NG(Next Generation of HTTP)的建议已经提出。</strong><br><strong>HTTP协议的主要特点可概括如下：</strong><br><strong>1.支持客户/服务器模式。</strong><br><strong>2.简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。</strong><br><strong>3.灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。</strong><br><strong>4.无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</strong><br><strong>5.无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</strong></p>
+<p><strong>一、HTTP协议详解之URL篇</strong><br>    <strong>http（超文本传输协议）是一个基于请求与响应模式的、无状态的、应用层的协议，常基于TCP的连接方式，HTTP1.1版本中给出一种持续连接的机制，绝大多数的Web开发，都是构建在HTTP协议之上的Web应用。</strong><br><strong>HTTP URL (URL是一种特殊类型的URI，包含了用于查找某个资源的足够的信息)的格式如下：</strong><br><strong><a href="http://host[&quot;:&quot;port][abs_path]" target="_blank" rel="noopener">http://host[&quot;:&quot;port][abs_path]</a></strong><br><strong>http表示要通过HTTP协议来定位网络资源；host表示合法的Internet主机域名或者IP地址；port指定一个端口号，为空则使用缺省端口80；abs_path指定请求资源的URI；如果URL中没有给出abs_path，那么当它作为请求URI时，必须以“/”的形式给出，通常这个工作浏览器自动帮我们完成。</strong><br><strong>eg:</strong><br><strong>1、输入：<a href="http://www.guet.edu.cn" target="_blank" rel="noopener">www.guet.edu.cn</a></strong><br><strong>浏览器自动转换成：<a href="http://www.guet.edu.cn/" target="_blank" rel="noopener">http://www.guet.edu.cn/</a></strong><br><strong>2、http:192.168.0.116:8080/index.jsp</strong> </p>
+<p><strong>二、HTTP协议详解之请求篇</strong><br>    <strong>http请求由三部分组成，分别是：请求行、消息报头、请求正文</strong><br><strong>1、请求行以一个方法符号开头，以空格分开，后面跟着请求的URI和协议的版本，格式如下：Method Request-URI HTTP-Version CRLF<br>其中 Method表示请求方法；Request-URI是一个统一资源标识符；HTTP-Version表示请求的HTTP协议版本；CRLF表示回车和换行（除了作为结尾的CRLF外，不允许出现单独的CR或LF字符）。</strong><br><strong>请求方法（所有方法全为大写）有多种，各个方法的解释如下：</strong><br><strong>GET     请求获取Request-URI所标识的资源</strong><br><strong>POST    在Request-URI所标识的资源后附加新的数据</strong><br><strong>HEAD    请求获取由Request-URI所标识的资源的响应消息报头</strong><br><strong>PUT     请求服务器存储一个资源，并用Request-URI作为其标识</strong><br><strong>DELETE  请求服务器删除Request-URI所标识的资源</strong><br><strong>TRACE   请求服务器回送收到的请求信息，主要用于测试或诊断</strong><br><strong>CONNECT 保留将来使用</strong><br><strong>OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求</strong><br><strong>应用举例：</strong><br><strong>GET方法：在浏览器的地址栏中输入网址的方式访问网页时，浏览器采用GET方法向服务器获取资源，eg:GET /form.html HTTP/1.1 (CRLF)</strong><br><strong>POST方法要求被请求服务器接受附在请求后面的数据，常用于提交表单。</strong><br><strong>eg：POST /reg.jsp HTTP/ (CRLF)</strong><br><strong>Accept:image/gif,image/x-xbit,… (CRLF)</strong><br><strong>…</strong><br><strong>HOST:<a href="http://www.guet.edu.cn" target="_blank" rel="noopener">www.guet.edu.cn</a> (CRLF)</strong><br><strong>Content-Length:22 (CRLF)</strong><br><strong>Connection:Keep-Alive (CRLF)</strong><br><strong>Cache-Control:no-cache (CRLF)</strong><br><strong>(CRLF)         //该CRLF表示消息报头已经结束，在此之前为消息报头</strong><br><strong>user=jeffrey&amp;pwd=1234  //此行以下为提交的数据</strong><br><strong>HEAD方法与GET方法几乎是一样的，对于HEAD请求的回应部分来说，它的HTTP头部中包含的信息与通过GET请求所得到的信息是相同的。利用这个方法，不必传输整个资源内容，就可以得到Request-URI所标识的资源的信息。该方法常用于测试超链接的有效性，是否可以访问，以及最近是否更新。</strong><br><strong>2、请求报头后述</strong><br><strong>3、请求正文(略)</strong> </p>
+<p><strong>三、HTTP协议详解之响应篇</strong><br>    <strong>在接收和解释请求消息后，服务器返回一个HTTP响应消息。</strong><br><strong>HTTP响应也是由三个部分组成，分别是：状态行、消息报头、响应正文</strong><br><strong>1、状态行格式如下：</strong><br><strong>HTTP-Version Status-Code Reason-Phrase CRLF</strong><br><strong>其中，HTTP-Version表示服务器HTTP协议的版本；Status-Code表示服务器发回的响应状态代码；Reason-Phrase表示状态代码的文本描述。</strong><br><strong>状态代码有三位数字组成，第一个数字定义了响应的类别，且有五种可能取值：</strong><br><strong>1xx：指示信息–表示请求已接收，继续处理</strong><br><strong>2xx：成功–表示请求已被成功接收、理解、接受</strong><br><strong>3xx：重定向–要完成请求必须进行更进一步的操作</strong><br><strong>4xx：客户端错误–请求有语法错误或请求无法实现</strong><br><strong>5xx：服务器端错误–服务器未能实现合法的请求</strong><br><strong>常见状态代码、状态描述、说明：</strong><br><strong>200 OK      //客户端请求成功</strong><br><strong>400 Bad Request  //客户端请求有语法错误，不能被服务器所理解</strong><br><strong>401 Unauthorized //请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用</strong><br><strong>403 Forbidden  //服务器收到请求，但是拒绝提供服务</strong><br><strong>404 Not Found  //请求资源不存在，eg：输入了错误的URL</strong><br><strong>500 Internal Server Error //服务器发生不可预期的错误</strong><br><strong>503 Server Unavailable  //服务器当前不能处理客户端的请求，一段时间后可能恢复正常</strong><br><strong>eg：HTTP/1.1 200 OK （CRLF）</strong><br><strong>2、响应报头后述</strong><br><strong>3、响应正文就是服务器返回的资源的内容</strong> </p>
+<p><strong>四、HTTP协议详解之消息报头篇</strong><br>    <strong>HTTP消息由客户端到服务器的请求和服务器到客户端的响应组成。请求消息和响应消息都是由开始行（对于请求消息，开始行就是请求行，对于响应消息，开始行就是状态行），消息报头（可选），空行（只有CRLF的行），消息正文（可选）组成。</strong><br><strong>HTTP消息报头包括普通报头、请求报头、响应报头、实体报头。</strong><br><strong>每一个报头域都是由名字+“：”+空格+值 组成，消息报头域的名字是大小写无关的。</strong><br><strong>1、普通报头</strong><br><strong>在普通报头中，有少数报头域用于所有的请求和响应消息，但并不用于被传输的实体，只用于传输的消息。</strong><br><strong>eg：</strong><br><strong>Cache-Control   用于指定缓存指令，缓存指令是单向的（响应中出现的缓存指令在请求中未必会出现），且是独立的（一个消息的缓存指令不会影响另一个消息处理的缓存机制），HTTP1.0使用的类似的报头域为Pragma。</strong><br><strong>请求时的缓存指令包括：no-cache（用于指示请求或响应消息不能缓存）、no-store、max-age、max-stale、min-fresh、only-if-cached;</strong><br><strong>响应时的缓存指令包括：public、private、no-cache、no-store、no-transform、must-revalidate、proxy-revalidate、max-age、s-maxage.</strong><br><strong>eg：为了指示IE浏览器（客户端）不要缓存页面，服务器端的JSP程序可以编写如下：response.sehHeader(“Cache-Control”,”no-cache”);</strong><br><strong>//response.setHeader(“Pragma”,”no-cache”);作用相当于上述代码，通常两者//合用</strong><br><strong>这句代码将在发送的响应消息中设置普通报头域：Cache-Control:no-cache</strong></p>
+<p><strong>Date普通报头域表示消息产生的日期和时间</strong><br><strong>Connection普通报头域允许发送指定连接的选项。例如指定连接是连续，或者指定“close”选项，通知服务器，在响应完成后，关闭连接</strong><br><strong>2、请求报头</strong><br><strong>请求报头允许客户端向服务器端传递请求的附加信息以及客户端自身的信息。</strong><br><strong>常用的请求报头</strong><br><strong>Accept</strong><br><strong>Accept请求报头域用于指定客户端接受哪些类型的信息。eg：Accept：image/gif，表明客户端希望接受GIF图象格式的资源；Accept：text/html，表明客户端希望接受html文本。</strong><br><strong>Accept-Charset</strong><br><strong>Accept-Charset请求报头域用于指定客户端接受的字符集。eg：Accept-Charset:iso-8859-1,gb2312.如果在请求消息中没有设置这个域，缺省是任何字符集都可以接受。</strong><br><strong>Accept-Encoding</strong><br><strong>Accept-Encoding请求报头域类似于Accept，但是它是用于指定可接受的内容编码。eg：Accept-Encoding:gzip.deflate.如果请求消息中没有设置这个域服务器假定客户端对各种内容编码都可以接受。</strong><br><strong>Accept-Language</strong><br><strong>Accept-Language请求报头域类似于Accept，但是它是用于指定一种自然语言。eg：Accept-Language:zh-cn.如果请求消息中没有设置这个报头域，服务器假定客户端对各种语言都可以接受。</strong><br><strong>Authorization</strong><br><strong>Authorization请求报头域主要用于证明客户端有权查看某个资源。当浏览器访问一个页面时，如果收到服务器的响应代码为401（未授权），可以发送一个包含Authorization请求报头域的请求，要求服务器对其进行验证。</strong><br><strong>Host（发送请求时，该报头域是必需的）</strong><br><strong>Host请求报头域主要用于指定被请求资源的Internet主机和端口号，它通常从HTTP URL中提取出来的，eg：</strong><br><strong>我们在浏览器中输入：<a href="http://www.guet.edu.cn/index.html" target="_blank" rel="noopener">http://www.guet.edu.cn/index.html</a></strong><br><strong>浏览器发送的请求消息中，就会包含Host请求报头域，如下：</strong><br><strong>Host：<a href="http://www.guet.edu.cn" target="_blank" rel="noopener">www.guet.edu.cn</a></strong><br><strong>此处使用缺省端口号80，若指定了端口号，则变成：Host：<a href="http://www.guet.edu.cn:指定端口号" target="_blank" rel="noopener">www.guet.edu.cn:指定端口号</a></strong><br><strong>User-Agent</strong><br><strong>我们上网登陆论坛的时候，往往会看到一些欢迎信息，其中列出了你的操作系统的名称和版本，你所使用的浏览器的名称和版本，这往往让很多人感到很神奇，实际上，服务器应用程序就是从User-Agent这个请求报头域中获取到这些信息。User-Agent请求报头域允许客户端将它的操作系统、浏览器和其它属性告诉服务器。不过，这个报头域不是必需的，如果我们自己编写一个浏览器，不使用User-Agent请求报头域，那么服务器端就无法得知我们的信息了。</strong><br><strong>请求报头举例：</strong><br><strong>GET /form.html HTTP/1.1 (CRLF)</strong><br><strong>Accept:image/gif,image/x-xbitmap,image/jpeg,application/x-shockwave-flash,application/vnd.ms-excel,application/vnd.ms-powerpoint,application/msword,<em>/</em> (CRLF)</strong><br><strong>Accept-Language:zh-cn (CRLF)</strong><br><strong>Accept-Encoding:gzip,deflate (CRLF)</strong><br><strong>If-Modified-Since:Wed,05 Jan 2007 11:21:25 GMT (CRLF)</strong><br><strong>If-None-Match:W/“80b1a4c018f3c41:8317” (CRLF)</strong><br><strong>User-Agent:Mozilla/4.0(compatible;MSIE6.0;Windows NT 5.0) (CRLF)</strong><br><strong>Host:<a href="http://www.guet.edu.cn" target="_blank" rel="noopener">www.guet.edu.cn</a> (CRLF)</strong><br><strong>Connection:Keep-Alive (CRLF)</strong><br><strong>(CRLF)</strong><br><strong>3、响应报头</strong><br><strong>响应报头允许服务器传递不能放在状态行中的附加响应信息，以及关于服务器的信息和对Request-URI所标识的资源进行下一步访问的信息。</strong><br><strong>常用的响应报头</strong><br><strong>Location</strong><br><strong>Location响应报头域用于重定向接受者到一个新的位置。Location响应报头域常用在更换域名的时候。</strong><br><strong>Server</strong><br><strong>Server响应报头域包含了服务器用来处理请求的软件信息。与User-Agent请求报头域是相对应的。下面是</strong><br><strong>Server响应报头域的一个例子：</strong><br><strong>Server：Apache-Coyote/1.1</strong><br><strong>WWW-Authenticate</strong><br><strong>WWW-Authenticate响应报头域必须被包含在401（未授权的）响应消息中，客户端收到401响应消息时候，并发送Authorization报头域请求服务器对其进行验证时，服务端响应报头就包含该报头域。</strong><br><strong>eg：WWW-Authenticate:Basic realm=”Basic Auth Test!”  //可以看出服务器对请求资源采用的是基本验证机制。</strong></p>
+<p><strong>4、实体报头</strong><br><strong>请求和响应消息都可以传送一个实体。一个实体由实体报头域和实体正文组成，但并不是说实体报头域和实体正文要在一起发送，可以只发送实体报头域。实体报头定义了关于实体正文（eg：有无实体正文）和请求所标识的资源的元信息。</strong><br><strong>常用的实体报头</strong><br><strong>Content-Encoding</strong><br><strong>Content-Encoding实体报头域被用作媒体类型的修饰符，它的值指示了已经被应用到实体正文的附加内容的编码，因而要获得Content-Type报头域中所引用的媒体类型，必须采用相应的解码机制。Content-Encoding这样用于记录文档的压缩方法，eg：Content-Encoding：gzip</strong><br><strong>Content-Language</strong><br><strong>Content-Language实体报头域描述了资源所用的自然语言。没有设置该域则认为实体内容将提供给所有的语言阅读</strong><br><strong>者。eg：Content-Language:da</strong><br><strong>Content-Length</strong><br><strong>Content-Length实体报头域用于指明实体正文的长度，以字节方式存储的十进制数字来表示。</strong><br><strong>Content-Type</strong><br><strong>Content-Type实体报头域用语指明发送给接收者的实体正文的媒体类型。eg：</strong><br><strong>Content-Type:text/html;charset=ISO-8859-1</strong><br><strong>Content-Type:text/html;charset=GB2312</strong><br><strong>Last-Modified</strong><br><strong>Last-Modified实体报头域用于指示资源的最后修改日期和时间。</strong><br><strong>Expires</strong><br><strong>Expires实体报头域给出响应过期的日期和时间。为了让代理服务器或浏览器在一段时间以后更新缓存中(再次访问曾访问过的页面时，直接从缓存中加载，缩短响应时间和降低服务器负载)的页面，我们可以使用Expires实体报头域指定页面过期的时间。eg：Expires：Thu，15 Sep 2006 16:23:12 GMT</strong><br><strong>HTTP1.1的客户端和缓存必须将其他非法的日期格式（包括0）看作已经过期。eg：为了让浏览器不要缓存页面，我们也可以利用Expires实体报头域，设置为0，jsp中程序如下：response.setDateHeader(“Expires”,”0”);</strong></p>
+<p><strong>五、利用telnet观察http协议的通讯过程</strong><br>    <strong>实验目的及原理：</strong><br>    <strong>利用MS的telnet工具，通过手动输入http请求信息的方式，向服务器发出请求，服务器接收、解释和接受请求后，会返回一个响应，该响应会在telnet窗口上显示出来，从而从感性上加深对http协议的通讯过程的认识。</strong><br>    <strong>实验步骤：</strong><br><strong>1、打开telnet</strong><br><strong>1.1 打开telnet</strong><br><strong>运行–&gt;cmd–&gt;telnet</strong><br><strong>1.2 打开telnet回显功能</strong><br><strong>set localecho</strong><br><strong>2、连接服务器并发送请求</strong><br><strong>2.1 open <a href="http://www.guet.edu.cn" target="_blank" rel="noopener">www.guet.edu.cn</a> 80  //注意端口号不能省略</strong><br>    <strong>HEAD /index.asp HTTP/1.0</strong><br>    <strong>Host:<a href="http://www.guet.edu.cn" target="_blank" rel="noopener">www.guet.edu.cn</a></strong></p>
+<p>   <strong>/<em>我们可以变换请求方法,请求桂林电子主页内容,输入消息如下</em>/</strong><br>    <strong>open <a href="http://www.guet.edu.cn" target="_blank" rel="noopener">www.guet.edu.cn</a> 80</strong> </p>
+<pre><code>GET /index.asp HTTP/1.0  //请求资源的内容
+Host:www.guet.edu.cn  </code></pre><p><strong>2.2 open <a href="http://www.sina.com.cn" target="_blank" rel="noopener">www.sina.com.cn</a> 80  //在命令提示符号下直接输入telnet <a href="http://www.sina.com.cn" target="_blank" rel="noopener">www.sina.com.cn</a> 80</strong><br>    <strong>HEAD /index.asp HTTP/1.0</strong><br>    <strong>Host:<a href="http://www.sina.com.cn" target="_blank" rel="noopener">www.sina.com.cn</a></strong></p>
+<p><strong>3 实验结果：</strong><br><strong>3.1 请求信息2.1得到的响应是:</strong><br><strong>HTTP/1.1 200 OK                                              //请求成功</strong><br><strong>Server: Microsoft-IIS/5.0                                    //web服务器</strong><br><strong>Date: Thu,08 Mar 200707:17:51 GMT</strong><br><strong>Connection: Keep-Alive<br>Content-Length: 23330</strong><br><strong>Content-Type: text/html</strong><br><strong>Expries: Thu,08 Mar 2007 07:16:51 GMT</strong><br><strong>Set-Cookie: ASPSESSIONIDQAQBQQQB=BEJCDGKADEDJKLKKAJEOIMMH; path=/</strong><br><strong>Cache-control: private</strong><br><strong>//资源内容省略</strong><br><strong>3.2 请求信息2.2得到的响应是:</strong><br><strong>HTTP/1.0 404 Not Found       //请求失败</strong><br><strong>Date: Thu, 08 Mar 2007 07:50:50 GMT</strong><br><strong>Server: Apache/2.0.54 <unix></unix></strong><br><strong>Last-Modified: Thu, 30 Nov 2006 11:35:41 GMT</strong><br><strong>ETag: “6277a-415-e7c76980”</strong><br><strong>Accept-Ranges: bytes</strong><br><strong>X-Powered-By: mod_xlayout_jh/0.0.1vhs.markII.remix</strong><br><strong>Vary: Accept-Encoding</strong><br><strong>Content-Type: text/html</strong><br><strong>X-Cache: MISS from zjm152-78.sina.com.cn</strong><br><strong>Via: 1.0 zjm152-78.sina.com.cn:80&lt;squid/2.6.STABLES-20061207&gt;</strong><br><strong>X-Cache: MISS from th-143.sina.com.cn</strong><br><strong>Connection: close</strong></p>
+<p><strong>失去了跟主机的连接</strong><br><strong>按任意键继续…</strong><br><strong>4 .注意事项：1、出现输入错误，则请求不会成功。</strong><br>          <strong>2、报头域不分大小写。</strong><br>          <strong>3、更深一步了解HTTP协议，可以查看RFC2616，在<a href="http://www.letf.org/rfc上找到该文件。" target="_blank" rel="noopener">http://www.letf.org/rfc上找到该文件。</a></strong><br>          <strong>4、开发后台程序必须掌握http协议</strong><br><strong>六、HTTP协议相关技术补充</strong><br>    <strong>1、基础：</strong><br>    <strong>高层协议有：文件传输协议FTP、电子邮件传输协议SMTP、域名系统服务DNS、网络新闻传输协议NNTP和HTTP协议等</strong><br><strong>中介由三种：代理(Proxy)、网关(Gateway)和通道(Tunnel)，一个代理根据URI的绝对格式来接受请求，重写全部或部分消息，通过 URI的标识把已格式化过的请求发送到服务器。网关是一个接收代理，作为一些其它服务器的上层，并且如果必须的话，可以把请求翻译给下层的服务器协议。一 个通道作为不改变消息的两个连接之间的中继点。当通讯需要通过一个中介(例如：防火墙等)或者是中介不能识别消息的内容时，通道经常被使用。</strong><br>     <strong>代理(Proxy)：一个中间程序，它可以充当一个服务器，也可以充当一个客户机，为其它客户机建立请求。请求是通过可能的翻译在内部或经过传递到其它的 服务器中。一个代理在发送请求信息之前，必须解释并且如果可能重写它。代理经常作为通过防火墙的客户机端的门户，代理还可以作为一个帮助应用来通过协议处 理没有被用户代理完成的请求。</strong><br><strong>网关(Gateway)：一个作为其它服务器中间媒介的服务器。与代理不同的是，网关接受请求就好象对被请求的资源来说它就是源服务器；发出请求的客户机并没有意识到它在同网关打交道。</strong><br><strong>网关经常作为通过防火墙的服务器端的门户，网关还可以作为一个协议翻译器以便存取那些存储在非HTTP系统中的资源。</strong><br>    <strong>通道(Tunnel)：是作为两个连接中继的中介程序。一旦激活，通道便被认为不属于HTTP通讯，尽管通道可能是被一个HTTP请求初始化的。当被中继 的连接两端关闭时，通道便消失。当一个门户(Portal)必须存在或中介(Intermediary)不能解释中继的通讯时通道被经常使用。</strong></p>
+<p><strong>2、协议分析的优势—HTTP分析器检测网络攻击</strong><br><strong>以模块化的方式对高层协议进行分析处理，将是未来入侵检测的方向。</strong><br><strong>HTTP及其代理的常用端口80、3128和8080在network部分用port标签进行了规定</strong></p>
+<p><strong>3、HTTP协议Content Lenth限制漏洞导致拒绝服务攻击</strong><br><strong>使用POST方法时，可以设置ContentLenth来定义需要传送的数据长度，例如ContentLenth:999999999，在传送完成前，内 存不会释放，攻击者可以利用这个缺陷，连续向WEB服务器发送垃圾数据直至WEB服务器内存耗尽。这种攻击方法基本不会留下痕迹。</strong><br><strong><a href="http://www.cnpaf.net/Class/HTTP/0532918532667330.html" target="_blank" rel="noopener">http://www.cnpaf.net/Class/HTTP/0532918532667330.html</a></strong></p>
+<p><strong>4、利用HTTP协议的特性进行拒绝服务攻击的一些构思</strong><br><strong>服务器端忙于处理攻击者伪造的TCP连接请求而无暇理睬客户的正常请求（毕竟客户端的正常请求比率非常之小），此时从正常客户的角度看来，服务器失去响应，这种情况我们称作：服务器端受到了SYNFlood攻击（SYN洪水攻击）。</strong><br><strong>而Smurf、TearDrop等是利用ICMP报文来Flood和IP碎片攻击的。本文用“正常连接”的方法来产生拒绝服务攻击。</strong><br><strong>19端口在早期已经有人用来做Chargen攻击了，即Chargen_Denial_of_Service，但是！他们用的方法是在两台Chargen 服务器之间产生UDP连接，让服务器处理过多信息而DOWN掉，那么，干掉一台WEB服务器的条件就必须有2个：1.有Chargen服务2.有HTTP 服务</strong><br><strong>方法：攻击者伪造源IP给N台Chargen发送连接请求（Connect），Chargen接收到连接后就会返回每秒72字节的字符流（实际上根据网络实际情况，这个速度更快）给服务器。</strong></p>
+<p><strong>5、Http指纹识别技术</strong><br>   <strong>Http指纹识别的原理大致上也是相同的：记录不同服务器对Http协议执行中的微小差别进行识别.Http指纹识别比TCP/IP堆栈指纹识别复杂许 多,理由是定制Http服务器的配置文件、增加插件或组件使得更改Http的响应信息变的很容易,这样使得识别变的困难；然而定制TCP/IP堆栈的行为 需要对核心层进行修改,所以就容易识别.</strong><br>      <strong>要让服务器返回不同的Banner信息的设置是很简单的,象Apache这样的开放源代码的Http服务器,用户可以在源代码里修改Banner信息,然 后重起Http服务就生效了；对于没有公开源代码的Http服务器比如微软的IIS或者是Netscape,可以在存放Banner信息的Dll文件中修 改,相关的文章有讨论的,这里不再赘述,当然这样的修改的效果还是不错的.另外一种模糊Banner信息的方法是使用插件。</strong><br><strong>常用测试请求：</strong><br><strong>1：HEAD/Http/1.0发送基本的Http请求</strong><br><strong>2：DELETE/Http/1.0发送那些不被允许的请求,比如Delete请求</strong><br><strong>3：GET/Http/3.0发送一个非法版本的Http协议请求</strong><br><strong>4：GET/JUNK/1.0发送一个不正确规格的Http协议请求</strong><br><strong>Http指纹识别工具Httprint,它通过运用统计学原理,组合模糊的逻辑学技术,能很有效的确定Http服务器的类型.它可以被用来收集和分析不同Http服务器产生的签名。</strong></p>
+<p><strong>6、其他：为了提高用户使用浏览器时的性能，现代浏览器还支持并发的访问方式，浏览一个网页时同时建立多个连接，以迅速获得一个网页上的多个图标，这样能更快速完成整个网页的传输。</strong><br><strong>HTTP1.1中提供了这种持续连接的方式，而下一代HTTP协议：HTTP-NG更增加了有关会话控制、丰富的内容协商等方式的支持，来提供</strong><br><strong>更高效率的连接。</strong></p>
+</blockquote>
+<h1 id="Java-Web服务器-Tomcat"><a href="#Java-Web服务器-Tomcat" class="headerlink" title="Java Web服务器-Tomcat"></a>Java Web服务器-Tomcat</h1><h2 id="CS-BS对比"><a href="#CS-BS对比" class="headerlink" title="CS/BS对比"></a>CS/BS对比</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>Web应用</th>
+<th>桌面应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优点</td>
+<td><strong>1.标准化的开发，发布和浏览方式<br>2.客户机不需要安装专门的客户程序，只要安装浏览器即可<br>3.软件升级容易<br>4.易于在异构平台上进行配置集成<br>5.降低对用户的培训费用</strong></td>
+<td><strong>1.交互性好  <br>     2.运行性能好<br>     3.网络负载小<br>     4.非常安全<br>     5.易于维护和跟踪用户的状态</strong></td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>1.客户界面开发不如桌面应用程序方便，难以实现复杂的客户界面。<br>2.响应速度慢，难以满足实时系统的需求。</td>
+<td>1.系统整合型差<br>2.配置和维护成本高<br>3.对客户机的要求高<br>4.用户培训时间长<br>5.软件伸缩性差<br>6.软件复用性差</td>
+</tr>
+</tbody></table>
+<h2 id="Tomcat安装包"><a href="#Tomcat安装包" class="headerlink" title="Tomcat安装包"></a>Tomcat安装包</h2><blockquote>
+<p><strong>Tomcat官方站点</strong>：<a href="http://tomcat.apache.org" target="_blank" rel="noopener">http://tomcat.apache.org</a><br><strong>获取Tomcat安装程序包</strong><br>    tar.gz文件是Linux操作系统下的安装版本<br>    exe文件是Windows系统下的安装版本<br>    zip文件是Windows系统下的压缩版本 </p>
+</blockquote>
+<h2 id="启动Tomcat"><a href="#启动Tomcat" class="headerlink" title="启动Tomcat"></a>启动Tomcat</h2><blockquote>
+<p><strong>安装版</strong><br><strong>方法1：使用Tomcat服务程序</strong><br><strong>方法2：使用Tomcat程序组中的快捷菜单</strong><br><strong>方法3：使用Tomcat.exe程序</strong></p>
+<p><strong>解压版：</strong><br><strong>使用批处理程序，执行bin目录中的startup.bat</strong></p>
+</blockquote>
+<h2 id="访问Tomcat"><a href="#访问Tomcat" class="headerlink" title="访问Tomcat"></a>访问Tomcat</h2><blockquote>
+<p>启动Tomcat后，访问 <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a><br>显示界面代表安装成功</p>
+</blockquote>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><blockquote>
+<p><strong>1.JAVA_HOME环境变量：</strong><br><strong>解压版在启动Tomcat时需要用到JAVA_HOME环境变量</strong></p>
+<p><strong>2.端口号被占用：</strong><br><strong>打开conf下的server.xml，修改服务端口</strong></p>
+</blockquote>
+<h2 id="发布自己的html"><a href="#发布自己的html" class="headerlink" title="发布自己的html"></a>发布自己的html</h2><blockquote>
+<p><font color="slateblue"><strong>把写好的html页面放到webapps中，启动Tomcat，别人就可以使用浏览器通过网络访问了。</strong></font></p>
+</blockquote>
+<h2 id="Eclipse中配置Web服务器"><a href="#Eclipse中配置Web服务器" class="headerlink" title="Eclipse中配置Web服务器"></a>Eclipse中配置Web服务器</h2><blockquote>
+<p><strong>想要在Eclipse中调试web程序，必须要有Web服务器，所以我们需要在Eclipse中配置Tomcat。</strong></p>
+</blockquote>
+<h2 id="建立并发布JavaWeb应用"><a href="#建立并发布JavaWeb应用" class="headerlink" title="建立并发布JavaWeb应用"></a>建立并发布JavaWeb应用</h2><blockquote>
+<p><strong>建立一个web应用</strong><br><strong>发布JavaWeb应用(开放式目录和war</strong></p>
+</blockquote>
+<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> web.server;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.BufferedWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 不是在做服务器</span></span><br><span class="line"><span class="comment"> * 只是解释，服务器的原理</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * HTTP协议是应用层协议，基于TCP/IP协议实现</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Charles</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyServer</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		ServerSocket ser = <span class="keyword">new</span> ServerSocket(<span class="number">5678</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">			System.out.println(<span class="string">"服务端对象准备就绪，等待连接..."</span>);</span><br><span class="line">			<span class="keyword">final</span> Socket sc = ser.accept();</span><br><span class="line">			<span class="keyword">new</span> Thread()&#123;</span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">					<span class="keyword">try</span> &#123;</span><br><span class="line">						System.out.println(<span class="string">"有客户连入"</span>);</span><br><span class="line">						</span><br><span class="line">						InputStream in = <span class="keyword">new</span> ileInputStream(<span class="string">"c:/abc/05-返回顶部后回调函数.html"</span>);</span><br><span class="line">						</span><br><span class="line">						OutputStream out = sc.getOutputStream();</span><br><span class="line">						</span><br><span class="line">						<span class="keyword">byte</span>[] bs = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>*<span class="number">64</span>];</span><br><span class="line">						<span class="keyword">for</span>(<span class="keyword">int</span> len=<span class="number">0</span>;(len=in.read(bs))!=-<span class="number">1</span>;)&#123;</span><br><span class="line">							out.write(bs,<span class="number">0</span>,len);</span><br><span class="line">						&#125;</span><br><span class="line">						out.close();</span><br><span class="line">						in.close();</span><br><span class="line">						</span><br><span class="line">						</span><br><span class="line">					&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">						<span class="comment">// <span class="doctag">TODO:</span> handle exception</span></span><br><span class="line">					&#125;</span><br><span class="line">					</span><br><span class="line">				&#125;;</span><br><span class="line">			&#125;.start();</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p><strong>WEB:网页，许多网页就组成了网站</strong><br><strong>WEB服务器：支持WEB访问服务的一个电脑</strong><br><strong>WEB服务端程序：是一款软件，可以监听某个端口，等待其他人的浏览器来访问，然后把我们写好的页面内容发送过去</strong></p>
+<p><strong>JavaWeb：使用Java程序开发的网站</strong><br><strong>JavaWeb服务器：支持java语言的Web服务器</strong></p>
+<p><strong>PHPweb：支持php语言的Web服务器</strong></p>
+<p><strong>DotNetWeb：支持.NET语言的Web服务器</strong></p>
+<p><strong>WEB是基于网络的，遵循HTTP协议，默认端口：80</strong></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/27/13/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LYH"/>
+      <meta itemprop="description" content="Don't Stop"/>
+      <meta itemprop="image" content="/images/123.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="百度搜不到丶的博客"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/27/13/" class="post-title-link" itemprop="url">Web学习-2</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-27 18:55:21 / 修改时间：19:18:56" itemprop="dateCreated datePublished" datetime="2019-07-27T18:55:21+08:00">2019-07-27</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web学习/" itemprop="url" rel="index"><span itemprop="name">Web学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="JavaScript概念"><a href="#JavaScript概念" class="headerlink" title="JavaScript概念"></a>JavaScript概念</h2><blockquote>
+<p><strong>JavaScript是由Netscape公司开发，介于Java与HTML之间、基于对象事件驱动的编程语言，已经受到全球的关注。因它的开发环境简单，不需要Java编译器，而是直接运行在Web浏览器中，而因倍受Web设计者的欢迎。</strong><br><strong>JavaScript的出现，它可以使得信息和用户之间不仅只是一种显示和浏览的关系，而是实现了一种实时的、动态的、可交式的表达能力</strong> </p>
+</blockquote>
+<h2 id="JavaScript特点"><a href="#JavaScript特点" class="headerlink" title="JavaScript特点"></a>JavaScript特点</h2><blockquote>
+<ul>
+<li><strong>脚本编写语言</strong> </li>
+<li><strong>基于对象的语言</strong></li>
+<li><strong>简单性</strong> </li>
+<li><strong>安全性</strong> </li>
+<li><strong>动态性</strong> </li>
+<li><strong>跨平台性</strong></li>
+</ul>
+</blockquote>
+<p> <strong><font color="red"> JavaScript是种脚本语言，它可以用来制作与网络无关的，与用户交互作用的软件。它本身提供了非常丰富的内部对象供设计人员使用，因而说它是一种基于对象（Object Based）和事件驱动（Event Driver）的编程语言。</font></strong>  </p>
+<p>  <strong><font color="red">JavaScript是一种解释性编程语言，其源代码在发往客户端执行之前不需经过编译，而是将文本格式的字符代码发送给客户编由浏览器解释执行。</font></strong></p>
+<blockquote>
+<p><strong>JavaScript中变量声明，采用其弱类型。即变量在使用前不需作声明，而是解释器在运行时检查其数据类型，如：</strong>　　</p>
+<p><strong>x=1234;</strong>　</p>
+<p><strong>y＝”4321”;</strong></p>
+<p><strong>前者说明x为其数值型变量，而后者说明y为字符型变量。</strong></p>
+</blockquote>
+<h2 id="JavaScript程序构成"><a href="#JavaScript程序构成" class="headerlink" title="JavaScript程序构成"></a>JavaScript程序构成</h2><ol>
+<li><strong>控制语句</strong> </li>
+<li><strong>函数</strong> </li>
+<li><strong>对象</strong> </li>
+<li><strong>方法</strong> </li>
+<li><strong>属性</strong> </li>
+</ol>
+<h2 id="JS-HelloWorld"><a href="#JS-HelloWorld" class="headerlink" title="JS - HelloWorld"></a>JS - HelloWorld</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">document.write("Hello World!");</span><br><span class="line">alert("Hello World");</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JS-–-函数"><a href="#JS-–-函数" class="headerlink" title="JS – 函数"></a>JS – 函数</h2><blockquote>
+<p><strong>Function 函数名 （参数,变元）{</strong></p>
+<p><strong>函数体;.</strong></p>
+<p><strong>Return 表达式;</strong></p>
+<p><strong>}</strong></p>
+<p><strong>说明：</strong></p>
+<p><strong>当调用函数时,所用变量或字面量均可作为变元传递。</strong></p>
+<p><strong>函数由关键字Function定义。</strong></p>
+<p><strong>函数名：定义自己函数的名字。</strong></p>
+<p><strong>参数表，是传递给函数使用或操作的值，其值可以是常量 ，变量或其它表达式。</strong></p>
+<p><strong>通过指定函数名（实参）来调用一个函数。</strong></p>
+<p><strong>必须使用Return将值返回。</strong></p>
+<p><strong>函数名对大小写是敏感的。</strong></p>
+</blockquote>
+<h2 id="JS-–-事件驱动及事件处理"><a href="#JS-–-事件驱动及事件处理" class="headerlink" title="JS – 事件驱动及事件处理"></a>JS – 事件驱动及事件处理</h2><blockquote>
+<p><strong>JavaScript是基于对象(object-based)的语言，基于对象的基本特征，就是采用事件驱动(event-driven)。通常鼠标或键盘的动作我们称之为事件（Event），而由事件引发的程序的动作，称之为事件驱动（Event Driver）。对事件进行处理的程序或函数，我们称之为事件处理程序（Event Handler）</strong></p>
+</blockquote>
+<h2 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h2><p><font color="steelblue"><strong>在JavaScript中对象事件的处理通常由函数(Function)担任。其实就是在事件中调用函数。</strong></font></p>
+<h2 id="主要有以下几个事件"><a href="#主要有以下几个事件" class="headerlink" title="主要有以下几个事件"></a>主要有以下几个事件</h2><ul>
+<li><strong>单击事件onClick</strong></li>
+<li><strong>onChange改变事件</strong> </li>
+<li><strong>选中事件onSelect</strong> </li>
+<li><strong>获得焦点事件onFocus</strong></li>
+<li><strong>失去焦点onBlur</strong></li>
+<li><strong>载入文件onLoad</strong> </li>
+<li><strong>卸载文件onUnload</strong></li>
+</ul>
+<h3 id="Onchange演示"><a href="#Onchange演示" class="headerlink" title="Onchange演示"></a>Onchange演示</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">function checkmail()&#123;</span><br><span class="line">alert("修改了");</span><br><span class="line">&#125;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">size</span>=<span class="string">"30"</span> <span class="attr">id</span>=<span class="string">"email"</span> <span class="attr">onchange</span>=<span class="string">"checkmail()"</span>/&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="实战演习"><a href="#实战演习" class="headerlink" title="实战演习"></a>实战演习</h2><h3 id="JS-函数"><a href="#JS-函数" class="headerlink" title="JS-函数"></a>JS-函数</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>JS-函数<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">style</span>=<span class="string">"height:1500px;"</span>  &gt;</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">//定义函数</span><br><span class="line">function hello()&#123;</span><br><span class="line">	alert("HelloWorld");</span><br><span class="line">&#125;</span><br><span class="line">function say(hua)&#123;</span><br><span class="line">	alert(hua);</span><br><span class="line">&#125;</span><br><span class="line">function cheng(a,b)&#123;</span><br><span class="line">	return a*b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//调用函数</span><br><span class="line">hello();</span><br><span class="line">say("世界你好");</span><br><span class="line">var result = cheng(6,7);</span><br><span class="line">document.write("结果："+result);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS-事件处理"><a href="#JS-事件处理" class="headerlink" title="JS-事件处理"></a>JS-事件处理</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>JS-函数<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">style</span>=<span class="string">"height:1500px;"</span>  &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">onchange</span>=<span class="string">"alert('值被改变'+this.value);"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点这里..."</span> <span class="attr">onclick</span>=<span class="string">"dian();"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">function dian()&#123;</span><br><span class="line">	alert("按钮被点击");</span><br><span class="line">	window.location</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS-查找DOM节点"><a href="#JS-查找DOM节点" class="headerlink" title="JS-查找DOM节点"></a>JS-查找DOM节点</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>JS-查找DOM节点<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">style</span>=<span class="string">"height:1500px;"</span>  &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t1"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"bt"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"检测"</span> <span class="attr">onclick</span>=<span class="string">"dian();"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t2"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t3"</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">value</span>=<span class="string">"XIXI"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function dian()&#123;</span><br><span class="line">	//调用document对象的函数，查找id为t的元素所对应的DOM对象</span><br><span class="line">	var el = document.getElementById('t');</span><br><span class="line">	alert(el.value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//所有input元素的集合</span><br><span class="line">var ins = document.getElementsByTagName("input");</span><br><span class="line">for(var i=0;i&lt;ins.length;i++)&#123;</span><br><span class="line">	var el = ins[i];</span><br><span class="line">	//alert(el.id);</span><br><span class="line">&#125;</span><br><span class="line">//查找b节点下的input集合</span><br><span class="line">var ins = document.getElementById('b').getElementsByTagName("input");</span><br><span class="line">for(var i=0;i&lt;ins.length;i++)&#123;</span><br><span class="line">	var el = ins[i];</span><br><span class="line">	//alert(el.id);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//查找t2父亲的最后一个孩子，实验发现：DIV中会把换行当做节点，所以一个DIV需要写成一行</span><br><span class="line">var x = document.getElementById("t2").parentNode.lastChild;</span><br><span class="line">console.log(x);</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS-函数变元"><a href="#JS-函数变元" class="headerlink" title="JS-函数变元"></a>JS-函数变元</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>JS-函数变元<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">style</span>=<span class="string">"height:1500px;"</span>  &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t1"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"bt"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"检测"</span> <span class="attr">onclick</span>=<span class="string">"dian();"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t2"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t3"</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">value</span>=<span class="string">"XIXI"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">//函数中描述应该有参数，叫做形参</span><br><span class="line">function hello(a,b,c)&#123;</span><br><span class="line">	console.log("HelloWorld:");</span><br><span class="line">	console.log(a);</span><br><span class="line">	console.log(b);</span><br><span class="line">	console.log(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//1,3,5,7,等数值是调用时真实的参数，叫做实参</span><br><span class="line">hello(2,3,5,7,9);</span><br><span class="line"></span><br><span class="line">//思考：js如何做重载呢？</span><br><span class="line">//目标：两个参数求和，三个参数求积</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//JS不支持重载，后定义的function会覆盖前面的</span><br><span class="line">function xx(a,b)&#123;</span><br><span class="line">	console.log("aaaaaaa");</span><br><span class="line">&#125;</span><br><span class="line">function xx(a,b,c)&#123;</span><br><span class="line">	console.log("bbbbbbb");</span><br><span class="line">&#125;</span><br><span class="line">xx(5,6);</span><br><span class="line">xx(5,6,7);</span><br><span class="line"></span><br><span class="line">//JS使用变元机制模拟重载</span><br><span class="line">function cz(a,b,c)&#123;</span><br><span class="line">//if条件：null,'',undefined,false都为假</span><br><span class="line">	if(c!=undefined)&#123;//如果c有值</span><br><span class="line">		console.log("至少3个参数:乘法运算="+(a*b*c));</span><br><span class="line">	&#125;else if(b)&#123;</span><br><span class="line">		console.log("有2个参数:加法运算="+(a+b));</span><br><span class="line">	&#125;else if(a)&#123;</span><br><span class="line">		console.log("有1个参数");</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		console.log("没有参数");</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cz(5,6,7);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS-functino可以作为参数"><a href="#JS-functino可以作为参数" class="headerlink" title="JS-functino可以作为参数"></a>JS-functino可以作为参数</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>JS-functino可以作为参数<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">style</span>=<span class="string">"height:1500px;"</span>  &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">//js是一个基于对象的语言</span><br><span class="line"></span><br><span class="line">//给hello赋值一个匿名函数</span><br><span class="line">var hello = function()&#123;</span><br><span class="line">	alert("HelloWorld");</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//js中允许function对象作为参数传递</span><br><span class="line">function xx(fun)&#123;</span><br><span class="line">	alert("接下来给大家展示一下function");</span><br><span class="line">	fun();//执行传进来的函数</span><br><span class="line">	alert("function展示结束");</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//调用xx，把已经存在的hello传进去</span><br><span class="line">xx(hello);</span><br><span class="line"></span><br><span class="line">xx(function()&#123;</span><br><span class="line">	alert("这次没有调用Hello，这是一个匿名function");</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS-回调函数"><a href="#JS-回调函数" class="headerlink" title="JS-回调函数"></a>JS-回调函数</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>JS-回调函数<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">style</span>=<span class="string">"height:1500px;"</span>  &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">//回调：回去调用，回头调用,</span><br><span class="line">//利用回调函数可以实现类似于监听器的功能</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//这个一个function，用来输出100次HelloWorld</span><br><span class="line">//a在开始之前执行</span><br><span class="line">//b在第5次执行</span><br><span class="line">//c在结束之后执行</span><br><span class="line">function hello(a,b,c)&#123;</span><br><span class="line">	if(a)a();</span><br><span class="line">	for(var i=1;i&lt;=10;i++)&#123;</span><br><span class="line">		console.log("HelloWorld"+i);</span><br><span class="line">		if(i==5)&#123;</span><br><span class="line">			if(b)b();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if(c)c();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var start = function()&#123;</span><br><span class="line">	console.log("Start");</span><br><span class="line">&#125;;</span><br><span class="line">var hot = function()&#123;</span><br><span class="line">	console.log("中间");</span><br><span class="line">&#125;;</span><br><span class="line">var end = function()&#123;</span><br><span class="line">	console.log("Over");</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//当我们调用的时候会传进去3个function，这三个function早就存在了</span><br><span class="line">//hello在执行过程中会回来调用他们，这就叫回调</span><br><span class="line">hello(start,hot,end);</span><br><span class="line"></span><br><span class="line">//传3个匿名函数过去，还是匿名函数用着方便</span><br><span class="line">hello(function()&#123;</span><br><span class="line">	console.log("--------1");</span><br><span class="line">&#125;,function()&#123;</span><br><span class="line">	console.log("--------2");</span><br><span class="line">&#125;,function()&#123;</span><br><span class="line">	console.log("--------3");</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//只带一个回调</span><br><span class="line">hello(function()&#123;</span><br><span class="line">	console.log("开始，开始，开始，重要的事说三遍");</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS-计时器"><a href="#JS-计时器" class="headerlink" title="JS-计时器"></a>JS-计时器</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>JS-计时器<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">style</span>=<span class="string">"height:1500px;"</span>  &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击"</span> <span class="attr">onclick</span>=<span class="string">"go()"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"开始计时！"</span> <span class="attr">onClick</span>=<span class="string">"timedCount()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"txt"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"停止计时！"</span> <span class="attr">onClick</span>=<span class="string">"stopCount()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"归零！"</span> <span class="attr">onClick</span>=<span class="string">"init()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">/**</span><br><span class="line">js中没有等待功能，计时器可以模拟等待功能</span><br><span class="line">计时器是独立的，不会阻塞程序流程的进行</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">//------------- 可以暂停的计时器 ------------</span><br><span class="line">var c=0 	//记录时间</span><br><span class="line">var t		//计时器对象</span><br><span class="line">function timedCount()</span><br><span class="line">&#123;</span><br><span class="line">	document.getElementById('txt').value=c</span><br><span class="line">	c=c+1</span><br><span class="line">	t=setTimeout("timedCount()",100);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function stopCount()</span><br><span class="line">&#123;</span><br><span class="line">	clearTimeout(t);</span><br><span class="line">&#125;</span><br><span class="line">function init()&#123;</span><br><span class="line">	c=0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//--------------- 计时器是独立出来的计划任务 ------------</span><br><span class="line">function hello(n)&#123;</span><br><span class="line">	console.log("HelloWorld:"+n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function go()&#123;</span><br><span class="line">	for(var i=1;i&lt;=10;i++)&#123;</span><br><span class="line">		var str = "hello("+i+")";</span><br><span class="line">		//计时器是独立的，不会阻塞for的执行</span><br><span class="line">		setTimeout(str,1000*i);</span><br><span class="line">	&#125;</span><br><span class="line">	console.log("go执行结束");</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/27/12/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2010,478 +2474,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/20/4/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LYH"/>
-      <meta itemprop="description" content="Don't Stop"/>
-      <meta itemprop="image" content="/images/123.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="百度搜不到丶的博客"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/20/4/" class="post-title-link" itemprop="url">网络编程和线程</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-20 11:29:49 / 修改时间：12:12:21" itemprop="dateCreated datePublished" datetime="2019-07-20T11:29:49+08:00">2019-07-20</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java个人笔记/" itemprop="url" rel="index"><span itemprop="name">Java个人笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>[TOC]</p>
-<h1 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h1><p><strong>网络协议</strong><br><strong>TCP/IP</strong><br><strong>UDP</strong><br><strong>网络编程</strong><br><strong>Socket/ServerSocket</strong><br><strong>DatagramSocket</strong></p>
-<h2 id="网络协议"><a href="#网络协议" class="headerlink" title="网络协议"></a>网络协议</h2><p><strong>TCP协议是一个面向连接的、可靠的协议</strong><br>TCP(transmission control protocol)<br>是专门设计用于在不可靠的因特网上提供可靠的、端到端的字节流通信的协议。它是一种面向连接的协议。TCP连接是字节流而非报文流。<br><strong>UDP协议是一个不可靠的、无连接协议</strong><br>UDP(user datagram protocol )<br>UDP向应用程序提供了一种发送封装的原始IP数据报的方法、并且发送时无需建立连接。是一种不可靠的连接。</p>
-<h2 id="TCP编程"><a href="#TCP编程" class="headerlink" title="TCP编程"></a>TCP编程</h2><p><strong>TCP编程</strong><br>java.net.Socket<br>java.net.ServerSocket<br> <strong>TCP编程的核心思路</strong></p>
-<p>开发服务器端<br>ServerSocket ss = new ServerSocket(9000)<br>ss.accept();<br>开发客户端<br>Socket s = new Socket(“150.236.56.101”, 9000)</p>
-<p><strong>TCP编程</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">Server</th>
-<th align="center">Client</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">ServerSocket(port)</td>
-<td align="center">Socket(server,port)</td>
-</tr>
-<tr>
-<td align="center">ServerSocket.accept();</td>
-<td align="center">OutputStream</td>
-</tr>
-<tr>
-<td align="center">Socket()</td>
-<td align="center">InputStream</td>
-</tr>
-<tr>
-<td align="center">OutputStream</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">InputStream</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Socket.close()</td>
-<td align="center">Socket.close()</td>
-</tr>
-</tbody></table>
-<p><strong>总结</strong><br><strong>服务器端</strong>：<br>创建ServerSocket对象（并绑定端口）<br>调用accept方法，等待来自客户端的连接<br>调用getXXXStream方法，进行I/O<br>关闭Socket<br><strong>客户端</strong>：<br>创建Socket对象，并连接服务器<br>调用getXXXStream方法，进行I/O<br>关闭Socket</p>
-<h2 id="UDP编程"><a href="#UDP编程" class="headerlink" title="UDP编程"></a>UDP编程</h2><h3 id="UDP协议简介"><a href="#UDP协议简介" class="headerlink" title="UDP协议简介"></a>UDP协议简介</h3><p>UDP是一个无连接，不可靠的协议。即：数据的发送方只负责将数据发送出去，数据的接受方只负责接受数据。发送方和接收方不会相互确认数据的传输是否成功。</p>
-<h3 id="UDP编程-1"><a href="#UDP编程-1" class="headerlink" title="UDP编程"></a><strong>UDP编程</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java.net.DatagramSocket</span><br><span class="line">java.net. DatagramPacket</span><br></pre></td></tr></table></figure>
-
-<h3 id="UDP编程的核心思路"><a href="#UDP编程的核心思路" class="headerlink" title="UDP编程的核心思路"></a>UDP编程的核心思路</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DatagramSocket socket = <span class="keyword">new</span> DatagramSocket(<span class="number">9000</span>) <span class="comment">//接收端</span></span><br><span class="line">DatagramSocket socket = <span class="keyword">new</span> DatagramSocket() <span class="comment">//发送端</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DatagramPacket</span><br><span class="line">DatagramPacket(<span class="keyword">byte</span>[] buf, <span class="keyword">int</span> off, <span class="keyword">int</span> length)</span><br><span class="line">DatagramPacket(<span class="keyword">byte</span>[] buf, <span class="keyword">int</span> ,length, SoketAddress)</span><br><span class="line">getAddress()/getSockAddress()/getPort()/getLength()</span><br><span class="line">setAddress()/setSockAddress()/setPort()/setLength()</span><br></pre></td></tr></table></figure>
-
-<h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><p><strong>什么是线程</strong><br><strong>在一个程序中同时运行的多个独立流程，每一个独立的流程就是一个线程</strong><br><strong>线程并发</strong><br><strong>多个线程并发执行</strong><br><strong>主线程</strong><br><strong>当JVM启动之后，加载类文件，发现main方法，那么就会为main方法创建一个线程，用于main方法执行，这个为main方法创建的线程称为主线程</strong></p>
-<h2 id="Java中线程的使用"><a href="#Java中线程的使用" class="headerlink" title="Java中线程的使用"></a>Java中线程的使用</h2><p>在Java中创建线程的方法有两种</p>
-<ul>
-<li>方法一<br>继承java.lang.Thread类</li>
-<li>方法二<br>实现java.lang.Runnable接口</li>
-</ul>
-<h3 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h3><ol>
-<li>自定义一个线程类继承自Thread</li>
-<li>重写Thread的run方法</li>
-<li>创建一个该类的对象</li>
-<li>调用该类继承自Thread的start方法开启线程</li>
-</ol>
-<h3 id="Runnable接口开发线程"><a href="#Runnable接口开发线程" class="headerlink" title="Runnable接口开发线程"></a>Runnable接口开发线程</h3><ol>
-<li>用户开发一个类实现Runnable接口</li>
-<li>实现run()</li>
-<li>运行线程 </li>
-</ol>
-<h2 id="sleep方法"><a href="#sleep方法" class="headerlink" title="sleep方法"></a>sleep方法</h2><p><strong>void sleep(long time)方法用于使当前线程休眠指定的毫秒数</strong></p>
-<h2 id="join方法"><a href="#join方法" class="headerlink" title="join方法"></a>join方法</h2><ul>
-<li>利用sleep方法对线程的控制是非常不精确的</li>
-<li>join方法可以精确控制线程</li>
-<li>join方法也会导致线程阻塞</li>
-<li>特点：<strong>如果当前线程中调用了另外一个线程的 join方法，当前线程会立即阻塞，直到另外一个线程运行完成</strong></li>
-</ul>
-<h2 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h2><p><strong>产生数据不一致的原因</strong><br><strong>多个线程并发访问了同一个对象，如果破坏了不可分割的操作，从而就会造成数据不一致</strong><br><strong>被多线程并发访问时如果一个对象有可能出现数据不一致的问题,那么这个对象称为线程不安全的对象</strong></p>
-<h3 id="如何解决多线程并发访问的问题"><a href="#如何解决多线程并发访问的问题" class="headerlink" title="如何解决多线程并发访问的问题"></a><strong>如何解决多线程并发访问的问题</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(object)&#123;</span><br><span class="line">    代码块</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/18/3/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LYH"/>
-      <meta itemprop="description" content="Don't Stop"/>
-      <meta itemprop="image" content="/images/123.jpg"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="百度搜不到丶的博客"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/18/3/" class="post-title-link" itemprop="url">文件和I/O流</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-18 10:55:10 / 修改时间：14:48:43" itemprop="dateCreated datePublished" datetime="2019-07-18T10:55:10+08:00">2019-07-18</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java个人笔记/" itemprop="url" rel="index"><span itemprop="name">Java个人笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="文件和I-O流大纲"><a href="#文件和I-O流大纲" class="headerlink" title="文件和I/O流大纲"></a>文件和I/O流大纲</h1><p>[TOC]</p>
-<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><h2 id="创建File对象"><a href="#创建File对象" class="headerlink" title="创建File对象"></a>创建File对象</h2><h3 id="File类的构造方法"><a href="#File类的构造方法" class="headerlink" title="File类的构造方法"></a>File类的构造方法</h3><blockquote>
-<p><strong>由于File类的每一个对象都表示的是一个具体的目录或者文件，所以File类没有提供无参的构造方法，File类的所有构造方法都需要一个目录或者文件的路径作为参数</strong> </p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* File(String pathname)</span><br><span class="line"></span><br><span class="line">* File(String parent, String child)</span><br><span class="line"></span><br><span class="line">* File(File parent, String child)</span><br></pre></td></tr></table></figure>
-
-<h3 id="File类常用方法"><a href="#File类常用方法" class="headerlink" title="File类常用方法"></a>File类常用方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">File类常用方法  </span><br><span class="line"> <span class="function"><span class="keyword">boolean</span> <span class="title">createNewFile</span><span class="params">()</span>创建一个新文件</span></span><br><span class="line"><span class="function"> <span class="keyword">boolean</span> <span class="title">mkdir</span><span class="params">()</span> / <span class="title">mkdirs</span><span class="params">()</span>创建新的目录</span></span><br><span class="line"><span class="function"> <span class="keyword">boolean</span> <span class="title">delete</span><span class="params">()</span> 删除文件或者目录 </span></span><br><span class="line"><span class="function"> <span class="keyword">void</span> <span class="title">deleteOnExit</span><span class="params">()</span> 虚拟机退出时删除文件或者目录</span></span><br><span class="line"><span class="function"> <span class="keyword">boolean</span> <span class="title">exists</span><span class="params">()</span> 判断当前文件或者目录是否存在 </span></span><br><span class="line"><span class="function"> <span class="keyword">boolean</span> <span class="title">isFile</span><span class="params">()</span> 判断File对象代表的是否是一个文件</span></span><br><span class="line"><span class="function"> <span class="keyword">boolean</span> <span class="title">isDirectory</span><span class="params">()</span> 判断File对象代表的是否是一个目录 </span></span><br><span class="line"><span class="function"> String <span class="title">getPath</span><span class="params">()</span> 返回当前File对象的字符串路径</span></span><br><span class="line"><span class="function"> String <span class="title">getName</span><span class="params">()</span>返回当前File对象的文件名或者目录名</span></span><br><span class="line"><span class="function"> String <span class="title">getParent</span><span class="params">()</span>返回当前File对象的父级目录 </span></span><br><span class="line"><span class="function"> String <span class="title">getAbsolutePath</span><span class="params">()</span>返回当前File对象的绝对路径 </span></span><br><span class="line"><span class="function"> String[]<span class="title">list</span><span class="params">()</span>返回当前File对象包含的子目录以及文件</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="HTML折叠语法"><a href="#HTML折叠语法" class="headerlink" title="HTML折叠语法"></a>HTML折叠语法</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">details</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">summary</span>&gt;</span>点击时的区域标题：点击查看详细内容<span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span> - 测试 测试测试<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>  title，value，callBack可以缺省  <span class="tag">&lt;/<span class="name">code</span>&gt;</span>  <span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>显示效果</strong>  </p>
-<details>
-  <summary>点击时的区域标题：点击查看详细内容</summary>
-  <p> - 测试 测试测试</p>
-  <pre><code>  title，value，callBack可以缺省  </code>  </pre>
-</details>
-
-<h1 id="流"><a href="#流" class="headerlink" title="流"></a>流</h1><p>==<strong>流在使用的时候一定要关闭，使用多种类型的流时，关闭最外层的流即可</strong>==</p>
-<h2 id="流的分类"><a href="#流的分类" class="headerlink" title="流的分类"></a>流的分类</h2><blockquote>
-<p><strong>按照流传输方向不同</strong><br><strong>输入流（InputStream）</strong><br><strong>输出流（OutputStream）</strong><br><strong>按照处理数据类型的不同</strong><br><strong>字节流</strong><br><strong>字符流</strong><br><strong>按照流的基本功能不同</strong><br><strong>节点流</strong><br><strong>过滤流</strong></p>
-</blockquote>
-<h2 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h2><p>字节流的概念<br>传输的数据单位是字节，也意味着字节流能够处理任何一种文件<br>字节流的组成<br>字节输入流 InputStream<strong>（注意它是接口不能背实例化，使用时候一般结合FileInputStream实例化）</strong><br>字节输出流 OutputStream<strong>（注意它是接口不能背实例化使用时候一般结合FileOutputStream实例化）</strong></p>
-<h3 id="FileInputStream字节输入流类"><a href="#FileInputStream字节输入流类" class="headerlink" title="FileInputStream字节输入流类"></a>FileInputStream字节输入流类</h3><h4 id="FileInputStream常用方法"><a href="#FileInputStream常用方法" class="headerlink" title="FileInputStream常用方法"></a>FileInputStream常用方法</h4><h5 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream (String filename)</span><br><span class="line">FileInputStream (File file)</span><br></pre></td></tr></table></figure>
-
-<h5 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">close() </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">byte</span>[]b)</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">byte</span>[] bs, <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="FileOutputStream字节输出流类"><a href="#FileOutputStream字节输出流类" class="headerlink" title="FileOutputStream字节输出流类"></a>FileOutputStream字节输出流类</h3><h4 id="FileOutputStream常用方法"><a href="#FileOutputStream常用方法" class="headerlink" title="FileOutputStream常用方法"></a>FileOutputStream常用方法</h4><h5 id="常用构造方法"><a href="#常用构造方法" class="headerlink" title="常用构造方法"></a>常用构造方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream(String path)</span><br><span class="line">FileOutputStream(File file)</span><br><span class="line">FileOutputStream(String path, <span class="keyword">boolean</span> append)</span><br><span class="line">FileOutputStream(File file, <span class="keyword">boolean</span> append)</span><br></pre></td></tr></table></figure>
-
-<h5 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">close()</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">byte</span>[] bs)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">byte</span>[] bs, <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h2><p><strong>字符编码</strong><br><strong>常见的 编码规范（字符集）</strong><br><strong>ASCII</strong><br><strong>ISO-8859-1</strong><br><strong>GBK</strong><br><strong>UTF-8</strong><br><strong>乱码问题</strong></p>
-<h3 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FileReader(String  fileName)</span><br><span class="line">close()</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">char</span>[] cbuf)</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="FileWriter"><a href="#FileWriter" class="headerlink" title="FileWriter"></a>FileWriter</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FileWriter(String fileName)</span><br><span class="line">close()</span><br><span class="line">write(String value)</span><br></pre></td></tr></table></figure>
-
-<h2 id="InputStreamReader和OutputStreamWriter"><a href="#InputStreamReader和OutputStreamWriter" class="headerlink" title="InputStreamReader和OutputStreamWriter"></a>InputStreamReader和OutputStreamWriter</h2><blockquote>
-<p><strong>特点：<br>可以把一个字节流转换成一个字符流<br> 在转换时可以执行编码方式</strong></p>
-</blockquote>
-<h3 id="InputStreamReader"><a href="#InputStreamReader" class="headerlink" title="InputStreamReader"></a>InputStreamReader</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStreamReader(InputStream  is)</span><br><span class="line">InputStreamReader(InputStream  is ,String charSet)</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">char</span>[] cbuf)</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="OutputStreamWriter"><a href="#OutputStreamWriter" class="headerlink" title="OutputStreamWriter"></a>OutputStreamWriter</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OutputStreamWriter(OutputStream  is) </span><br><span class="line">OutputStreamWriter(nOuputtStream  is, String charSet)</span><br><span class="line">write(String value)</span><br></pre></td></tr></table></figure>
-
-<h2 id="过滤流"><a href="#过滤流" class="headerlink" title="过滤流"></a>过滤流</h2><ul>
-<li>Data  Stream<ul>
-<li>DataInputStream <ul>
-<li>readXxx();</li>
-</ul>
-</li>
-<li>DataOutputStream<ul>
-<li>writeXxx();  </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>过滤流的开发步骤<br> <a name="1">创建节点流</a><br> <a name="2">基于节点流创建过滤流</a><br> <a name="3">读/写数据</a><br> <a name="4">关闭外层流</a></p>
-<h3 id="创建节点流"><a href="#创建节点流" class="headerlink" title="创建节点流"></a><a href="#1">创建节点流</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream fout = <span class="keyword">new</span> FileOutputStream(<span class="string">"pi.data"</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="封装过滤流"><a href="#封装过滤流" class="headerlink" title="封装过滤流"></a><a href="2">封装过滤流</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DataOutputStream dout = <span class="keyword">new</span> DataOutputStream(fout)</span><br></pre></td></tr></table></figure>
-
-<h3 id="写数据"><a href="#写数据" class="headerlink" title="写数据"></a><a href="3">写数据</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dout.writeDouble(<span class="number">3.14</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="关闭外层流"><a href="#关闭外层流" class="headerlink" title="关闭外层流"></a><a href="4">关闭外层流</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dout.close()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建节点流</span></span><br><span class="line"></span><br><span class="line">FileInputStream fin = <span class="keyword">new</span> FileInputStream(<span class="string">"pi.data"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//封装过滤流</span></span><br><span class="line"></span><br><span class="line">DataInputStream din = <span class="keyword">new</span> DataInputStream（fin);</span><br><span class="line"></span><br><span class="line"><span class="comment">//读数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> pi = din.readDouble();</span><br><span class="line"></span><br><span class="line"><span class="comment">//关闭外层流</span></span><br><span class="line"></span><br><span class="line">din.close();</span><br><span class="line"></span><br><span class="line">system.out.println(pi);</span><br></pre></td></tr></table></figure>
-
-<h3 id="BufferedOutputStream"><a href="#BufferedOutputStream" class="headerlink" title="BufferedOutputStream"></a>BufferedOutputStream</h3><p>和基本字节输出流的区别：带了缓冲区，基本方法都一样</p>
-<h3 id="ObjectStream"><a href="#ObjectStream" class="headerlink" title="ObjectStream"></a>ObjectStream</h3><p>涉及概念：对象序列化（需要类实现Serializable接口,但并不需要实现具体方法）</p>
-<p>操作对象的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ObjectStream</span><br><span class="line">ObjectInputStream  </span><br><span class="line">ObjectOutputStream</span><br><span class="line">ObjectStream特点</span><br><span class="line">  writeObject()</span><br><span class="line">   readObject()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(Student name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Student stu1 = <span class="keyword">new</span> Student(<span class="string">"tom"</span>,<span class="number">18</span>);</span><br><span class="line">Student stu2 = <span class="keyword">new</span> Student(<span class="string">"jerry"</span>,<span class="number">18</span>);</span><br><span class="line">FileOutputStream oout = <span class="keyword">new</span> ObjectOutputStream(fout);</span><br><span class="line">oout.writeObject(stu1);</span><br><span class="line">oout.writeObject(stu2);</span><br><span class="line">oout.close();</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FileInputStream fin = <span class="keyword">new</span> FileInputStream(<span class="string">"stu.dat"</span>);</span><br><span class="line">ObjectInputStream oin = <span class="keyword">new</span> ObjectInputStream(fin);</span><br><span class="line">Student s1 = (Student)oin.readObject();</span><br><span class="line">Studetn s2 = (Student)oin.readObject();</span><br><span class="line">oin.close();</span><br><span class="line">system.out.println(s1.name+<span class="string">""</span>+s1.age);</span><br><span class="line">system.out.println(s2.name+<span class="string">""</span>+s2.age);</span><br></pre></td></tr></table></figure>
-
-<h2 id="transient-关键字"><a href="#transient-关键字" class="headerlink" title="transient 关键字"></a>transient 关键字</h2><p> <strong>序列化时注意事项</strong><br><strong>不要使用追加的方式写对象</strong><br><strong>如果一个对象的属性又是一个对象，则要求这个属性对象也实现了Serializable接口</strong></p>
-<p>### </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2532,7 +2524,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2561,7 +2553,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -2594,7 +2594,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>

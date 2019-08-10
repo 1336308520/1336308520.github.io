@@ -355,6 +355,280 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/22/5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LYH">
+      <meta itemprop="description" content="Don't Stop">
+      <meta itemprop="image" content="/images/123.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="百度搜不到丶的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/22/5/" class="post-title-link" itemprop="url">Oracle数据库-2</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-22 17:52:20 / 修改时间：18:48:20" itemprop="dateCreated datePublished" datetime="2019-07-22T17:52:20+08:00">2019-07-22</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Oracle学习/" itemprop="url" rel="index"><span itemprop="name">Oracle学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a name="Oracle数据库介绍">Oracle数据库介绍</a><br><a name="Oracle数据库中常用的数据类型">Oracle数据库中常用的数据类型</a><br><a name="SQL中常用的命令分类及其使用">SQL中常用的命令分类及其使用</a> </p>
+<h1 id="Oracle数据库"><a href="#Oracle数据库" class="headerlink" title="Oracle数据库"></a><a href="Oracle数据库介绍">Oracle数据库</a></h1><blockquote>
+<p><strong>ORACLE 是以高级结构化查询语言(SQL)为基础的大型关系数据库，通俗地 讲它是用方便逻辑管理的语言去操纵大量有规律数据的集合。是目前最流行的客户端/服务器(CLIENT/SERVER)体系结构的数据库之一。</strong></p>
+</blockquote>
+<h1 id="Oracle数据库中常用的数据类型"><a href="#Oracle数据库中常用的数据类型" class="headerlink" title="Oracle数据库中常用的数据类型 "></a><a href="Oracle数据库中常用的数据类型 ">Oracle数据库中常用的数据类型 </a></h1><table>
+<thead>
+<tr>
+<th align="center">分类</th>
+<th>数据类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">文本、二进制类型</td>
+<td>CHAR(size) char(20)</td>
+<td>定长 最大2000字符</td>
+</tr>
+<tr>
+<td align="center">文本、二进制类型</td>
+<td>VARCHAR(size)  varchar(20)  ==Varchar2(size)==</td>
+<td>变长 最大4000字符</td>
+</tr>
+<tr>
+<td align="center">文本、二进制类型</td>
+<td>nchar(n)</td>
+<td>Unicode数据类型 ,定长 最大2000字符</td>
+</tr>
+<tr>
+<td align="center">文本、二进制类型</td>
+<td>nvarchar2(n)</td>
+<td>Unicode数据类型 ,变长 最大4000字符</td>
+</tr>
+<tr>
+<td align="center">文本、二进制类型</td>
+<td>clob(character large object)</td>
+<td>字符型大对象 ,最大8tb</td>
+</tr>
+<tr>
+<td align="center">文本、二进制类型</td>
+<td>blob(binary large object)</td>
+<td>二进制数据  可以存放图片/声音 8tb</td>
+</tr>
+<tr>
+<td align="center">数值类型</td>
+<td>number(p,s)</td>
+<td>p为整数位,s为小数位.范围： 1 &lt;= p &lt;=38, -84 &lt;= s &lt;= 127 保存数据范围：-1.0e-130 &lt;= number value &lt; 1.0e+126    保存在机器内部的范围： 1 ~ 22 bytes</td>
+</tr>
+<tr>
+<td align="center">时间日期</td>
+<td>date  TIMESTAMP(n)</td>
+<td>包含年月日,时分秒。默认格式：DD-MON-YYYY。从公元前4712年1月1日到公元4712年12月31日的所有合法日期 n的取值为0~9.表示指定TIMESTAMP中秒的小数位数。N为可选。如果n为0，timestamp与date等价[不推荐]</td>
+</tr>
+</tbody></table>
+<h1 id="SQL中常用的命令分类及其使用"><a href="#SQL中常用的命令分类及其使用" class="headerlink" title="SQL中常用的命令分类及其使用"></a><a href="SQL中常用的命令分类及其使用">SQL中常用的命令分类及其使用</a></h1><h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line">(</span><br><span class="line">	field1  datatype,</span><br><span class="line">	field2  datatype,</span><br><span class="line">	field3  datatype</span><br><span class="line">)</span><br><span class="line"><span class="keyword">field</span>：指定列名　datatype：指定列类型</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><p><strong>使用 ALTER TABLE 语句添加, 修改, 或删除列的语法.</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> tablename</span><br><span class="line"><span class="keyword">ADD</span>		   (columnname datatype);</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">table</span></span><br><span class="line"><span class="keyword">MODIFY</span>	   (columnname datatype);</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">table</span></span><br><span class="line"><span class="keyword">DROP</span>	<span class="keyword">column</span> <span class="keyword">column</span>;</span><br><span class="line"></span><br><span class="line">修改表的名称：<span class="keyword">rename</span>  表名 <span class="keyword">to</span> 新表名</span><br></pre></td></tr></table></figure>
+
+<h2 id="表中数据的管理"><a href="#表中数据的管理" class="headerlink" title="表中数据的管理"></a>表中数据的管理</h2><ul>
+<li><strong>Insert语句        (增加数据)</strong></li>
+<li><strong>Update语句      (更新数据)</strong></li>
+<li><strong>Delete语句       (删除数据)</strong></li>
+<li><strong>Select语句　    (查找数据)</strong></li>
+</ul>
+<h3 id="增加数据-Insert"><a href="#增加数据-Insert" class="headerlink" title="增加数据- Insert"></a>增加数据- Insert</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span>	<span class="keyword">table</span> [(<span class="keyword">column</span> [, column...])]</span><br><span class="line"><span class="keyword">VALUES</span>		(<span class="keyword">value</span> [, value...]);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>插入的数据应与字段的数据类型相同。</strong></li>
+<li><strong>数据的大小应在列的规定范围内，例如：不能将一个长度为80的字符串加入到长度为40的列中。</strong></li>
+<li><strong>在values中列出的数据位置必须与被加入的列的排列位置相对应。</strong><br><strong>字符和日期型数据应包含在==单引号==中。</strong></li>
+<li><strong>插入空值，不指定或insert into table value(null)</strong></li>
+</ol>
+<p>例如：</p>
+<blockquote>
+<p><strong>新建学生：</strong><br><strong>Insert into student(id,name,salary,birthday)</strong><br><strong>values (1001,’盖伦’,’6500’,null);</strong></p>
+</blockquote>
+<h3 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [<span class="keyword">DISTINCT</span>] *|&#123;column1, column2. column3..&#125;<span class="keyword">FROM</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>Select 指定查询哪些列的数据。</strong></li>
+<li><strong>column指定列名，*号代表查询所有列。</strong></li>
+<li><strong>From指定查询哪张表。</strong></li>
+<li><strong>DISTINCT可选，指显示结果时，是否剔除重复数据</strong></li>
+</ol>
+<h3 id="修改数据-Update"><a href="#修改数据-Update" class="headerlink" title="修改数据- Update"></a>修改数据- Update</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> 	tbl_name    </span><br><span class="line">	<span class="keyword">SET</span> col_name1=expr1 [, col_name2=expr2 ...]    </span><br><span class="line">	[<span class="keyword">WHERE</span> where_definition]</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>UPDATE语法可以用新值更新原有表行中的各列。</strong></li>
+<li><strong>SET子句指示要修改哪些列和要给予哪些值。</strong></li>
+<li><strong>WHERE子句指定应更新哪些行。如没有WHERE子句，则更新所有的行</strong></li>
+</ol>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> 表名;  </span><br><span class="line">删除所有记录,表结构还在,写日志,可以恢复的,速度慢</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> student <span class="keyword">where</span> xh=<span class="string">'A001'</span>;  删除一条记录</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 表名;  </span><br><span class="line">删除表的结构和数据</span><br><span class="line"><span class="keyword">truncate</span> <span class="keyword">table</span> 表名; //不常用</span><br><span class="line">删除表中的所有记录,表结构还在,不写日志,无法找回删除的记录,速度快</span><br></pre></td></tr></table></figure>
+
+<h1 id="SQL中常用的命令分类及其使用-1"><a href="#SQL中常用的命令分类及其使用-1" class="headerlink" title="SQL中常用的命令分类及其使用"></a><a href="SQL中常用的命令分类及其使用">SQL中常用的命令分类及其使用</a></h1><h2 id="DDL-（Data-Definition-Language-）数据库定义语言"><a href="#DDL-（Data-Definition-Language-）数据库定义语言" class="headerlink" title="DDL （Data Definition Language ）数据库定义语言 :"></a>DDL （Data Definition Language ）数据库定义语言 :</h2><p><strong>statements are used to define the database structure or schema，DDL不需要commit.</strong> </p>
+<p><strong>CREATE   ：创建</strong></p>
+<p><strong>ALTER    ：修改</strong></p>
+<p><strong>DROP     ：删除</strong></p>
+<p><strong>TRUNCATE ：截断</strong></p>
+<p><strong>COMMENT ：注释</strong></p>
+<p><strong>RENAME ：重命名</strong></p>
+<h2 id="DML-（Data-Manipulation-Language）数据操纵语言"><a href="#DML-（Data-Manipulation-Language）数据操纵语言" class="headerlink" title="DML （Data Manipulation Language）数据操纵语言:"></a>DML （Data Manipulation Language）数据操纵语言:</h2><p>statements are used for managing data within schema objects，DML需要commit. </p>
+<p><strong>SELECT ：查询记录</strong></p>
+<p><strong>INSERT ：插入记录</strong></p>
+<p><strong>UPDATE ：更新记录</strong></p>
+<p><strong>DELETE ：删除记录</strong></p>
+<p><strong>MERGE ：CALL ：调用</strong></p>
+<p><strong>EXPLAIN PLAN：执行计划</strong> </p>
+<p><strong>LOCK TABLE ：锁表</strong></p>
+<h2 id="DCL（Data-Control-Language）数据库控制语言"><a href="#DCL（Data-Control-Language）数据库控制语言" class="headerlink" title="DCL（Data Control Language）数据库控制语言:"></a>DCL（Data Control Language）数据库控制语言:</h2><p><strong>授权，角色控制等</strong></p>
+<p>*<em>GRANT：授权 *</em></p>
+<p><strong>REVOKE：取消授权</strong></p>
+<h2 id="TCL（Transaction-Control-Language）事务控制语言"><a href="#TCL（Transaction-Control-Language）事务控制语言" class="headerlink" title="TCL（Transaction Control Language）事务控制语言 "></a>TCL（Transaction Control Language）事务控制语言 </h2><p><strong>事务是一个不可分割的工作逻辑单元，可以使用事务来保证数据库的一致性和可恢复性，事务中的sql语句，==成功都成功，失败都失败。==</strong></p>
+<p><strong>事务的ACID特性（4个英文首字母缩写）</strong><br><strong>原子性</strong><br><strong>一致性</strong><br><strong>隔离性</strong><br><strong>持久性</strong></p>
+<p><strong>COMMIT命令用于提交并结束事务处理，对数据库执行永久性的事务更改</strong><br><strong>SAVEPOINT保存点类似于标记，它将很长的事务处理划分为较小的部分。</strong><br><strong>ROLLBACK命令用来撤销在当前事务中已完成的操作</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/07/20/4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1322,7 +1596,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1359,7 +1633,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -1396,7 +1672,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>

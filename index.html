@@ -355,6 +355,221 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/08/24/27/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LYH">
+      <meta itemprop="description" content="Don't Stop">
+      <meta itemprop="image" content="/images/123.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="百度搜不到丶的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/24/27/" class="post-title-link" itemprop="url">AJAX</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-24 16:28:19" itemprop="dateCreated datePublished" datetime="2019-08-24T16:28:19+08:00">2019-08-24</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-27 09:13:58" itemprop="dateModified" datetime="2019-08-27T09:13:58+08:00">2019-08-27</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA个人笔记/" itemprop="url" rel="index"><span itemprop="name">JAVA个人笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><blockquote>
+<p><strong>AJAX:”Asynchronous JavaScript and XML”</strong><br><strong>中文意思：异步JavaScript和XML。</strong><br><strong>指一种创建交互式网页应用的网页开发技术。</strong><br><strong>AJAX并非缩写词,而是由Jesse James Gaiiett创造的名词。</strong></p>
+<p><strong>不是指一种单一的技术，而是有机地利用了一系列相关的技术：</strong><br><strong>web标准( Standards-Based Presentation )XHTML+CSS的表示,</strong><br><strong>使用 DOM( Document Object Model )进行动态显示及交互,</strong><br><strong>使用 XML 和 XSLT 进行数据交换及相关操作,</strong><br><strong>使用 XMLHttpRequest 进行异步数据查询、检索.</strong></p>
+<p><strong>简单理解为：JavaScript + XMLHttpRequest + CSS +服务器端 的集合.</strong></p>
+</blockquote>
+<h1 id="AJAX优点"><a href="#AJAX优点" class="headerlink" title="AJAX优点"></a>AJAX优点</h1><p><strong>传统的web应用允许用户向web服务器发送一个请求。服务器接收并处理，然后返回一个新的网页。</strong> </p>
+<p><strong>这个做法浪费了许多带宽，因为在前后两个页面中的大部分HTML代码往往是相同的。</strong></p>
+<p><strong>AJAX应用可以仅向服务器发送并取回必需的数据，并在客户端采用JavaScript处理来自服务器的响应</strong> </p>
+<p><strong>因为在服务器和浏览器之间交换的数据大量减少（大约只有原来的5%），结果我们就能看到响应更快的应用。同时很多的处理工作可以在发出请求的客户端机器上完成，所以Web服务器的处理时间也减少了。</strong> </p>
+<p><strong>Ajax在本质上是一个浏览器端的技术</strong> </p>
+<p><strong>Ajax技术之主要目的在于局部交换客户端及服务器间之数据</strong> </p>
+<p><strong>能够不用重新载入整个版面来更新资料，也就是所谓的Refresh without Reload(轻刷新)</strong></p>
+<p><strong>与服务器之间的沟通，完全是透过Javascript 来实行</strong> </p>
+<p><strong>本身传送的资料量很小，反应更快，让网络程序更像一个桌面应用程序</strong> </p>
+<p><strong>AJAX 就是运用Javascript 在后台悄悄帮你去跟服务器要资料，最后再由Javascript 或DOM 来帮你呈现结果，因为所有动作都是由Javascript 代劳，所以省去了网页重载的麻烦，使用者也感受不到等待的痛苦</strong></p>
+<h2 id="XMLHttpRequest对象"><a href="#XMLHttpRequest对象" class="headerlink" title="XMLHttpRequest对象"></a><font color="red">XMLHttpRequest对象</font></h2><blockquote>
+<p><strong>XMLHttpRequest对象是Ajax应用程序的中心。</strong><br><strong>在IE浏览器和非IE浏览器中创建的方法不同。</strong><br><strong>XMLHttpRequest对象允许用javascript通过HTTP连接到服务器，而不是通过HTTP请求响应模型与服务器通信。</strong><br><strong>简而言之：它可以异步从服务器端获取txt或者xml数据</strong></p>
+</blockquote>
+<h2 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h2><p><strong>一、先来创建XMLHttpRequest对象</strong></p>
+<p><strong>在IE、Firefox、safari和Opera中创建该对象的JavaScript代码为：</strong><br>    <strong>var xhr = new XMLHttpRequest();</strong><br><strong>在IE5/6中代码为：</strong><br>    <strong>var xmlRequest = new ActiveXObject(“Microsoft.XMLHTTP”);</strong><br>        <strong>注意，JavaScript区分大小写。</strong></p>
+<p><strong>二、为XMLHttpRequest对象设置请求参数</strong><br><strong>open(method, url, async, username, password)</strong></p>
+<p><strong>1.设置参数：xhr.open(“GET”, “index.jsp”, true);</strong><br><strong>2.POST方式：xhr.open(“POST”, “index.jsp”, true);</strong><br><strong>三、发送请求：(分别对应GET和POST)</strong><br><strong>xhr.send(null);//GET方式不能传值，用null</strong><br><strong>xhr.send(“a=1&amp;b=123”);//POST方式可传值</strong></p>
+<h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><blockquote>
+<p><strong>请求发出去之后会有响应，如何处理呢？</strong><br><strong>XMLHttpRequest对象有个onreadystatechange事件，当状态发生变化时就会触发</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.编写回调函数</span><br><span class="line"><span class="function">function <span class="title">hehe</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">               <span class="keyword">var</span> msg = xhr.responseText; <span class="comment">//服务器返回的字符串</span></span><br><span class="line">           &#125; <span class="keyword">else</span> alert(<span class="string">"服务器错误!"</span> + xhr.status);</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">2</span>.在xhr.send之前添加设置回调函数代码：</span><br><span class="line">xhr.onreadystatechange = hehe;</span><br></pre></td></tr></table></figure>
+
+<h1 id="status属性"><a href="#status属性" class="headerlink" title="status属性"></a><font color="red">status属性</font></h1><p>服务器发送的每一个响应也都带有首部信息。三位数的状态码是服务器发送的响应中最重要的首部信息，并且属于超文本传输协议中的一部分。<br>常用状态码及其含义：<br><strong>404 没找到页面(not found)</strong><br><strong>403 禁止访问(forbidden)</strong><br><strong>500 内部服务器出错(internal service error)</strong><br><strong>200 一切正常(ok)</strong><br><strong>304 没有被修改(not modified)</strong><br>在 XMLHttpRequest 对象中，服务器发送的状态码都保存在 status 属性里。通过把这个值和 200 或 304 比较，可以确保服务器是否已发送了一个成功的响应</p>
+<h1 id="readyState属性"><a href="#readyState属性" class="headerlink" title="readyState属性"></a><font color="red">readyState属性</font></h1><blockquote>
+<p><strong>readyState属性指出了XMLHttpRequest对象在发送/接收数据过程中所处的几个状态。XMLHttpRequest对象会经历5种不同的状态。</strong><br><strong>0：未初始化。对象已经创建，但还未初始化，即还没调用open方法；</strong><br><strong>1：已打开。对象已经创建并初始化，但还未调用send方法；</strong><br><strong>2：已发送。已经调用send 方法，但该对象正在等待状态码和头的返回；</strong><br><strong>3：正在接收。已经接收了部分数据，但还不能使用该对象的属性和方法，因为状态和响应头不完整；</strong><br><strong>4：已加载。所有数据接收完毕</strong></p>
+</blockquote>
+<h1 id="responseText属性"><a href="#responseText属性" class="headerlink" title="responseText属性"></a><font color="red">responseText属性</font></h1><p><strong>XMLHttpRequest 的 responseText 属性包含了从服务器得到的数据。它是一个HTML,XML或普通文本，这取决于服务器发送的内容。</strong><br><strong><font color="red">当 readyState 属性值变成 4 时, responseText 属性才可用，表明 Ajax 请求已经结束。</font></strong></p>
+<h1 id="index-jsp"><a href="#index-jsp" class="headerlink" title="index.jsp"></a>index.jsp</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line"> &lt;% String path = request.getContextPath(); %&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">服务器时间：&lt;span id ="dt"&gt;&lt;/span&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"刷新时间"</span> onclick=<span class="string">"shua();"</span>/&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="function">function <span class="title">shua</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//异步对象,可以发送异步请求，可以接收服务器响应。</span></span><br><span class="line">	<span class="keyword">var</span> obj = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	   obj.readyState:准备状态：1，2，3，4</span></span><br><span class="line"><span class="comment">	   obj.status:服务器响应状态码：(404/403/500/200/304)</span></span><br><span class="line"><span class="comment">	   obj.responseText:服务器给我们的响应文本</span></span><br><span class="line"><span class="comment">	   obj.onreadystatechange事件:radyState发生改变时触发</span></span><br><span class="line"><span class="comment">	   </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	obj.onreadystatechange = function()&#123;</span><br><span class="line">		   <span class="keyword">var</span> isLast = (obj.readyState==<span class="number">4</span>);<span class="comment">//已经加载完毕</span></span><br><span class="line">		   <span class="keyword">var</span> isSuccess = (obj.status==<span class="number">200</span>||obj.status==<span class="number">304</span>);<span class="comment">//服务器响应成功(本次请求成功)</span></span><br><span class="line">		   <span class="keyword">if</span>(isLast &amp;&amp; isSuccess)&#123;</span><br><span class="line">			   <span class="keyword">var</span> data = obj.responseText;<span class="comment">//获取服务器响应文本</span></span><br><span class="line">			   <span class="keyword">var</span> el = document.getElementById(<span class="string">"dt"</span>);</span><br><span class="line">			   el.innerHTML = data;</span><br><span class="line">		   &#125;</span><br><span class="line">	   &#125;</span><br><span class="line">	   <span class="comment">//要去哪里访问</span></span><br><span class="line">	   obj.open(<span class="string">"get"</span>,<span class="string">"&lt;%=path%&gt;/date.jsp"</span>);</span><br><span class="line">	   <span class="comment">//去，参数会传递到服务器</span></span><br><span class="line">	   obj.send(<span class="keyword">null</span>);</span><br><span class="line">	   setTimeout(<span class="string">"shua()"</span>,<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="data-jsp"><a href="#data-jsp" class="headerlink" title="data.jsp"></a>data.jsp</h1><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.util.Date"</span>%&gt;</span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">    &lt;% out.print(<span class="keyword">new</span> Date()); %&gt;</span><br></pre></td></tr></table></figure>
+
+<p># </p>
+<h1 id="hasName-java"><a href="#hasName-java" class="headerlink" title="hasName.java"></a>hasName.java</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> user;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet implementation class hasName</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/hasName"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">hasName</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#HttpServlet()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">hasName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		String name = request.getParameter(<span class="string">"un"</span>);</span><br><span class="line">		System.out.println(<span class="string">"准备检测用户名："</span>+name);</span><br><span class="line">		<span class="keyword">if</span>(<span class="string">"admin"</span>.equals(name))&#123;</span><br><span class="line">			<span class="comment">//存在</span></span><br><span class="line">			response.getWriter().print(<span class="string">"1"</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			response.getWriter().print(<span class="string">"0"</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="register-jsp"><a href="#register-jsp" class="headerlink" title="register.jsp"></a>register.jsp</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line"> &lt;% String path = request.getContextPath();</span><br><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> %&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">用户名：&lt;input type=<span class="string">"text"</span> id=<span class="string">"yhm"</span>/&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"检测用户名是否存在"</span>  onclick=<span class="string">"jiance();"</span>/&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="function">function <span class="title">jiance</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//异步对象,可以发送异步请求，可以接收服务器响应。</span></span><br><span class="line">	<span class="keyword">var</span> obj = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	   obj.readyState:准备状态：1，2，3，4</span></span><br><span class="line"><span class="comment">	   obj.status:服务器响应状态码：(404/403/500/200/304)</span></span><br><span class="line"><span class="comment">	   obj.responseText:服务器给我们的响应文本</span></span><br><span class="line"><span class="comment">	   obj.onreadystatechange事件:radyState发生改变时触发</span></span><br><span class="line"><span class="comment">	   </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	obj.onreadystatechange = function()&#123;</span><br><span class="line">		   <span class="keyword">var</span> isLast = (obj.readyState==<span class="number">4</span>);<span class="comment">//已经加载完毕</span></span><br><span class="line">		   <span class="keyword">var</span> isSuccess = (obj.status==<span class="number">200</span>||obj.status==<span class="number">304</span>);<span class="comment">//服务器响应成功(本次请求成功)</span></span><br><span class="line">		   <span class="keyword">if</span>(isLast &amp;&amp; isSuccess)&#123;</span><br><span class="line">			   <span class="keyword">var</span> data = obj.responseText;<span class="comment">//获取服务器响应文本</span></span><br><span class="line">			     alert(data);</span><br><span class="line">		   &#125;</span><br><span class="line">	   &#125;</span><br><span class="line">	<span class="keyword">var</span> val = document.getElementById(<span class="string">"yhm"</span>).value;</span><br><span class="line">	   <span class="comment">//要去哪里访问</span></span><br><span class="line">	   obj.open(<span class="string">"post"</span>,<span class="string">"&lt;%=path%&gt;/hasName"</span>);</span><br><span class="line">	   obj.setRequestHeader(<span class="string">"Content-type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">	   <span class="comment">//去，参数会传递到服务器</span></span><br><span class="line">	   obj.send(<span class="string">"un="</span>+val);</span><br><span class="line">	   <span class="comment">//setTimeout("shua()",1000);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="自定义AJAX工具类"><a href="#自定义AJAX工具类" class="headerlink" title="自定义AJAX工具类"></a>自定义AJAX工具类</h1><h2 id="MyAjax-jsp"><a href="#MyAjax-jsp" class="headerlink" title="MyAjax.jsp"></a>MyAjax.jsp</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">    &lt;% String path = request.getContextPath(); %&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;script type="text/javascript" src="&lt;%=path%&gt;/js/ajax.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"></span><br><span class="line">ajaxGet(<span class="string">"&lt;%=path%&gt;/hasName"</span>,<span class="string">"un=admi"</span>,function(er)&#123;alert(er);&#125;,function(em)&#123;alert(em);&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建js文件夹，里面新建ajax-js"><a href="#新建js文件夹，里面新建ajax-js" class="headerlink" title="新建js文件夹，里面新建ajax.js"></a>新建js文件夹，里面新建ajax.js</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"hello"</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajaxGet</span>(<span class="params">url,param,callSuc,callErr</span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">obj.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">var</span> isLast = (obj.readyState==<span class="number">4</span>);</span><br><span class="line">	<span class="keyword">var</span> isSuccess = (obj.status==<span class="number">200</span>||obj.status==<span class="number">304</span>);</span><br><span class="line">	<span class="keyword">if</span>(isLast)&#123;</span><br><span class="line">		<span class="keyword">if</span>(isSuccess)&#123;</span><br><span class="line">			<span class="keyword">var</span> result = obj.responseText;</span><br><span class="line">			<span class="keyword">if</span>(callSuc) </span><br><span class="line">				callSuc(result);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(callErr) callErr(obj.status);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.open(<span class="string">"get"</span>,url+<span class="string">"?"</span>+param);</span><br><span class="line">obj.send(<span class="literal">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/08/11/26/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1541,13 +1756,13 @@
 <h2 id="解决Bug"><a href="#解决Bug" class="headerlink" title="解决Bug"></a>解决Bug</h2><p><strong>根据以上可能产生的问题：可进行如下方案：</strong></p>
 <p><font color="slateblue" size="5"><strong>按Home将光标移动到行首位置，然后按Shift+down+Backspace</strong></font></p>
 <p><strong>完美解决！emmm~~</strong></p>
-<h1 id="JavaScript复习"><a href="#JavaScript复习" class="headerlink" title="JavaScript复习"></a>JavaScript复习</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">for(var a = 1;a&lt;10;a++)&#123;</span><br><span class="line"><span class="xml">document.write("记录第"+a+"遍<span class="tag">&lt;<span class="name">br</span>/&gt;</span>");</span></span><br><span class="line">&#125;</span><br><span class="line">for(var a = 1;a&lt;10;a++)&#123;</span><br><span class="line">alert("Hello,world!"+"第"+a+"遍");</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="JavaScript复习"><a href="#JavaScript复习" class="headerlink" title="JavaScript复习"></a>JavaScript复习</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">for</span>(<span class="keyword">var</span> a = <span class="number">1</span>;a&lt;<span class="number">10</span>;a++)&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.write(<span class="string">"记录第"</span>+a+<span class="string">"遍&lt;br/&gt;"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="keyword">for</span>(<span class="keyword">var</span> a = <span class="number">1</span>;a&lt;<span class="number">10</span>;a++)&#123;</span></span><br><span class="line"><span class="javascript">alert(<span class="string">"Hello,world!"</span>+<span class="string">"第"</span>+a+<span class="string">"遍"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="函数变元"><a href="#函数变元" class="headerlink" title="函数变元"></a>函数变元</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>JS-函数变元<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">style</span>=<span class="string">"height:1500px;"</span>  &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t1"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"bt"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"检测"</span> <span class="attr">onclick</span>=<span class="string">"dian();"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t2"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t3"</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">value</span>=<span class="string">"XIXI"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">//函数中描述应该有参数，叫做形参</span><br><span class="line">function hello(a,b,c)&#123;</span><br><span class="line">	console.log("HelloWorld:");</span><br><span class="line">	console.log(a);</span><br><span class="line">	console.log(b);</span><br><span class="line">	console.log(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//1,3,5,7,等数值是调用时真实的参数，叫做实参</span><br><span class="line">hello(2,3,5,7,9);</span><br><span class="line"></span><br><span class="line">//思考：js如何做重载呢？</span><br><span class="line">//目标：两个参数求和，三个参数求积</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//JS不支持重载，后定义的function会覆盖前面的</span><br><span class="line">function xx(a,b)&#123;</span><br><span class="line">	console.log("aaaaaaa");</span><br><span class="line">&#125;</span><br><span class="line">function xx(a,b,c)&#123;</span><br><span class="line">	console.log("bbbbbbb");</span><br><span class="line">&#125;</span><br><span class="line">xx(5,6);</span><br><span class="line">xx(5,6,7);</span><br><span class="line"></span><br><span class="line">//JS使用变元机制模拟重载</span><br><span class="line">function cz(a,b,c)&#123;</span><br><span class="line">//if条件：null,'',undefined,false都为假</span><br><span class="line">	if(c!=undefined)&#123;//如果c有值</span><br><span class="line">		console.log("至少3个参数:乘法运算="+(a*b*c));</span><br><span class="line">	&#125;else if(b)&#123;</span><br><span class="line">		console.log("有2个参数:加法运算="+(a+b));</span><br><span class="line">	&#125;else if(a)&#123;</span><br><span class="line">		console.log("有1个参数");</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		console.log("没有参数");</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cz(5,6,7);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数变元"><a href="#函数变元" class="headerlink" title="函数变元"></a>函数变元</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>JS-函数变元<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">style</span>=<span class="string">"height:1500px;"</span>  &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t1"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"bt"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"检测"</span> <span class="attr">onclick</span>=<span class="string">"dian();"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t2"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t3"</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">value</span>=<span class="string">"XIXI"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="comment">//函数中描述应该有参数，叫做形参</span></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">a,b,c</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(<span class="string">"HelloWorld:"</span>);</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(a);</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(b);</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(c);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">//1,3,5,7,等数值是调用时真实的参数，叫做实参</span></span></span><br><span class="line">hello(2,3,5,7,9);</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">//思考：js如何做重载呢？</span></span></span><br><span class="line"><span class="javascript"><span class="comment">//目标：两个参数求和，三个参数求积</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">//JS不支持重载，后定义的function会覆盖前面的</span></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">xx</span>(<span class="params">a,b</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(<span class="string">"aaaaaaa"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">xx</span>(<span class="params">a,b,c</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(<span class="string">"bbbbbbb"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line">xx(5,6);</span><br><span class="line">xx(5,6,7);</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">//JS使用变元机制模拟重载</span></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">cz</span>(<span class="params">a,b,c</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="comment">//if条件：null,'',undefined,false都为假</span></span></span><br><span class="line"><span class="javascript">	<span class="keyword">if</span>(c!=<span class="literal">undefined</span>)&#123;<span class="comment">//如果c有值</span></span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">"至少3个参数:乘法运算="</span>+(a*b*c));</span></span><br><span class="line"><span class="javascript">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(b)&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">"有2个参数:加法运算="</span>+(a+b));</span></span><br><span class="line"><span class="javascript">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a)&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">"有1个参数"</span>);</span></span><br><span class="line"><span class="javascript">	&#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">"没有参数"</span>);</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cz(5,6,7);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="和表单结合使用"><a href="#和表单结合使用" class="headerlink" title="和表单结合使用"></a>和表单结合使用</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"test"</span> <span class="attr">name</span> =<span class="string">"ts"</span> <span class="attr">onchange</span> = <span class="string">"alert('值被修改'+this.value);"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span> =<span class="string">"but"</span> <span class="attr">value</span>=<span class="string">"button"</span> <span class="attr">onclick</span> = <span class="string">"dian();"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">function dian()&#123;</span><br><span class="line">alert("按钮被点击");</span><br><span class="line">&#125;</span><br><span class="line">function bianyuan(a,b,c)&#123;</span><br><span class="line">if(c)</span><br><span class="line">&#123;</span><br><span class="line">document.write(a+b+c);</span><br><span class="line">&#125;</span><br><span class="line">else if(b)</span><br><span class="line">&#123;</span><br><span class="line">document.write(a+b);</span><br><span class="line">&#125;</span><br><span class="line">else if(a)</span><br><span class="line">&#123;</span><br><span class="line">document.write(a);</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">document.write("参数的个数为零个")</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">bianyuan(1,2,3);</span><br><span class="line">bianyuan(1,2);</span><br><span class="line">bianyuan(1);</span><br><span class="line">bianyuan();</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="和表单结合使用"><a href="#和表单结合使用" class="headerlink" title="和表单结合使用"></a>和表单结合使用</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"test"</span> <span class="attr">name</span> =<span class="string">"ts"</span> <span class="attr">onchange</span> = <span class="string">"alert('值被修改'+this.value);"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span> =<span class="string">"but"</span> <span class="attr">value</span>=<span class="string">"button"</span> <span class="attr">onclick</span> = <span class="string">"dian();"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">dian</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">alert(<span class="string">"按钮被点击"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">bianyuan</span>(<span class="params">a,b,c</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">if</span>(c)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.write(a+b+c);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="keyword">else</span> <span class="keyword">if</span>(b)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.write(a+b);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="keyword">else</span> <span class="keyword">if</span>(a)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.write(a);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.write(<span class="string">"参数的个数为零个"</span>)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">bianyuan(1,2,3);</span><br><span class="line">bianyuan(1,2);</span><br><span class="line">bianyuan(1);</span><br><span class="line">bianyuan();</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="利用JavaScript写计时功能"><a href="#利用JavaScript写计时功能" class="headerlink" title="利用JavaScript写计时功能"></a><font color="red">利用JavaScript写计时功能</font></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"开始计时"</span> <span class="attr">onclick</span> = <span class="string">"jishi();"</span>/&gt;</span>     <span class="comment">&lt;!--开始计时按钮--&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"test"</span> <span class="attr">id</span> = <span class="string">"ji"</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span>                          <span class="comment">&lt;!--记录计时时间--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"结束计时"</span> <span class="attr">onclick</span> = <span class="string">"stop();"</span>/&gt;</span>       <span class="comment">&lt;!--结束计时按钮--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!--开始计时函数，可以知道，如果不停止则需要一直计时--&gt;</span></span></span><br><span class="line">var t;</span><br><span class="line">var c = 0;</span><br><span class="line">function jishi()</span><br><span class="line">&#123;</span><br><span class="line">/*首先获得要显示value值，进而给它赋值 */</span><br><span class="line">document.getElementById("ji").value = c;</span><br><span class="line">c = c+1;</span><br><span class="line">t = setTimeout("jishi()",1000);</span><br><span class="line">&#125;</span><br><span class="line">function stop()&#123;</span><br><span class="line">	clearTimeout(t);</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="利用JavaScript写计时功能"><a href="#利用JavaScript写计时功能" class="headerlink" title="利用JavaScript写计时功能"></a><font color="red">利用JavaScript写计时功能</font></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"开始计时"</span> <span class="attr">onclick</span> = <span class="string">"jishi();"</span>/&gt;</span>     <span class="comment">&lt;!--开始计时按钮--&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"test"</span> <span class="attr">id</span> = <span class="string">"ji"</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span>                          <span class="comment">&lt;!--记录计时时间--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"结束计时"</span> <span class="attr">onclick</span> = <span class="string">"stop();"</span>/&gt;</span>       <span class="comment">&lt;!--结束计时按钮--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!--开始计时函数，可以知道，如果不停止则需要一直计时--&gt;</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> t;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> c = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">jishi</span>(<span class="params"></span>)</span></span></span><br><span class="line">&#123;</span><br><span class="line"><span class="javascript"><span class="comment">/*首先获得要显示value值，进而给它赋值 */</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">"ji"</span>).value = c;</span></span><br><span class="line">c = c+1;</span><br><span class="line"><span class="javascript">t = setTimeout(<span class="string">"jishi()"</span>,<span class="number">1000</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">stop</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line">	clearTimeout(t);</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
 <li><strong>注意函数的参数是变元的。</strong></li>
@@ -2266,172 +2481,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/08/03/17/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LYH">
-      <meta itemprop="description" content="Don't Stop">
-      <meta itemprop="image" content="/images/123.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="百度搜不到丶的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/03/17/" class="post-title-link" itemprop="url">Oracle在DOS下无法管理登录-ORA-01031</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-03 16:39:15 / 修改时间：16:44:23" itemprop="dateCreated datePublished" datetime="2019-08-03T16:39:15+08:00">2019-08-03</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/BUG分析/" itemprop="url" rel="index"><span itemprop="name">BUG分析</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="ORA-01031-insufficient-privileges解决办法"><a href="#ORA-01031-insufficient-privileges解决办法" class="headerlink" title="ORA-01031: insufficient privileges解决办法"></a>ORA-01031: insufficient privileges解决办法</h1><h2 id="打开用户组管理"><a href="#打开用户组管理" class="headerlink" title="打开用户组管理"></a>打开用户组管理</h2><p><strong>输入 lusrmgr.msc</strong></p>
-<p><strong>双击ora_dba</strong></p>
-<p><strong>点击添加按钮</strong></p>
-<p><strong>点击高级按钮</strong></p>
-<p><strong>点击立即查找，添加用户（添加用户为本机用户）</strong></p>
-<p><font color="purple" size="9"><strong>成功</strong></font> </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2480,7 +2529,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2523,7 +2572,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -2564,7 +2615,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>

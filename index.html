@@ -355,6 +355,247 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/09/09/31/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LYH">
+      <meta itemprop="description" content="Don't Stop">
+      <meta itemprop="image" content="/images/123.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="百度搜不到丶的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/09/31/" class="post-title-link" itemprop="url">周末复习</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-09 19:57:28 / 修改时间：22:35:54" itemprop="dateCreated datePublished" datetime="2019-09-09T19:57:28+08:00">2019-09-09</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA个人笔记/" itemprop="url" rel="index"><span itemprop="name">JAVA个人笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="搭建Hibernate环境，连接MySql数据库"><a href="#搭建Hibernate环境，连接MySql数据库" class="headerlink" title="搭建Hibernate环境，连接MySql数据库"></a>搭建Hibernate环境，连接MySql数据库</h1><ul>
+<li><p><strong>创建Maven项目</strong></p>
+<ul>
+<li>1.什么是groupid和artifactId？<br>groupid和artifactId被统称为“坐标”是为了保证项目唯一性而提出的，如果你要把你项目弄到maven本地仓库去，你想要找到你的项目就必须根据这两个id去查找。<br>　　groupId一般分为多个段，这里我只说两段，第一段为域，第二段为公司名称。域又分为org、com、cn等等许多，其中org为非营利组织，com为商业组织。举个apache公司的tomcat项目例子：这个项目的groupId是org.apache，它的域是org（因为tomcat是非营利项目），公司名称是apache，artigactId是tomcat。 </li>
+<li>注意：如果选择的时War，pom.xml会报错。<ul>
+<li>解决方案：在src-&gt;webapp下面新建 WEB-INF文件夹，里面粘贴一个web.xml</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在pom.xml里面引用hibernate的依赖</p>
+<ul>
+<li>百度搜索mvn</li>
+<li>搜索hibernate</li>
+<li>找带有core的</li>
+</ul>
+</li>
+<li><p>hibernate的运行需要hibernate.cfg.xml</p>
+<ul>
+<li><p>注意名字必须是它，具体里面的配置内容寻找百度</p>
+</li>
+<li><p>放在src/main/resources下面</p>
+</li>
+<li><p>里面包含了要连接数据库的基本信息，例如数据库的账号，密码</p>
+<p>重点代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Configuration cfg = <span class="keyword">new</span> Configuration().configure();<span class="comment">//会到类路径下读取hibernate.cfg.xml</span></span><br><span class="line">SessionFactory fac = cfg.buildSessionFactory();<span class="comment">//会启动一个新线程</span></span><br><span class="line">Session session = fac.openSession();<span class="comment">//打开一个数据库对话，肯定会建立数据库</span></span><br><span class="line">session.close();<span class="comment">//关闭session</span></span><br><span class="line">fac.close();<span class="comment">//关闭fac</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="创建实体类，配置mapping，保存对象"><a href="#创建实体类，配置mapping，保存对象" class="headerlink" title="创建实体类，配置mapping，保存对象"></a>创建实体类，配置mapping，保存对象</h1><ul>
+<li><p><strong>创建实体类</strong></p>
+<ul>
+<li>例如创建一个entity包，里面放一个User类</li>
+</ul>
+</li>
+<li><p><strong>新建一个mapping文件</strong></p>
+<ul>
+<li><p>网上有mapping文件</p>
+</li>
+<li><!-- mapping文件用来描述Entity与数据表的关系 -->
+</li>
+<li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC</span></span><br><span class="line"><span class="meta">"-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></span><br><span class="line"><span class="meta">"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- mapping文件用来描述Entity与数据表的关系 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"entity.User"</span> <span class="attr">table</span>=<span class="string">"rethink_user"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"rethink_id"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"idntity"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">column</span>=<span class="string">"rethink_name"</span> <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">length</span>=<span class="string">"16"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">column</span>=<span class="string">"rethink_password"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"age"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>对mapping编写完成后需要在hibernate写入映射</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span> =<span class="string">"entity/Person.hbm.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>接着运行<strong>Test.java</strong>,可能会出现如下错误</p>
+</li>
+</ul>
+<p>数据库方言Error</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> Error executing DDL via JDBC Statement</span><br><span class="line">org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL via JDBC Statement</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>解决数据库方言BUG</p>
+</li>
+<li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 数据库方言配置 org.hibernate.dialect.MySQLDialect (出现问题就更换) --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.dialect"</span>&gt;</span>org.hibernate.dialect.MySQL5Dialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>保存对象</strong></p>
+<ul>
+<li>在Test.java里面编写</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.hibernate.Session;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.SessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.cfg.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> entity.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Configuration cfg = <span class="keyword">new</span> Configuration().configure();<span class="comment">// 会到类路径下读取hibernate.cfg.xml</span></span><br><span class="line">		SessionFactory fac = cfg.buildSessionFactory();<span class="comment">// 会开启一个新线程</span></span><br><span class="line">		Session session =  fac.openSession();<span class="comment">//打开一条数据库会话，肯定会建立连接</span></span><br><span class="line">		System.out.println(<span class="string">"成功连接数据库"</span>);</span><br><span class="line">		User user = <span class="keyword">new</span> User();</span><br><span class="line">		user.setAge(<span class="number">18</span>);</span><br><span class="line">		user.setUsername(<span class="string">"刘延昊"</span>);</span><br><span class="line">		user.setPassword(<span class="string">"123456"</span>);</span><br><span class="line">		session.save(user);</span><br><span class="line">		session.close();</span><br><span class="line">		fac.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>重点代码</strong></p>
+<blockquote>
+<p><strong>User user = new User();</strong></p>
+<pre><code>**user.setAge(18);**
+**user.setUsername(&quot;刘延昊&quot;);**
+**user.setPassword(&quot;123456&quot;);**
+**session.save(user);**</code></pre></blockquote>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/09/02/30/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2220,266 +2461,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://133608520.github.io/2019/08/06/21/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LYH">
-      <meta itemprop="description" content="Don't Stop">
-      <meta itemprop="image" content="/images/123.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="百度搜不到丶的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/06/21/" class="post-title-link" itemprop="url">周末复习-3</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-06 08:17:32 / 修改时间：18:36:28" itemprop="dateCreated datePublished" datetime="2019-08-06T08:17:32+08:00">2019-08-06</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java个人笔记/" itemprop="url" rel="index"><span itemprop="name">Java个人笔记</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="在Notepad-中如何快速删除一整行的内容-自定义快捷键"><a href="#在Notepad-中如何快速删除一整行的内容-自定义快捷键" class="headerlink" title="在Notepad++中如何快速删除一整行的内容(自定义快捷键)"></a>在Notepad++中如何快速删除一整行的内容(自定义快捷键)</h1><blockquote>
-<p><strong>Notepad++是一款免费的文本编辑器，使用的人也是非常的多，尤其是程序员。但在类似eclipse这种软件中，习惯了Ctrl+D删除一整行的操作，到Notepad++中变成了，复制并粘贴一行的操作。开始你或许如我一样以为，肯定有这种快捷键，只是不知道是什么，但是，当你查遍资料之后，你会发现，根本没有这种快捷键。唯一相似的操作是Ctrl+L，但是实际上Crtrl+L是剪切一行，而并非删除一行</strong></p>
-</blockquote>
-<h2 id="网上解决方法："><a href="#网上解决方法：" class="headerlink" title="网上解决方法："></a>网上解决方法：</h2><ul>
-<li>点击菜单中的【宏】-【开始录制】</li>
-<li>鼠标在任意一行内容上单击，使光标停在这行。</li>
-<li>然后在键盘上找到home键，按下，这时光标不管之前在哪个位置，现在光标都会出现在这行的最前面，这时按住shift键不松，再在键盘上找到end键然后按下。这时就选中这一行了。然后按两次delete键。       <font color="red" size="6"><strong>这里有问题，如果要删除的行为一个空白行，就会出现多删除的情况。</strong></font></li>
-<li>然后点击【宏】-【停止录制】。</li>
-<li>然后点击【宏】-【保存录制】</li>
-<li>然后根据提示，填写名称和选择快捷键的组合，在这我选择的是Ctrl+D。然后点击OK保存。</li>
-</ul>
-<h2 id="解决Bug"><a href="#解决Bug" class="headerlink" title="解决Bug"></a>解决Bug</h2><p><strong>根据以上可能产生的问题：可进行如下方案：</strong></p>
-<p><font color="slateblue" size="5"><strong>按Home将光标移动到行首位置，然后按Shift+down+Backspace</strong></font></p>
-<p><strong>完美解决！emmm~~</strong></p>
-<h1 id="JavaScript复习"><a href="#JavaScript复习" class="headerlink" title="JavaScript复习"></a>JavaScript复习</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">for</span>(<span class="keyword">var</span> a = <span class="number">1</span>;a&lt;<span class="number">10</span>;a++)&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.write(<span class="string">"记录第"</span>+a+<span class="string">"遍&lt;br/&gt;"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="keyword">for</span>(<span class="keyword">var</span> a = <span class="number">1</span>;a&lt;<span class="number">10</span>;a++)&#123;</span></span><br><span class="line"><span class="javascript">alert(<span class="string">"Hello,world!"</span>+<span class="string">"第"</span>+a+<span class="string">"遍"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="函数变元"><a href="#函数变元" class="headerlink" title="函数变元"></a>函数变元</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">HTML</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">TITLE</span>&gt;</span>JS-函数变元<span class="tag">&lt;/<span class="name">TITLE</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">HEAD</span>&gt;</span></span><br><span class="line">		</span><br><span class="line"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">style</span>=<span class="string">"height:1500px;"</span>  &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t1"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"bt"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"检测"</span> <span class="attr">onclick</span>=<span class="string">"dian();"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t2"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> &gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"t3"</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">value</span>=<span class="string">"XIXI"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="comment">//函数中描述应该有参数，叫做形参</span></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">a,b,c</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(<span class="string">"HelloWorld:"</span>);</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(a);</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(b);</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(c);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">//1,3,5,7,等数值是调用时真实的参数，叫做实参</span></span></span><br><span class="line">hello(2,3,5,7,9);</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">//思考：js如何做重载呢？</span></span></span><br><span class="line"><span class="javascript"><span class="comment">//目标：两个参数求和，三个参数求积</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">//JS不支持重载，后定义的function会覆盖前面的</span></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">xx</span>(<span class="params">a,b</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(<span class="string">"aaaaaaa"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">xx</span>(<span class="params">a,b,c</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(<span class="string">"bbbbbbb"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line">xx(5,6);</span><br><span class="line">xx(5,6,7);</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">//JS使用变元机制模拟重载</span></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">cz</span>(<span class="params">a,b,c</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="comment">//if条件：null,'',undefined,false都为假</span></span></span><br><span class="line"><span class="javascript">	<span class="keyword">if</span>(c!=<span class="literal">undefined</span>)&#123;<span class="comment">//如果c有值</span></span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">"至少3个参数:乘法运算="</span>+(a*b*c));</span></span><br><span class="line"><span class="javascript">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(b)&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">"有2个参数:加法运算="</span>+(a+b));</span></span><br><span class="line"><span class="javascript">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a)&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">"有1个参数"</span>);</span></span><br><span class="line"><span class="javascript">	&#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">console</span>.log(<span class="string">"没有参数"</span>);</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cz(5,6,7);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="和表单结合使用"><a href="#和表单结合使用" class="headerlink" title="和表单结合使用"></a>和表单结合使用</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"test"</span> <span class="attr">name</span> =<span class="string">"ts"</span> <span class="attr">onchange</span> = <span class="string">"alert('值被修改'+this.value);"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span> =<span class="string">"but"</span> <span class="attr">value</span>=<span class="string">"button"</span> <span class="attr">onclick</span> = <span class="string">"dian();"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">dian</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">alert(<span class="string">"按钮被点击"</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">bianyuan</span>(<span class="params">a,b,c</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">if</span>(c)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.write(a+b+c);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="keyword">else</span> <span class="keyword">if</span>(b)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.write(a+b);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="keyword">else</span> <span class="keyword">if</span>(a)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.write(a);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.write(<span class="string">"参数的个数为零个"</span>)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">bianyuan(1,2,3);</span><br><span class="line">bianyuan(1,2);</span><br><span class="line">bianyuan(1);</span><br><span class="line">bianyuan();</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="利用JavaScript写计时功能"><a href="#利用JavaScript写计时功能" class="headerlink" title="利用JavaScript写计时功能"></a><font color="red">利用JavaScript写计时功能</font></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"开始计时"</span> <span class="attr">onclick</span> = <span class="string">"jishi();"</span>/&gt;</span>     <span class="comment">&lt;!--开始计时按钮--&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"test"</span> <span class="attr">id</span> = <span class="string">"ji"</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span>                          <span class="comment">&lt;!--记录计时时间--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"结束计时"</span> <span class="attr">onclick</span> = <span class="string">"stop();"</span>/&gt;</span>       <span class="comment">&lt;!--结束计时按钮--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!--开始计时函数，可以知道，如果不停止则需要一直计时--&gt;</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> t;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> c = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">jishi</span>(<span class="params"></span>)</span></span></span><br><span class="line">&#123;</span><br><span class="line"><span class="javascript"><span class="comment">/*首先获得要显示value值，进而给它赋值 */</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">"ji"</span>).value = c;</span></span><br><span class="line">c = c+1;</span><br><span class="line"><span class="javascript">t = setTimeout(<span class="string">"jishi()"</span>,<span class="number">1000</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">stop</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line">	clearTimeout(t);</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li><strong>注意函数的参数是变元的。</strong></li>
-<li><strong>document.write(“Hello,world”);</strong></li>
-<li><strong>document.getElementById(“”);</strong></li>
-<li><strong>onclike = “ “</strong></li>
-<li><strong>onchange = “ “              注意格式</strong></li>
-<li><strong>计时器有关</strong><ul>
-<li><strong>setTimeout（“ ”，1000）;第一个参数是一个语句，第二个参数是执行时间，毫秒为单位，1000毫秒代表1秒。</strong></li>
-<li><strong>clearTimeout(t);      注意大小写</strong></li>
-</ul>
-</li>
-</ul>
-<h1 id="JDBC连接池"><a href="#JDBC连接池" class="headerlink" title="JDBC连接池"></a>JDBC连接池</h1><blockquote>
-<p>数据库连接池技术（connection pool）的基本思想就是为数据库连接建立一个“缓冲池”。预先在缓冲池中放入一定数量的连接，<u>当需要建立数据库连接时，只需从“缓冲池”中取出一个，使用完毕之后再放回去。</u></p>
-<p>数据库连接池负责分配、管理和释放数据库连接，<u>它允许应用程序重复使用一个现有的数据库连接，而不是重新建立一个。</u></p>
-<p>数据库连接池在初始化时将创建一定数量的数据库连接放到连接池中，这些数据库连接的数量是由最小数据库连接数来设定的。无论这些数据库连接是否被使用，连接池都将一直保证至少拥有这么多的连接数量。连接池的最大数据库连接数量限定了这个连接池能占有的最大连接数，当应用程序向连接池请求的连接数超过最大连接数量时，这些请求将被加入到等待队列中。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.beans.PropertyVetoException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.ComboPooledDataSource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C3p0</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">ComboPooledDataSource ds = <span class="keyword">new</span>  ComboPooledDataSource();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="comment">//设置驱动</span></span><br><span class="line">	ds.setDriverClass(<span class="string">"oracle.jdbc.driver.OracleDriver"</span>);</span><br><span class="line">	<span class="comment">//设置URL</span></span><br><span class="line">	ds.setJdbcUrl(<span class="string">"jdbc:oracle:thin:@//192.168.0.105/orcl"</span>);</span><br><span class="line">	<span class="comment">//设置用户名</span></span><br><span class="line">	ds.setUser(<span class="string">"liuyanhao"</span>);</span><br><span class="line">	<span class="comment">//设置密码</span></span><br><span class="line">	ds.setPassword(<span class="string">"abc123"</span>);</span><br><span class="line">	<span class="comment">//设置最大连接数</span></span><br><span class="line">	ds.setMaxPoolSize(<span class="number">40</span>);</span><br><span class="line">	<span class="comment">//设置最小连接数</span></span><br><span class="line">	ds.setMinPoolSize(<span class="number">1</span>);</span><br><span class="line">	<span class="comment">//设置初始连接数</span></span><br><span class="line">	ds.setInitialPoolSize(<span class="number">3</span>);</span><br><span class="line">	Connection conn = ds.getConnection();</span><br><span class="line">	<span class="comment">//这里并不是真的关闭了连接，close经过重写，只是将连接归还给连接池</span></span><br><span class="line">	conn.close();</span><br><span class="line">	System.out.println(<span class="string">"连接数据库成功"</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (PropertyVetoException e) &#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="重点："><a href="#重点：" class="headerlink" title="重点："></a>重点：</h2><ul>
-<li><p>导入C3P0和jdbc的jar包</p>
-</li>
-<li><p><strong>buid path</strong></p>
-</li>
-<li><p><strong>ComboPooledDataSource  com = new ComboPooledDataSource();</strong></p>
-</li>
-<li><p><strong>com.setDriverClass(“oracle.jdbc.driver.OracleDriver”);</strong></p>
-</li>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ds.setJdbcUrl(<span class="string">"jdbc:oracle:thin:@//192.168.0.105/orcl"</span>);</span><br><span class="line"><span class="comment">//设置用户名</span></span><br><span class="line">ds.setUser(<span class="string">"liuyanhao"</span>);</span><br><span class="line"><span class="comment">//设置密码</span></span><br><span class="line">ds.setPassword(<span class="string">"abc123"</span>);</span><br><span class="line"><span class="comment">//设置最大连接数</span></span><br><span class="line">ds.setMaxPoolSize(<span class="number">40</span>);</span><br><span class="line"><span class="comment">//设置最小连接数</span></span><br><span class="line">ds.setMinPoolSize(<span class="number">1</span>);</span><br><span class="line"><span class="comment">//设置初始连接数</span></span><br><span class="line">ds.setInitialPoolSize(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="两种跳转方式复习"><a href="#两种跳转方式复习" class="headerlink" title="两种跳转方式复习"></a>两种跳转方式复习</h1><h2 id="MyTest-java"><a href="#MyTest-java" class="headerlink" title="MyTest.java"></a>MyTest.java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.RequestDispatcher;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet implementation class MyTest</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/MyTest"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTest</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#HttpServlet()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">System.out.println(<span class="string">"成功连接网页"</span>);</span><br><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">String user = <span class="string">"liuyanhao"</span>;</span><br><span class="line">String pass = <span class="string">"123456"</span>;</span><br><span class="line"><span class="keyword">if</span>(user.equals(request.getParameter(<span class="string">"user"</span>))&amp;&amp;pass.equals(request.getParameter(<span class="string">"pass"</span>)))&#123;</span><br><span class="line">	<span class="comment">//请求转发方式，可以传递参数</span></span><br><span class="line">	System.out.println(<span class="string">"账户匹配成功！欢迎!"</span>);</span><br><span class="line">	RequestDispatcher dis = request.getRequestDispatcher(<span class="string">"/Success"</span>);</span><br><span class="line">	dis.forward(request, response);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">//重定向方式</span></span><br><span class="line">	System.out.println(<span class="string">"账户匹配失败"</span>);</span><br><span class="line">	String root = request.getContextPath();       <span class="comment">//得到根路径</span></span><br><span class="line">	response.sendRedirect(root+<span class="string">"/error.html"</span>);</span><br><span class="line">	<span class="keyword">return</span>;           <span class="comment">//跳转完页面，程序可以return了已经。</span></span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Success-java"><a href="#Success-java" class="headerlink" title="Success.java"></a>Success.java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet implementation class Success</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/Success"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Success</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#HttpServlet()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Success</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"登录成功"</span>);</span><br><span class="line">		request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		response.setContentType(<span class="string">"text/html;charset = UTF-8"</span>);</span><br><span class="line">       String user = request.getParameter(<span class="string">"user"</span>);</span><br><span class="line">       String pss = request.getParameter(<span class="string">"pass"</span>);</span><br><span class="line">       PrintWriter write = response.getWriter();</span><br><span class="line">       write.print(<span class="string">"&lt;html&gt;&lt;body&gt;恭喜你，登录成功&lt;br/&gt;账号:"</span>+user+<span class="string">"&lt;br/&gt;密码："</span>+pss+<span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>);</span><br><span class="line">	write.flush();</span><br><span class="line">	write.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="index-jsp"><a href="#index-jsp" class="headerlink" title="index.jsp"></a>index.jsp</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;form action=<span class="string">"/ServerTest/MyTest"</span> method = <span class="string">"post"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"test"</span> name =<span class="string">"user"</span> value=<span class="string">""</span>/&gt;账户 &lt;br/&gt;</span><br><span class="line">&lt;input type=<span class="string">"password"</span> name =<span class="string">"pass"</span>/&gt;密码&lt;br/&gt;</span><br><span class="line">&lt;input type=<span class="string">"radio"</span> name = <span class="string">"sex"</span> value=<span class="string">"nan"</span> /&gt;男</span><br><span class="line">&lt;input type = <span class="string">"radio"</span> name = <span class="string">"sex"</span> value = <span class="string">"nv"</span> /&gt;女&lt;br/&gt;</span><br><span class="line">&lt;input type = <span class="string">"checkbox"</span> name = <span class="string">"interest"</span> value=<span class="string">"movie"</span>/&gt;看电影</span><br><span class="line">&lt;input type = <span class="string">"checkbox"</span> name = <span class="string">"interest"</span> value=<span class="string">"study"</span>/&gt;学习</span><br><span class="line">&lt;input type = <span class="string">"checkbox"</span> name = <span class="string">"interest"</span> value=<span class="string">"read"</span>/&gt;读书&lt;br/&gt;</span><br><span class="line">&lt;input type=<span class="string">"submit"</span> value = <span class="string">"提交"</span>/&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="error-html"><a href="#error-html" class="headerlink" title="error.html"></a>error.html</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>您的账号不匹配，请重新登陆<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p><strong>有两种跳转方式：重定向，请求跳转</strong></p>
-<ul>
-<li><p><strong>重定向</strong></p>
-<ul>
-<li><p><strong>String root = request.getContextPath();       //得到根路径</strong></p>
-<hr>
-</li>
-<li><p><strong>response.sendRedirect(root+”/error.html”); //告诉请求页面应该访问的地址</strong></p>
-</li>
-</ul>
-</li>
-<li><p><strong>请求跳转</strong></p>
-<ul>
-<li><p><strong>RequestDispatcher dis = request.getRequestDispatcher(“/Success”);</strong></p>
-<hr>
-</li>
-<li><p><strong>dis.forward(request, response);</strong></p>
-</li>
-</ul>
-<p><strong><font color="red">注意：getRequestDispatcher里面的/代表根路径</font></strong></p>
-</li>
-</ul>
-<h1 id="Session复习"><a href="#Session复习" class="headerlink" title="Session复习"></a>Session复习</h1><h2 id="Show-java"><a href="#Show-java" class="headerlink" title="Show.java"></a>Show.java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet implementation class Show</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/Show"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Show</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#HttpServlet()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		HttpSession ss = request.getSession();</span><br><span class="line">		String str = (String)ss.getAttribute(<span class="string">"user"</span>);</span><br><span class="line">		<span class="keyword">if</span>(str!=<span class="keyword">null</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(str);</span><br><span class="line">		&#125;<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"null"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(ss.getId());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="NewTest-java"><a href="#NewTest-java" class="headerlink" title="NewTest.java"></a>NewTest.java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet implementation class NewTest</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/NewTest"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewTest</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#HttpServlet()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NewTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		HttpSession hs = request.getSession();</span><br><span class="line">		hs.setAttribute(<span class="string">"user"</span>, <span class="string">"liuyanhao"</span>);</span><br><span class="line">		String id = hs.getId();</span><br><span class="line">		System.out.println(id);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><ul>
-<li><strong>HttpSession ss = request.getSession();</strong></li>
-<li><strong>ss.setAttribute(“user”,”val”);</strong></li>
-<li><strong>另一个页面使用时也需要首先通过第一步得到session对象</strong></li>
-<li><strong>承上：ss.getAttribute(“user”); <font color="red">返回值类型为Object类型，需要转型</font></strong></li>
-<li><strong>可以通过调用getId（）方法查两个页面的session是否相同</strong></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2523,7 +2509,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

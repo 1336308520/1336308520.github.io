@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://133608520.github.io/"/>
-  <updated>2019-11-04T12:17:29.284Z</updated>
+  <updated>2019-11-04T12:21:54.017Z</updated>
   <id>https://133608520.github.io/</id>
   
   <author>
@@ -17,28 +17,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>实验</title>
+    <title>计算机网络-第一章</title>
     <link href="https://133608520.github.io/2019/11/04/%E5%AE%9E%E9%AA%8C/"/>
     <id>https://133608520.github.io/2019/11/04/实验/</id>
     <published>2019-11-04T12:16:26.000Z</published>
-    <updated>2019-11-04T12:17:29.284Z</updated>
-    
-    <content type="html"><![CDATA[<p>用</p>]]></content>
+    <updated>2019-11-04T12:21:54.017Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;用&lt;/p&gt;
-
-      
-    
     </summary>
     
-      <category term="JAVA个人笔记" scheme="https://133608520.github.io/categories/JAVA%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
+      <category term="计算机网络课程笔记" scheme="https://133608520.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="JAVA个人笔记" scheme="https://133608520.github.io/tags/JAVA%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
+      <category term="计算机网络课程笔记" scheme="https://133608520.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

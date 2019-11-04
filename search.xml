@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[实验]]></title>
+    <url>%2F2019%2F11%2F04%2F%E5%AE%9E%E9%AA%8C%2F</url>
+    <content type="text"><![CDATA[用]]></content>
+      <categories>
+        <category>JAVA个人笔记</category>
+      </categories>
+      <tags>
+        <tag>JAVA个人笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[GitHub和Git学习]]></title>
     <url>%2F2019%2F09%2F20%2F33%2F</url>
     <content type="text"><![CDATA[GitHub基本概念 仓库（Repository）：即你的项目，每个项目对应一个仓库 收藏（Star):收藏仓库，下次方便查找 复制克隆项目(Fork):复制出来的项目是独立存在的 发起请求（Pull Request）：请求修改时候 关注（Watch）：关注项目，当项目更新可以接收到通知 事务卡片（Issue）：发现代码Bug，但是目前还没有成型的代码，需要讨论时候用 GitHub主页：左侧显示用户动态以及关注用户或关注仓库的动态，右侧显示所有的git库 仓库主页： 个人主页： Git目的 通过git来管理github托管项目代码 基本工作流程 Git Repository(Git仓库)：最终确定的文件保存到仓库，成为一个新的版本，并且对他人可见 暂存区：暂存已经修改的文件最后统一提交到git仓库中 工作区（Working Directory） 添加，编辑，修改文件等动作 假如提交两个文件，名字为hello.php,test.php 首先查看所处的状态 ——git status 将文件存入暂存区 ——git add hello.php git add test.php 将暂存区里的文件提交到git仓库 首先查看当前所处的状态 提交到git仓库 —— git commit -m “提交描述” 最后检验是否是git仓库 ——git status Git初始化及仓库创建和操作基本信息配置 设置用户名 git config –global user.name ‘username’ 设置用户名邮箱 git config –global user.email ‘1336308520@qq.com’ 初始化一个新的Git仓库 创建文件夹 右击新建文件夹或者在git命令里输入 mkdir 文件夹名称 在文件内初始git（创建git仓库) 在git命令行里 输入 ——git init 创建文件 右击新建文件，或者命令行 —— touch 文件名 修改仓库文件删除仓库文件 在本地删除 在git命令行里 —— rm 删除文件名 git命令行 ——git commit -m ‘描述文字’ Git远程仓库 Git克隆操作目的 将远程仓库（github上对应的项目）复制到本地 验证有没有初始化git git status 执行克隆操作 git clone http：…(这里放置github上面克隆显示的网址) 将本地仓库和远程仓库连接 首先配置远程仓库的目标 git remote add origin http:…(后面跟上github仓库的clone下出的网址) 将本地仓库发送到远程仓库 git push -u origin master 如果第2步出现了错误 试一下：git pull –rebase origin master]]></content>

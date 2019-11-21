@@ -1,36 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[计算机网络第三章（数据链路层）]]></title>
-    <url>%2F2019%2F11%2F10%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%88%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[这是嵌入 Microsoft Office 演示文稿，由 Office Online 支持。 这是嵌入 Microsoft Office 演示文稿，由 Office Online 支持。 这是嵌入 Microsoft Office 演示文稿，由 Office Online 支持。 这是嵌入 Microsoft Office 演示文稿，由 Office Online 支持。 这是嵌入 Microsoft Office 演示文稿，由 Office Online 支持。]]></content>
-      <categories>
-        <category>计算机网络学习笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机网络学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[计算机网络第二章（物理层）]]></title>
-    <url>%2F2019%2F11%2F08%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%8C%E7%AB%A0(%E7%89%A9%E7%90%86%E5%B1%82)%2F</url>
-    <content type="text"><![CDATA[这是嵌入 Microsoft Office 演示文稿，由 Office Online 支持。 物理层的基本概念物理层的 机械特性 电气特性 功能特性 过程特性 数据通信的基础知识数据通信系统的模型 码元：在使用时间域（或者简称时域）的波形代表信号时，代表不同离散数值的基本信息。 有关信道的几个基本概念 信道 单向通信（单工通信） 双向交替通信（半双工通信） 双向同时通信（全双工通信） 基带信号 基带调制 带通调制 带通信号 常用的编码方式 不归零制 归零制 曼彻斯特编码 为周期中心向上跳变代表0，为周期向下跳变代表1. 差分曼特斯特编码 位开始有跳变代表0，没有跳变代表1 信道的极限容量 信道能够通过的频率范围 信噪比 波特率 要理解波特率，就要知道编码（调制）。举个简单的例子：01001111这串信号有8位（比特），如果一位一位的来看，那就是有两种不同的离散值0和1。但是假设现在经过调制，我们现在认为每两个bit作为「一个符号」（「符号」划重点啊），也就是两位两位的来看，即把这串信号这样看：01 00 11 11。两位两位来看的话，就从之前只有「高」、「低」电平幅度（两种不同的离散值）变成了四种不同的幅度（四种不同的离散值）（因为2^2 = 4）：00（最低）、01（低）、10（高）、11（最高），这个的话，会二进制的人都明白，就不解释了。这串信号也就变成了「低」「最低」「最高」「最高」，虽然一般不会这样说，一般会说四种幅度为0、1、2、3，那么信号串就变成了1、0、3、3。波特率 那么波特率到底是什么东西呢？当然不是单位时间内传输了多少位（比特）——这是比特率，而是单位时间内传输了多少 「符号」 （还记得刚才划的重点吗）。假设比特率为8b/s，也就是一秒传输8位，那么在四种幅度也就是两位两位来看待的情况下，波特率是多少呢？也就是每秒能传多少个符号呢？答案：每秒传8位，每秒传4个「符号」，因为一个符号两位。 物理层下面的传输媒体这是嵌入 Microsoft Office 演示文稿，由 Office Online 支持。 重点 频分复用 时分复用 统计时分复用 数字传输系统宽带接入技术ADSL技术 你好]]></content>
+    <title><![CDATA[设计模模式_组合模式]]></title>
+    <url>%2F2019%2F11%2F19%2F%E8%AE%BE%E8%AE%A1%E6%A8%A1%E6%A8%A1%E5%BC%8F-%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[组合模式的概念和机制 概念 组合模式：组合模式是指将对象组合成树形结构，以表示“部分-整体”的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。 机制 Component：为组合模式中的对象声明接口。 Leaf ：在组合模式中表示叶节点对象，叶节点对象没有子节点，实现Component的所有方法。 Composite ：表示组合部件（可以带有子部件），实现所有在Component的操作。 Client : 通过Component接口操纵组合部件的对象。 组合模式结构图 组合模式代码示例Component.java12345678package zuhemoshi;public abstract class Component &#123;public abstract void add(Component c);public abstract void remove(Component c);public abstract Component getChild(int i);public abstract void print ();&#125; Leaf.java123456789101112131415161718192021222324252627package zuhemoshi;public class Leaf extends Component &#123; int num; public Leaf() &#123; &#125; public Leaf( int i) &#123; this.num = i; &#125; @Override public void add(Component c) &#123; &#125; @Override public Component getChild(int i) &#123; // TODO Auto-generated method stub return null; &#125; @Override public void remove(Component c) &#123; // TODO Auto-generated method stub &#125; public void print() &#123; System.out.println("这是叶子节点，所带的数据是: "+num); &#125;&#125; Composite.java1234567891011121314151617181920212223242526272829303132333435363738package zuhemoshi;import java.util.ArrayList;import java.util.List;public class Composite extends Component &#123; private ArrayList&lt;Component&gt; list = new ArrayList&lt;Component&gt;(); int num; public Composite() &#123; // TODO Auto-generated constructor stub &#125; public Composite(int num) &#123; this.num = num; // TODO Auto-generated constructor stub &#125; @Override public void add(Component c) &#123; list.add(c); &#125; @Override public Component getChild(int i) &#123; return (Component)list.get(i); &#125; @Override public void remove(Component c) &#123; list.remove(c); &#125; @Override public void print() &#123; System.out.println("这是一个树枝，其数值为："+num); for(Object test: list) &#123; ((Component)test).print(); &#125; &#125;&#125; Test.java123456789101112131415161718package zuhemoshi;public class Test &#123; public static void main(String[] args) &#123;Composite composite = new Composite(1);composite.add(new Leaf(2));composite.add(new Leaf(3));composite.add(new Leaf(4));Composite composite_1 = new Composite(5);composite_1.add(new Leaf(6));composite.add(composite_1);composite.print(); &#125;&#125;]]></content>
       <categories>
         <category>JAVA个人笔记</category>
       </categories>
       <tags>
         <tag>JAVA个人笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[计算机网络-第一章]]></title>
-    <url>%2F2019%2F11%2F04%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E7%AC%AC%E4%B8%80%E7%AB%A0%2F</url>
-    <content type="text"><![CDATA[这是嵌入 Microsoft Office 演示文稿，由 Office Online 支持。 [toc] 计算机网络的定义及其特点互联网的概述互联网的组成计算机网络在我国的发展计算机网络的类别计算机网络的性能计算机网络的体系结构]]></content>
-      <categories>
-        <category>计算机网络课程笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机网络课程笔记</tag>
       </tags>
   </entry>
   <entry>
